@@ -1,3 +1,3 @@
 # JavaFX-BMI-Calculator
-![Screenshot](appScreenShot.jpg)
+![Screenshot](RestaurantScreenshot.png)
 hey 
