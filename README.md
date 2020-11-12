@@ -1,3 +1,3 @@
-# JavaFX-BMI-Calculator
+# OnlineStoreee
 ![Screenshot](RestaurantScreenshot.PNG)
 hey 
