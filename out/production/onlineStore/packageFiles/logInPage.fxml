@@ -23,7 +23,7 @@
       <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #f5f5dc;" BorderPane.alignment="CENTER">
          <ImageView fitHeight="77.0" fitWidth="179.0" layoutX="78.0" layoutY="136.0" opacity="0.32">
             <image>
-               <Image url="@dragonPic.png" />
+               <Image url="@Media/dragonPic.png" />
             </image>
          </ImageView>
          <Label alignment="CENTER" layoutX="52.0" layoutY="140.0" prefHeight="66.0" prefWidth="241.0" text="Shenlong" textAlignment="CENTER" textFill="#6f4242">
@@ -55,7 +55,7 @@
          </Label>
          <ImageView fitHeight="119.0" fitWidth="335.0">
             <image>
-               <Image url="@bannerPic.jpg" />
+               <Image url="@Media/bannerPic.jpg" />
             </image>
          </ImageView>
          <Button fx:id="okButton1" layoutX="41.0" layoutY="346.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="253.0" style="-fx-background-color: #6F4242;" text="Not a member?" textFill="WHITE">

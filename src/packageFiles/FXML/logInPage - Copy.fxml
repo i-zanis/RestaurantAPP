@@ -28,7 +28,7 @@
          </Label>
          <ImageView fitHeight="115.0" fitWidth="335.0">
             <image>
-               <Image url="@foodpic.jpg" />
+               <Image url="@../Media/foodpic.jpg" />
             </image>
          </ImageView>
          <Button fx:id="okButton" layoutX="125.0" layoutY="280.0" mnemonicParsing="false" onAction="#setOkButton" prefHeight="42.0" prefWidth="84.0" style="-fx-background-color: #6F4242;" text="OK" textFill="WHITE">
