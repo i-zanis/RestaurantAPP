@@ -31,7 +31,7 @@
                <Font name="Constantia" size="45.0" />
             </font>
          </Label>
-         <Button fx:id="okButton" layoutX="41.0" layoutY="289.0" mnemonicParsing="false" onAction="#loadMain" prefHeight="32.0" prefWidth="253.0" style="-fx-background-color: #6F4242;" text="Sign in" textFill="WHITE">
+         <Button fx:id="okButton" layoutX="41.0" layoutY="289.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="253.0" style="-fx-background-color: #6F4242;" text="Sign in" textFill="WHITE">
             <font>
                <Font name="System Bold" size="12.0" />
             </font>

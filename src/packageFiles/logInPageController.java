@@ -31,7 +31,7 @@ public class logInPageController {
     private Button facebookButton;
 
 
-    public void loadMain(ActionEvent event) throws Exception {
+    public void loadMainMenu(ActionEvent event) throws Exception {
         try {
             Parent mainMenuView = FXMLLoader.load(getClass().getResource(mainMenuFXML));
             Scene mainMenuScene = new Scene(mainMenuView);
@@ -39,9 +39,9 @@ public class logInPageController {
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
             window.setScene(mainMenuScene);
             window.show();
-
-        } catch (Exception e) {
-            System.out.println("Error occured while opening registration page");
+        }
+        catch (Exception e) {
+            System.out.println("Error occurred while opening the mainMenu.");
             e.printStackTrace();
         }
 
