@@ -23,7 +23,11 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource(logInPageFXML));
         primaryStage.setTitle("Shenlong");
-        primaryStage.setScene(new Scene(root));
+        Scene scene = new Scene(root);
+        scene.getStylesheets().clear();
+        scene.getStylesheets().add("/packageFiles/CSS/style.css.");
+        primaryStage.setScene(scene);
+
         primaryStage.getIcons().add(new Image("packageFiles/Media/dragonPic.png"));
         primaryStage.show();
     }
