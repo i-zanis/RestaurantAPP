@@ -8,10 +8,14 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
+    // potentially here i will save the pages as a String
+    public static String logInPageFXML = "logInPage.fxml";
+    public static String mainMenuFXML = "mainMenu.fxml";
+
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("logInPage.fxml"));
-        primaryStage.setTitle("Tienlong");
+        Parent root = FXMLLoader.load(getClass().getResource(logInPageFXML));
+        primaryStage.setTitle("Shenlong");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }

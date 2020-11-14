@@ -26,29 +26,29 @@
                <Image url="@dragonPic.png" />
             </image>
          </ImageView>
-         <Label alignment="CENTER" layoutX="52.0" layoutY="140.0" prefHeight="66.0" prefWidth="241.0" text="Tienlong" textAlignment="CENTER" textFill="#6f4242">
+         <Label alignment="CENTER" layoutX="52.0" layoutY="140.0" prefHeight="66.0" prefWidth="241.0" text="Shenlong" textAlignment="CENTER" textFill="#6f4242">
             <font>
                <Font name="Constantia" size="45.0" />
             </font>
          </Label>
-         <Button fx:id="okButton" layoutX="133.0" layoutY="311.0" mnemonicParsing="false" onAction="#setOkButton" prefHeight="32.0" prefWidth="69.0" style="-fx-background-color: #6F4242;" text="OK" textFill="WHITE">
+         <Button fx:id="okButton" layoutX="41.0" layoutY="289.0" mnemonicParsing="false" onAction="#loadMain" prefHeight="32.0" prefWidth="253.0" style="-fx-background-color: #6F4242;" text="Sign in" textFill="WHITE">
             <font>
                <Font name="System Bold" size="12.0" />
             </font>
          </Button>
-         <TextField fx:id="usernameField" alignment="CENTER" layoutX="93.0" layoutY="233.0" promptText="Enter Username" />
-         <PasswordField fx:id="passwordField" alignment="CENTER" layoutX="93.0" layoutY="267.0" promptText="Enter Password" />
-         <Button fx:id="googleButton" layoutX="41.0" layoutY="368.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="253.0" text="Continue with Google">
+         <TextField fx:id="usernameField" layoutX="41.0" layoutY="221.0" prefHeight="25.0" prefWidth="253.0" promptText="Enter Username" />
+         <PasswordField fx:id="passwordField" layoutX="41.0" layoutY="255.0" prefHeight="25.0" prefWidth="253.0" promptText="Enter Password" />
+         <Button fx:id="googleButton" layoutX="41.0" layoutY="386.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="253.0" text="Continue with Google">
             <font>
                <Font name="System Bold" size="12.0" />
             </font>
          </Button>
-         <Button fx:id="facebookButton" layoutX="41.0" layoutY="409.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="253.0" style="-fx-background-color: #3b5998;" text="Continue with Facebook" textFill="WHITE">
+         <Button fx:id="facebookButton" layoutX="41.0" layoutY="426.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="253.0" style="-fx-background-color: #3b5998;" text="Continue with Facebook" textFill="WHITE">
             <font>
                <Font name="System Bold" size="12.0" />
             </font>
          </Button>
-         <Label layoutX="52.0" layoutY="459.0" prefHeight="78.0" prefWidth="231.0" text="By continuing you agree to our Terms of Service. Food Hound does not use your date to for marketing or experiencing enhancing purposes. For more info see our website." wrapText="true">
+         <Label layoutX="52.0" layoutY="459.0" prefHeight="78.0" prefWidth="231.0" text="By continuing you agree to our Terms of Service. Food Hound does not use your date to for marketing or experiencing enhancing purposes. For more info see our website." textAlignment="CENTER" wrapText="true">
             <font>
                <Font size="10.0" />
             </font>
@@ -58,6 +58,11 @@
                <Image url="@bannerPic.jpg" />
             </image>
          </ImageView>
+         <Button fx:id="okButton1" layoutX="41.0" layoutY="346.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="253.0" style="-fx-background-color: #6F4242;" text="Not a member?" textFill="WHITE">
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
+         </Button>
       </Pane>
    </center>
 </BorderPane>
