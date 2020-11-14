@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="logInPageController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <ToolBar accessibleRole="PARENT" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #6F4242;" BorderPane.alignment="CENTER">
          <items>
@@ -31,19 +31,19 @@
                <Image url="@foodpic.jpg" />
             </image>
          </ImageView>
-         <Button layoutX="125.0" layoutY="280.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="84.0" style="-fx-background-color: #6F4242;" text="OK" textFill="WHITE">
+         <Button fx:id="okButton" layoutX="125.0" layoutY="280.0" mnemonicParsing="false" onAction="#setOkButton" prefHeight="42.0" prefWidth="84.0" style="-fx-background-color: #6F4242;" text="OK" textFill="WHITE">
             <font>
                <Font name="System Bold" size="12.0" />
             </font>
          </Button>
-         <TextField alignment="CENTER" layoutX="93.0" layoutY="206.0" promptText="Enter Username" />
-         <PasswordField alignment="CENTER" layoutX="93.0" layoutY="241.0" promptText="Enter Password" />
-         <Button layoutX="41.0" layoutY="336.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="253.0" text="Continue with Google">
+         <TextField fx:id="usernameField" alignment="CENTER" layoutX="93.0" layoutY="206.0" promptText="Enter Username" />
+         <PasswordField fx:id="passwordField" alignment="CENTER" layoutX="93.0" layoutY="241.0" promptText="Enter Password" />
+         <Button fx:id="googleButton" layoutX="41.0" layoutY="336.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="253.0" text="Continue with Google">
             <font>
                <Font name="System Bold" size="12.0" />
             </font>
          </Button>
-         <Button layoutX="41.0" layoutY="387.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="253.0" style="-fx-background-color: #3b5998;" text="Continue with Facebook" textFill="WHITE">
+         <Button fx:id="facebookButton" layoutX="41.0" layoutY="387.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="253.0" style="-fx-background-color: #3b5998;" text="Continue with Facebook" textFill="WHITE">
             <font>
                <Font name="System Bold" size="12.0" />
             </font>

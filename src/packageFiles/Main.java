@@ -1,4 +1,4 @@
-package sample_needsNameChange;
+package packageFiles;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
