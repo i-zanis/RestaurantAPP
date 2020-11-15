@@ -21,11 +21,7 @@ import static packageFiles.Main.*;
 
 public class logInPageController {
 
-    public TextField mobileField;
-    public TextField creditcardField;
-    public TextField cvvField;
-    public Label errorLabelregistration;
-    public BorderPane logInPageController;
+
     @FXML
     private Button signInButton;
     @FXML
@@ -54,6 +50,22 @@ public class logInPageController {
         }
         catch (Exception e) {
             System.out.println("Error occurred while opening the mainMenuView.");
+            e.printStackTrace();
+        }
+    }
+
+    public void registrationSuccessful(ActionEvent event) throws Exception {
+        try {
+            Parent mainMenuView = FXMLLoader.load(getClass().getResource(logInPageFXML));
+            Scene logInPage = new Scene(mainMenuView);
+            //gets stage information
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            logInPage.getStylesheets().add(styleCSS);
+            window.setScene(logInPage);
+            window.show();
+        }
+        catch (Exception e) {
+            System.out.println("Error occurred while opening the registrationView.");
             e.printStackTrace();
         }
     }
