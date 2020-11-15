@@ -15,7 +15,7 @@
    <top>
       <ToolBar accessibleRole="PARENT" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #6F4242;" stylesheets="@../CSS/style.css" BorderPane.alignment="CENTER">
          <items>
-            <Label text="Log in Page" textFill="WHITE" />
+            <Label textFill="WHITE" />
          </items>
       </ToolBar>
    </top>
@@ -31,24 +31,24 @@
                <Font name="Constantia" size="45.0" />
             </font>
          </Label>
-         <Button fx:id="okButton" layoutX="41.0" layoutY="289.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="253.0" style="-fx-background-color: #6F4242;" text="Sign in" textFill="WHITE">
+         <Button fx:id="okButton" layoutX="41.0" layoutY="289.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="253.0" styleClass="brown-settings" text="Sign in" textFill="WHITE">
             <font>
                <Font name="System Bold" size="12.0" />
             </font>
          </Button>
-         <TextField id="transparentTextfield" fx:id="usernameField" layoutX="41.0" layoutY="221.0" prefHeight="25.0" prefWidth="253.0" promptText="Enter Username" />
-         <PasswordField id="transparentTextfield" fx:id="passwordField" layoutX="41.0" layoutY="255.0" prefHeight="25.0" prefWidth="253.0" promptText="Enter Password" />
-         <Button fx:id="googleButton" layoutX="41.0" layoutY="386.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="253.0" text="Continue with Google">
+         <TextField id="transparentTextfield" fx:id="usernameField" layoutX="41.0" layoutY="221.0" prefHeight="25.0" prefWidth="253.0" promptText="E-mail address" />
+         <PasswordField id="transparentTextfield" fx:id="passwordField" layoutX="41.0" layoutY="255.0" prefHeight="25.0" prefWidth="253.0" promptText="Password" />
+         <Button fx:id="googleButton" layoutX="41.0" layoutY="386.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="253.0" styleClass="google-settings" text="Continue with Google" textFill="WHITE">
             <font>
                <Font name="System Bold" size="12.0" />
             </font>
          </Button>
-         <Button fx:id="facebookButton" layoutX="41.0" layoutY="426.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="253.0" style="-fx-background-color: #3b5998;" text="Continue with Facebook" textFill="WHITE">
+         <Button fx:id="facebookButton" layoutX="41.0" layoutY="426.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="253.0" styleClass="facebook-settings" text="Continue with Facebook" textFill="WHITE">
             <font>
                <Font name="System Bold" size="12.0" />
             </font>
          </Button>
-         <Label layoutX="52.0" layoutY="459.0" prefHeight="78.0" prefWidth="231.0" text="By continuing you agree to our Terms of Service. Food Hound does not use your date to for marketing or experiencing enhancing purposes. For more info see our website." textAlignment="CENTER" wrapText="true">
+         <Label layoutX="52.0" layoutY="459.0" prefHeight="78.0" prefWidth="231.0" text="By continuing you agree to our Terms of Service. Food Hound does not use your data to for marketing or experiencing enhancing purposes. For more info see our website." textAlignment="CENTER" wrapText="true">
             <font>
                <Font size="10.0" />
             </font>
@@ -58,7 +58,7 @@
                <Image url="@../Media/bannerPic.jpg" />
             </image>
          </ImageView>
-         <Button fx:id="okButton1" layoutX="41.0" layoutY="346.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="253.0" style="-fx-background-color: #6F4242;" text="Not a member?" textFill="WHITE">
+         <Button fx:id="okButton1" layoutX="41.0" layoutY="346.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="253.0" styleClass="brown-settings" text="Not a member?" textFill="WHITE">
             <font>
                <Font name="System Bold" size="12.0" />
             </font>

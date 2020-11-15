@@ -1,7 +1,119 @@
+/*
+CSS document
+JavaFX CSS is a bit different than normal CCS. If a button is colored through the Scene Builder it loses
+hover and armed effects.
+*/
 
+// remove background from textfield
 .text-field {
   -fx-border-color:  #6F4242;
   -fx-border-width: 0 0 1 0;
   -fx-background-color: transparent;
 }
 
+// settings for brown
+.brown-settings {
+  -fx-color-one: #6F4242;
+  -fx-background-color:  -fx-color-one;
+  -fx-background-radius: 8, 7, 6;
+  -fx-background-insets: 0, 1, 2;
+  -fx-text-fill: white;
+  -fx-effect: dropshadow( three-pass-box, rgba(0, 0, 0, 0.6), 5, 0.0, 0, 1);
+}
+
+.brown-settings:hover {
+  -fx-color-one: #6f5542;
+  -fx-color-two: #981100;
+  -fx-color-three: #981100;
+}
+
+.brown-settings:armed {
+  -fx-color-one: #6f6242;
+  -fx-color-two: #235891;
+  -fx-color-three: #235891;
+}
+
+// settings for google button
+.google-settings {
+  -fx-color-one: white;
+  -fx-background-color:  -fx-color-one;
+  -fx-background-radius: 8, 7, 6;
+  -fx-background-insets: 0, 1, 2;
+  -fx-text-fill: black;
+  -fx-effect: dropshadow( three-pass-box, rgba(0, 0, 0, 0.6), 5, 0.0, 0, 1);
+}
+
+.google-settings:hover {
+  -fx-color-one: #e6e9fe;
+  -fx-color-two: #981100;
+  -fx-color-three: #981100;
+}
+
+.google-settings:armed {
+  -fx-color-one: #4285F4;
+  -fx-color-two: #235891;
+  -fx-color-three: #235891;
+}
+
+// settings for facebook button
+.facebook-settings {
+  -fx-color-one: #3b5998;
+  -fx-background-color:  -fx-color-one;
+  -fx-background-radius: 8, 7, 6;
+  -fx-background-insets: 0, 1, 2;
+  -fx-text-fill: white;
+  -fx-effect: dropshadow( three-pass-box, rgba(0, 0, 0, 0.6), 5, 0.0, 0, 1);
+}
+
+.facebook-settings:hover {
+  -fx-color-one: #5070b5;
+  -fx-color-two: #981100;
+  -fx-color-three: #981100;
+}
+
+.facebook-settings:armed {
+  -fx-color-one: #235891;
+  -fx-color-two: #235891;
+  -fx-color-three: #235891;
+}
+
+
+/*
+.titled-pane > .title {
+    -fx-body-color: #6F4242;
+    }
+.titled-pane > .title:armed:hover {
+    -fx-body-color: #CCCCCC;
+}
+
+.titled-pane > .title:hover {
+    -fx-body-color: #DDDDDD;
+}
+*/
+
+.titled-pane > .title {
+  -fx-color-one: #6F4242;
+  -fx-background-color:  -fx-color-one;
+  -fx-background-radius: 8, 7, 6;
+  -fx-background-insets: 0, 1, 2;
+  -fx-text-fill: white;
+  -fx-effect: dropshadow( three-pass-box, rgba(0, 0, 0, 0.6), 5, 0.0, 0, 1);
+}
+
+
+.titled-pane > .title:hover {
+  -fx-color-one: #6f5542;
+  -fx-color-two: #981100;
+  -fx-color-three: #981100;
+}
+
+.titled-pane > .title:armed {
+  -fx-color-one: #6f6242;
+  -fx-color-two: #235891;
+  -fx-color-three: #235891;
+}
+
+.titled-pane .title > .arrow-button
+{
+    visibility: hidden;
+}

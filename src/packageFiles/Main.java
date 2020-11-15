@@ -10,12 +10,12 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
     // potentially here i will save the pages as a String
-    public static String logInPageFXML = "FXML/logInPage.fxml";
-    public static String registrationFXML = "FXML/registrationPage";
-    public static String mainMenuFXML = "FXML/mainMenu.fxml";
+    public static String logInPageFXML     = "FXML/logInPage.fxml";
+    public static String registrationFXML  = "FXML/registrationPage";
+    public static String mainMenuFXML      = "FXML/mainMenu.fxml";
     public static String productDetailFXML = "FXML/productDetail.fxml";
-    public static String basketFXML = "FXML/basket.fxml";
-    public static String checkoutFXML = "FXML/checkout.fxml";
+    public static String basketFXML        = "FXML/basket.fxml";
+    public static String checkoutFXML      = "FXML/checkout.fxml";
 
 
 
