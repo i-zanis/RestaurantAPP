@@ -19,6 +19,7 @@
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: white;">
                <children>
+                  <Label layoutX="112.0" layoutY="111.0" text="amount placeholder" />
                   <Button layoutX="103.0" layoutY="140.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="126.0" styleClass="brown-settings" text="Checkout">
                      <font>
                         <Font name="System Bold" size="12.0" />

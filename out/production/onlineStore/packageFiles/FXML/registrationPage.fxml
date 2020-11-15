@@ -16,7 +16,7 @@
    <top>
       <ToolBar accessibleRole="PARENT" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #6F4242;" stylesheets="@../CSS/style.css" BorderPane.alignment="CENTER">
          <items>
-            <Button cancelButton="true" mnemonicParsing="false" styleClass="back-button">
+            <Button mnemonicParsing="false" styleClass="brown-settings">
                <graphic>
                   <SVGPath content="M 8.074219 10.003906 L 15.554688 2.523438 C 15.761719 2.316406 15.875 2.042969 15.875 1.75 C 15.875 1.457031 15.761719 1.179688 15.554688 0.976562 L 14.898438 0.320312 C 14.695312 0.113281 14.417969 0 14.125 0 C 13.832031 0 13.558594 0.113281 13.351562 0.320312 L 4.445312 9.226562 C 4.238281 9.433594 4.125 9.710938 4.125 10.003906 C 4.125 10.296875 4.238281 10.574219 4.445312 10.78125 L 13.34375 19.679688 C 13.550781 19.886719 13.824219 20 14.117188 20 C 14.410156 20 14.6875 19.886719 14.890625 19.679688 L 15.546875 19.023438 C 15.972656 18.597656 15.972656 17.902344 15.546875 17.476562 Z M 8.074219 10.003906 M 8.074219 10.003906 L 15.554688 2.523438 C 15.761719 2.316406 15.875 2.042969 15.875 1.75 C 15.875 1.457031 15.761719 1.179688 15.554688 0.976562 L 14.898438 0.320312 C 14.695312 0.113281 14.417969 0 14.125 0 C 13.832031 0 13.558594 0.113281 13.351562 0.320312 L 4.445312 9.226562 C 4.238281 9.433594 4.125 9.710938 4.125 10.003906 C 4.125 10.296875 4.238281 10.574219 4.445312 10.78125 L 13.34375 19.679688 C 13.550781 19.886719 13.824219 20 14.117188 20 C 14.410156 20 14.6875 19.886719 14.890625 19.679688 L 15.546875 19.023438 C 15.972656 18.597656 15.972656 17.902344 15.546875 17.476562 Z M 8.074219 10.003906 " fill="WHITE" />
                </graphic>
@@ -41,15 +41,16 @@
                <Font name="System Bold" size="12.0" />
             </font>
          </Button>
-         <TextField id="transparentTextfield" fx:id="usernameField" layoutX="44.0" layoutY="234.0" prefHeight="25.0" prefWidth="253.0" promptText="Full Name" />
-         <PasswordField id="transparentTextfield" fx:id="passwordField" layoutX="44.0" layoutY="360.0" prefHeight="25.0" prefWidth="253.0" promptText="Password" />
+         <TextField id="transparentTextfield" fx:id="usernameField" layoutX="44.0" layoutY="245.0" prefHeight="25.0" prefWidth="253.0" promptText="Full Name" />
+         <PasswordField id="transparentTextfield" fx:id="passwordField" layoutX="44.0" layoutY="371.0" prefHeight="25.0" prefWidth="253.0" promptText="Password" />
          <ImageView fitHeight="119.0" fitWidth="335.0">
             <image>
                <Image url="@../Media/bannerPic.jpg" />
             </image>
          </ImageView>
-         <TextField id="transparentTextfield" fx:id="usernameField1" layoutX="44.0" layoutY="280.0" prefHeight="25.0" prefWidth="253.0" promptText="E-mail address" />
-         <TextField id="transparentTextfield" fx:id="usernameField11" layoutX="44.0" layoutY="320.0" prefHeight="25.0" prefWidth="253.0" promptText="Mobile Number" />
+         <TextField id="transparentTextfield" fx:id="usernameField1" layoutX="44.0" layoutY="291.0" prefHeight="25.0" prefWidth="253.0" promptText="E-mail address" />
+         <TextField id="transparentTextfield" fx:id="usernameField11" layoutX="44.0" layoutY="331.0" prefHeight="25.0" prefWidth="253.0" promptText="Mobile Number" />
+         <Label layoutX="129.0" layoutY="222.0" text="Invalid Password" textFill="RED" visible="false" />
       </Pane>
    </center>
 </BorderPane>

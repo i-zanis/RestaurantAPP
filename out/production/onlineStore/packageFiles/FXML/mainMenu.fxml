@@ -10,14 +10,16 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.shape.SVGPath?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane fx:id="logInPageController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packageFiles.logInPageController">
    <top>
-      <TitledPane expanded="false" prefHeight="39.0" prefWidth="415.0" text="Shopping Cart" BorderPane.alignment="CENTER">
+      <TitledPane expanded="false" textFill="WHITE">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: white;">
                <children>
+                  <Label layoutX="112.0" layoutY="111.0" text="amount placeholder" />
                   <Button layoutX="103.0" layoutY="140.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="126.0" styleClass="brown-settings" text="Checkout">
                      <font>
                         <Font name="System Bold" size="12.0" />
@@ -29,6 +31,13 @@
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
+         <graphic>
+            <Label nodeOrientation="LEFT_TO_RIGHT" text="Shopping Cart" textFill="WHITE">
+               <graphic>
+                  <SVGPath content="M10 20.5c0 .829-.672 1.5-1.5 1.5s-1.5-.671-1.5-1.5c0-.828.672-1.5 1.5-1.5s1.5.672 1.5 1.5zm3.5-1.5c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm6.304-17l-3.431 14h-2.102l2.541-11h-16.812l4.615 13h13.239l3.474-14h2.178l.494-2h-4.196z" fill="WHITE" />
+               </graphic>
+            </Label>
+         </graphic>
       </TitledPane>
    </top>
    <center>
@@ -98,52 +107,67 @@
             <Label layoutX="179.0" layoutY="359.0" prefHeight="34.0" prefWidth="146.0" text="Duck meat and chived in crispy pastry." wrapText="true" />
             <Label layoutX="183.0" layoutY="249.0" prefHeight="35.0" prefWidth="123.0" text="Soup with dumplings in vegetable stock." wrapText="true" />
             <Label layoutX="179.0" layoutY="140.0" prefHeight="37.0" prefWidth="132.0" text="Mince prawn dumplings with vegetable." wrapText="true" />
-            <Button layoutX="255.0" layoutY="81.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" styleClass="brown-settings" text="+">
+            <Button fx:id="menu1add" layoutX="240.0" layoutY="81.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" styleClass="brown-settings">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <graphic>
+                  <SVGPath content="M10.975 8l.025-.5c0-.517-.067-1.018-.181-1.5h5.993l-.564 2h-5.273zm-2.475 10c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5s1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm11.305-15l-3.432 12h-10.428l-.455-1.083c-.323.049-.653.083-.99.083-.407 0-.805-.042-1.191-.114l1.306 3.114h13.239l3.474-12h1.929l.743-2h-4.195zm-6.305 15c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm-4.5-10.5c0 2.485-2.018 4.5-4.5 4.5-2.484 0-4.5-2.015-4.5-4.5s2.016-4.5 4.5-4.5c2.482 0 4.5 2.015 4.5 4.5zm-2-.5h-2v-2h-1v2h-2v1h2v2h1v-2h2v-1z" fill="WHITE" />
+               </graphic>
+            </Button>
+            <Button fx:id="menu1reduce" layoutX="291.0" layoutY="81.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" styleClass="brown-settings" text="-">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="291.0" layoutY="81.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" styleClass="brown-settings" text="-">
+            <Button fx:id="menu2add" layoutX="242.0" layoutY="191.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" styleClass="brown-settings">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <graphic>
+                  <SVGPath content="M10.975 8l.025-.5c0-.517-.067-1.018-.181-1.5h5.993l-.564 2h-5.273zm-2.475 10c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5s1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm11.305-15l-3.432 12h-10.428l-.455-1.083c-.323.049-.653.083-.99.083-.407 0-.805-.042-1.191-.114l1.306 3.114h13.239l3.474-12h1.929l.743-2h-4.195zm-6.305 15c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm-4.5-10.5c0 2.485-2.018 4.5-4.5 4.5-2.484 0-4.5-2.015-4.5-4.5s2.016-4.5 4.5-4.5c2.482 0 4.5 2.015 4.5 4.5zm-2-.5h-2v-2h-1v2h-2v1h2v2h1v-2h2v-1z" fill="WHITE" />
+               </graphic>
+            </Button>
+            <Button fx:id="menu2reduce" layoutX="291.0" layoutY="191.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" styleClass="brown-settings" text="-">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="255.0" layoutY="520.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" styleClass="brown-settings" text="+">
+            <Button fx:id="menu3add" layoutX="242.0" layoutY="301.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" styleClass="brown-settings">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <graphic>
+                  <SVGPath content="M10.975 8l.025-.5c0-.517-.067-1.018-.181-1.5h5.993l-.564 2h-5.273zm-2.475 10c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5s1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm11.305-15l-3.432 12h-10.428l-.455-1.083c-.323.049-.653.083-.99.083-.407 0-.805-.042-1.191-.114l1.306 3.114h13.239l3.474-12h1.929l.743-2h-4.195zm-6.305 15c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm-4.5-10.5c0 2.485-2.018 4.5-4.5 4.5-2.484 0-4.5-2.015-4.5-4.5s2.016-4.5 4.5-4.5c2.482 0 4.5 2.015 4.5 4.5zm-2-.5h-2v-2h-1v2h-2v1h2v2h1v-2h2v-1z" fill="WHITE" />
+               </graphic>
+            </Button>
+            <Button fx:id="menu3reduce" layoutX="291.0" layoutY="301.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" styleClass="brown-settings" text="-">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="291.0" layoutY="520.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" styleClass="brown-settings" text="-">
+            <Button fx:id="menu4add" layoutX="240.0" layoutY="410.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" styleClass="brown-settings">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <graphic>
+                  <SVGPath content="M10.975 8l.025-.5c0-.517-.067-1.018-.181-1.5h5.993l-.564 2h-5.273zm-2.475 10c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5s1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm11.305-15l-3.432 12h-10.428l-.455-1.083c-.323.049-.653.083-.99.083-.407 0-.805-.042-1.191-.114l1.306 3.114h13.239l3.474-12h1.929l.743-2h-4.195zm-6.305 15c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm-4.5-10.5c0 2.485-2.018 4.5-4.5 4.5-2.484 0-4.5-2.015-4.5-4.5s2.016-4.5 4.5-4.5c2.482 0 4.5 2.015 4.5 4.5zm-2-.5h-2v-2h-1v2h-2v1h2v2h1v-2h2v-1z" fill="WHITE" />
+               </graphic>
+            </Button>
+            <Button fx:id="menu4reduce" layoutX="291.0" layoutY="410.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" styleClass="brown-settings" text="-">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="255.0" layoutY="410.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" styleClass="brown-settings" text="+">
+            <Button fx:id="menu5add" layoutX="240.0" layoutY="520.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" styleClass="brown-settings">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
+               <graphic>
+                  <SVGPath content="M10.975 8l.025-.5c0-.517-.067-1.018-.181-1.5h5.993l-.564 2h-5.273zm-2.475 10c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5s1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm11.305-15l-3.432 12h-10.428l-.455-1.083c-.323.049-.653.083-.99.083-.407 0-.805-.042-1.191-.114l1.306 3.114h13.239l3.474-12h1.929l.743-2h-4.195zm-6.305 15c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm-4.5-10.5c0 2.485-2.018 4.5-4.5 4.5-2.484 0-4.5-2.015-4.5-4.5s2.016-4.5 4.5-4.5c2.482 0 4.5 2.015 4.5 4.5zm-2-.5h-2v-2h-1v2h-2v1h2v2h1v-2h2v-1z" fill="WHITE" />
+               </graphic>
             </Button>
-            <Button layoutX="291.0" layoutY="410.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" styleClass="brown-settings" text="-">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
-            <Button layoutX="255.0" layoutY="301.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" styleClass="brown-settings" text="+">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
-            <Button layoutX="291.0" layoutY="301.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" styleClass="brown-settings" text="-">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
-            <Button layoutX="255.0" layoutY="191.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" styleClass="brown-settings" text="+">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
-            <Button layoutX="291.0" layoutY="191.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" styleClass="brown-settings" text="-">
+            <Button fx:id="menu5reduce" layoutX="291.0" layoutY="520.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" styleClass="brown-settings" text="-">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
