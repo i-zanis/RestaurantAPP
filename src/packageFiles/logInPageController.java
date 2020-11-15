@@ -48,7 +48,7 @@ public class logInPageController {
             Scene mainMenuScene = new Scene(mainMenuView);
             //gets stage information
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            mainMenuScene.getStylesheets().add("/packageFiles/CSS/style.css.");
+            mainMenuScene.getStylesheets().add(styleCSS);
             window.setScene(mainMenuScene);
             window.show();
         }
@@ -63,7 +63,7 @@ public class logInPageController {
             Parent mainMenuView = FXMLLoader.load(getClass().getResource(mainMenuFXML));
             Scene mainMenuScene = new Scene(mainMenuView);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            mainMenuScene.getStylesheets().add("/packageFiles/CSS/style.css.");
+            mainMenuScene.getStylesheets().add(styleCSS);
             window.setScene(mainMenuScene);
             window.show();
         }
@@ -78,7 +78,7 @@ public class logInPageController {
             Parent registrationView = FXMLLoader.load(getClass().getResource(registrationFXML));
             Scene registrationScene = new Scene(registrationView);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            registrationScene.getStylesheets().add("/packageFiles/CSS/style.css.");
+            registrationScene.getStylesheets().add(styleCSS);
             window.setScene(registrationScene);
             window.show();
         }
@@ -93,7 +93,7 @@ public class logInPageController {
             Parent checkoutView = FXMLLoader.load(getClass().getResource(checkoutFXML));
             Scene checkoutScene = new Scene(checkoutView);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            checkoutScene.getStylesheets().add("/packageFiles/CSS/style.css.");
+            checkoutScene.getStylesheets().add(styleCSS);
             window.setScene(checkoutScene);
             window.show();
         }

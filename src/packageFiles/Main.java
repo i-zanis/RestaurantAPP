@@ -1,5 +1,6 @@
 package packageFiles;
 
+import com.sun.javafx.css.StyleManager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,8 +15,7 @@ public class Main extends Application {
     public static String registrationFXML  = "FXML/registrationPage";
     public static String mainMenuFXML      = "FXML/mainMenu.fxml";
     public static String checkoutFXML      = "FXML/checkout.fxml";
-
-
+    public static String styleCSS          = "/packageFiles/CSS/style.css.";
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -23,9 +23,8 @@ public class Main extends Application {
         primaryStage.setTitle("Shenlong");
         Scene scene = new Scene(root);
         scene.getStylesheets().clear();
-        scene.getStylesheets().add("/packageFiles/CSS/style.css.");
+        scene.getStylesheets().add(styleCSS);
         primaryStage.setScene(scene);
-        primaryStage.getIcons().add(new Image("packageFiles/Media/dragonPic.png"));
         primaryStage.show();
     }
 
