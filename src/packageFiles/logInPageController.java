@@ -20,7 +20,7 @@ import static packageFiles.Main.*;
 public class logInPageController {
 
     @FXML
-    private Button okButton;
+    private Button signInButton;
     @FXML
     private TextField usernameField;
     @FXML
@@ -37,6 +37,7 @@ public class logInPageController {
             Scene mainMenuScene = new Scene(mainMenuView);
             //gets stage information
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            mainMenuScene.getStylesheets().add("/packageFiles/CSS/style.css.");
             window.setScene(mainMenuScene);
             window.show();
         }

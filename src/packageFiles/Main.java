@@ -27,7 +27,6 @@ public class Main extends Application {
         scene.getStylesheets().clear();
         scene.getStylesheets().add("/packageFiles/CSS/style.css.");
         primaryStage.setScene(scene);
-
         primaryStage.getIcons().add(new Image("packageFiles/Media/dragonPic.png"));
         primaryStage.show();
     }

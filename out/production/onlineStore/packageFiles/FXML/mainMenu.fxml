@@ -46,36 +46,11 @@
             <Insets />
          </BorderPane.margin>
          <children>
-            <ImageView fitHeight="105.0" fitWidth="153.0" layoutX="14.0" layoutY="445.0">
-               <image>
-                  <Image url="@../Media/eggfriedrice.jpg" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="105.0" fitWidth="153.0" layoutX="14.0" layoutY="335.0">
-               <image>
-                  <Image url="@../Media/springrolls.jpg" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="105.0" fitWidth="153.0" layoutX="14.0" layoutY="225.0">
-               <image>
-                  <Image url="@../Media/wontonsoup.jpg" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="105.0" fitWidth="153.0" layoutX="14.0" layoutY="5.0">
-               <image>
-                  <Image url="@../Media/mapotofu.jpg" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="105.0" fitWidth="153.0" layoutX="14.0" layoutY="115.0">
-               <image>
-                  <Image url="@../Media/prawndumpling.jpg" />
-               </image>
-            </ImageView>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="105.0" layoutX="175.0" layoutY="5.0" stroke="WHITE" strokeType="INSIDE" width="153.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="105.0" layoutX="175.0" layoutY="445.0" stroke="WHITE" strokeType="INSIDE" width="153.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="105.0" layoutX="175.0" layoutY="115.0" stroke="WHITE" strokeType="INSIDE" width="153.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="105.0" layoutX="175.0" layoutY="225.0" stroke="WHITE" strokeType="INSIDE" width="153.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="105.0" layoutX="175.0" layoutY="335.0" stroke="WHITE" strokeType="INSIDE" width="153.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="105.0" layoutX="175.0" layoutY="5.0" strokeDashOffset="30.0" strokeMiterLimit="15.0" styleClass="menu-whitebackground" width="153.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="105.0" layoutX="175.0" layoutY="445.0" stroke="WHITE" strokeType="INSIDE" styleClass="menu-whitebackground" width="153.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="105.0" layoutX="175.0" layoutY="115.0" stroke="WHITE" strokeType="INSIDE" styleClass="menu-whitebackground" width="153.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="105.0" layoutX="175.0" layoutY="225.0" stroke="WHITE" strokeType="INSIDE" styleClass="menu-whitebackground" width="153.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="105.0" layoutX="175.0" layoutY="335.0" stroke="WHITE" strokeType="INSIDE" styleClass="menu-whitebackground" width="153.0" />
             <Label layoutX="182.0" layoutY="14.0" text="Mapo Tofu">
                <font>
                   <Font name="System Bold" size="12.0" />
@@ -103,11 +78,11 @@
             </Label>
             <Label layoutX="182.0" layoutY="31.0" text="  " />
             <Label layoutX="181.0" layoutY="31.0" prefHeight="37.0" prefWidth="142.0" text="Stir-fried tofu with onions and spicy sauce." wrapText="true" />
-            <Label layoutX="181.0" layoutY="469.0" prefHeight="51.0" prefWidth="117.0" text="Stir-fried rice with eggs, onions and seaweed." wrapText="true" />
+            <Label layoutX="182.0" layoutY="469.0" prefHeight="41.0" prefWidth="135.0" text="Stir-fried rice with eggs, onions and seaweed." wrapText="true" />
             <Label layoutX="179.0" layoutY="359.0" prefHeight="34.0" prefWidth="146.0" text="Duck meat and chived in crispy pastry." wrapText="true" />
             <Label layoutX="183.0" layoutY="249.0" prefHeight="35.0" prefWidth="123.0" text="Soup with dumplings in vegetable stock." wrapText="true" />
             <Label layoutX="179.0" layoutY="140.0" prefHeight="37.0" prefWidth="132.0" text="Mince prawn dumplings with vegetable." wrapText="true" />
-            <Button fx:id="menu1add" layoutX="240.0" layoutY="81.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" styleClass="brown-settings">
+            <Button fx:id="menu1add" layoutX="286.0" layoutY="81.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="35.0" styleClass="brown-settings">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -115,12 +90,7 @@
                   <SVGPath content="M10.975 8l.025-.5c0-.517-.067-1.018-.181-1.5h5.993l-.564 2h-5.273zm-2.475 10c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5s1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm11.305-15l-3.432 12h-10.428l-.455-1.083c-.323.049-.653.083-.99.083-.407 0-.805-.042-1.191-.114l1.306 3.114h13.239l3.474-12h1.929l.743-2h-4.195zm-6.305 15c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm-4.5-10.5c0 2.485-2.018 4.5-4.5 4.5-2.484 0-4.5-2.015-4.5-4.5s2.016-4.5 4.5-4.5c2.482 0 4.5 2.015 4.5 4.5zm-2-.5h-2v-2h-1v2h-2v1h2v2h1v-2h2v-1z" fill="WHITE" />
                </graphic>
             </Button>
-            <Button fx:id="menu1reduce" layoutX="291.0" layoutY="81.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" styleClass="brown-settings" text="-">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
-            <Button fx:id="menu2add" layoutX="242.0" layoutY="191.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" styleClass="brown-settings">
+            <Button fx:id="menu2add" layoutX="286.0" layoutY="191.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" styleClass="brown-settings">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -128,12 +98,7 @@
                   <SVGPath content="M10.975 8l.025-.5c0-.517-.067-1.018-.181-1.5h5.993l-.564 2h-5.273zm-2.475 10c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5s1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm11.305-15l-3.432 12h-10.428l-.455-1.083c-.323.049-.653.083-.99.083-.407 0-.805-.042-1.191-.114l1.306 3.114h13.239l3.474-12h1.929l.743-2h-4.195zm-6.305 15c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm-4.5-10.5c0 2.485-2.018 4.5-4.5 4.5-2.484 0-4.5-2.015-4.5-4.5s2.016-4.5 4.5-4.5c2.482 0 4.5 2.015 4.5 4.5zm-2-.5h-2v-2h-1v2h-2v1h2v2h1v-2h2v-1z" fill="WHITE" />
                </graphic>
             </Button>
-            <Button fx:id="menu2reduce" layoutX="291.0" layoutY="191.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" styleClass="brown-settings" text="-">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
-            <Button fx:id="menu3add" layoutX="242.0" layoutY="301.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" styleClass="brown-settings">
+            <Button fx:id="menu3add" layoutX="286.0" layoutY="298.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" styleClass="brown-settings">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -141,12 +106,7 @@
                   <SVGPath content="M10.975 8l.025-.5c0-.517-.067-1.018-.181-1.5h5.993l-.564 2h-5.273zm-2.475 10c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5s1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm11.305-15l-3.432 12h-10.428l-.455-1.083c-.323.049-.653.083-.99.083-.407 0-.805-.042-1.191-.114l1.306 3.114h13.239l3.474-12h1.929l.743-2h-4.195zm-6.305 15c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm-4.5-10.5c0 2.485-2.018 4.5-4.5 4.5-2.484 0-4.5-2.015-4.5-4.5s2.016-4.5 4.5-4.5c2.482 0 4.5 2.015 4.5 4.5zm-2-.5h-2v-2h-1v2h-2v1h2v2h1v-2h2v-1z" fill="WHITE" />
                </graphic>
             </Button>
-            <Button fx:id="menu3reduce" layoutX="291.0" layoutY="301.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" styleClass="brown-settings" text="-">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
-            <Button fx:id="menu4add" layoutX="240.0" layoutY="410.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" styleClass="brown-settings">
+            <Button fx:id="menu4add" layoutX="286.0" layoutY="410.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" styleClass="brown-settings">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -154,12 +114,7 @@
                   <SVGPath content="M10.975 8l.025-.5c0-.517-.067-1.018-.181-1.5h5.993l-.564 2h-5.273zm-2.475 10c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5s1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm11.305-15l-3.432 12h-10.428l-.455-1.083c-.323.049-.653.083-.99.083-.407 0-.805-.042-1.191-.114l1.306 3.114h13.239l3.474-12h1.929l.743-2h-4.195zm-6.305 15c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm-4.5-10.5c0 2.485-2.018 4.5-4.5 4.5-2.484 0-4.5-2.015-4.5-4.5s2.016-4.5 4.5-4.5c2.482 0 4.5 2.015 4.5 4.5zm-2-.5h-2v-2h-1v2h-2v1h2v2h1v-2h2v-1z" fill="WHITE" />
                </graphic>
             </Button>
-            <Button fx:id="menu4reduce" layoutX="291.0" layoutY="410.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" styleClass="brown-settings" text="-">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
-            <Button fx:id="menu5add" layoutX="240.0" layoutY="520.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" styleClass="brown-settings">
+            <Button fx:id="menu5add" layoutX="286.0" layoutY="520.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" styleClass="brown-settings">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -167,11 +122,106 @@
                   <SVGPath content="M10.975 8l.025-.5c0-.517-.067-1.018-.181-1.5h5.993l-.564 2h-5.273zm-2.475 10c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5s1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm11.305-15l-3.432 12h-10.428l-.455-1.083c-.323.049-.653.083-.99.083-.407 0-.805-.042-1.191-.114l1.306 3.114h13.239l3.474-12h1.929l.743-2h-4.195zm-6.305 15c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm-4.5-10.5c0 2.485-2.018 4.5-4.5 4.5-2.484 0-4.5-2.015-4.5-4.5s2.016-4.5 4.5-4.5c2.482 0 4.5 2.015 4.5 4.5zm-2-.5h-2v-2h-1v2h-2v1h2v2h1v-2h2v-1z" fill="WHITE" />
                </graphic>
             </Button>
-            <Button fx:id="menu5reduce" layoutX="291.0" layoutY="520.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" styleClass="brown-settings" text="-">
+            <Label layoutX="299.0" layoutY="13.0" text="£13">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="299.0" layoutY="451.0" text="£14">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="299.0" layoutY="341.0" text="£11">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="299.0" layoutY="233.0" text="£18">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="299.0" layoutY="122.0" text="£15">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Button fx:id="menu1reduce" layoutX="219.0" layoutY="82.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="16.0" styleClass="brown-settings" text="-">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
+            <Button fx:id="menu2reduce" layoutX="219.0" layoutY="192.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="16.0" styleClass="brown-settings" text="-">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="menu3reduce" layoutX="219.0" layoutY="299.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="16.0" styleClass="brown-settings" text="-">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="menu4reduce" layoutX="219.0" layoutY="410.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="16.0" styleClass="brown-settings" text="-">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="menu5reduce" layoutX="219.0" layoutY="521.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="16.0" styleClass="brown-settings" text="-">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="105.0" fitWidth="153.0" layoutX="14.0" layoutY="5.0" styleClass="hoverimage">
+               <image>
+                  <Image url="@../Media/mapotofu.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="105.0" fitWidth="153.0" layoutX="14.0" layoutY="115.0" styleClass="hoverimage">
+               <image>
+                  <Image url="@../Media/prawndumpling.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="105.0" fitWidth="153.0" layoutX="14.0" layoutY="225.0" styleClass="hoverimage">
+               <image>
+                  <Image url="@../Media/wontonsoup.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="105.0" fitWidth="153.0" layoutX="14.0" layoutY="335.0" styleClass="hoverimage">
+               <image>
+                  <Image url="@../Media/springrolls.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="105.0" fitWidth="153.0" layoutX="14.0" layoutY="445.0" styleClass="hoverimage">
+               <image>
+                  <Image url="@../Media/eggfriedrice.jpg" />
+               </image>
+            </ImageView>
+            <Label fx:id="menuItem1amount" layoutX="259.0" layoutY="86.0" text="1">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="menuItem2amount" layoutX="259.0" layoutY="196.0" text="1">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="menuItem3amount" layoutX="259.0" layoutY="303.0" text="1">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="menuItem4amount" layoutX="259.0" layoutY="414.0" text="1">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="menuItem5amount" layoutX="259.0" layoutY="525.0" text="1">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </center>
