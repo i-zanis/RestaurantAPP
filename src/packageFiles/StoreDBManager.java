@@ -2,6 +2,7 @@ import java.math.BigInteger;
 import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 import java.security.MessageDigest;
+import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -140,7 +141,7 @@ public class StoreDBManager {
         String pwd = encryptPassword(password);
         ResultSet result = createCustomQuery(
                 "SELECT password FROM customer WHERE email=" + email.strip() + ";");
-        
+
         return result.first();
     }
 
@@ -179,19 +180,31 @@ public class StoreDBManager {
 
     }
 
-    public static void login(String email, String password) {
+    public static String login(String email, String password) {
         try {
             if (checkPassword(email, password)) {
                 // session here
                 // return type must be UUID.
-                
-                
+                return Session.getUUID();
             }
+            /*
+             *  Implement this else statement in the gui.
+             *      else {
+             *          return "Invalid email and password combination.";
+             *      }
+             */
+          
 
         } catch (SQLException e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
             System.exit(0);
         }
 
+    }
+
+    private static class Session {
+        private static String getUUID() {
+            return UUID.randomUUID().toString().replace("-", "");
+        }
     }
 }
