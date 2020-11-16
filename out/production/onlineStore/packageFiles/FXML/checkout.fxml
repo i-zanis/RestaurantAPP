@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="logInPageController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packageFiles.logInPageController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packageFiles.checkoutController">
    <top>
       <ToolBar accessibleRole="PARENT" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #6F4242;" stylesheets="@../CSS/style.css" BorderPane.alignment="CENTER" />
    </top>
@@ -29,7 +29,7 @@
                <Image url="@../Media/farewellpic.jpg" />
             </image>
          </ImageView>
-         <Label fx:id="thankingMessage" layoutX="25.0" layoutY="223.0" prefHeight="148.0" prefWidth="296.0" />
+         <Label fx:id="checkoutControllerMessage" layoutX="25.0" layoutY="223.0" prefHeight="148.0" prefWidth="296.0" />
          <ImageView fitHeight="130.0" fitWidth="139.0" layoutX="104.0" layoutY="381.0">
             <image>
                <Image url="@../Media/farewelldragon.png" />

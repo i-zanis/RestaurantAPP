@@ -20,19 +20,12 @@ public class Main extends Application {
     public static Stage primaryStage;
     public static Scene mainMenuScene;
 
-
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource(logInPageFXML));
         Scene logInScene = new Scene(root);
         logInScene.getStylesheets().clear();
         logInScene.getStylesheets().add(styleCSS);
-
-
-        Parent root2 = FXMLLoader.load(getClass().getResource(mainMenuFXML));
-        Scene mainMenuScene = new Scene(root2);
-
-
 
         primaryStage.setTitle("Shenlong");
         primaryStage.getIcons().add(new Image(dragonPic));

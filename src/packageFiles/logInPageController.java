@@ -19,35 +19,30 @@ import java.util.ResourceBundle;
 
 import static packageFiles.Main.*;
 
-public class logInPageController {
+public class logInPageController implements Initializable {
+ public BorderPane logInPageController;
+ @FXML
+ public Label errorLabelLogIn;
 
-
-    public BorderPane logInPageController;
-    public Label errorLabelLogIn;
-    public Label errorLabelRegistration;
-    public TextField fullnameFieldRegistration;
-    public TextField emailFieldRegistration;
-    public TextField mobileFieldRegistration;
-    public PasswordField passwordFieldRegistration;
-    public TextField cardFieldRegistration;
-    public TextField cvvFieldRegistration;
-    public CheckBox checkBoxRegistration;
-    public ChoiceBox monthChoiceBox;
-    public ChoiceBox yearChoiceBox;
-    public Button registrationButton;
-    public Label thankingMessage;
     public Button signInButton;
-    public Button googleButton;
-    public PasswordField passwordField;
     public TextField emailField;
+    public PasswordField passwordField;
+    public Button googleButton;
     public Button facebookButton;
-    public Button checkoutButton;
+    public Button registrationButton;
+    public TextField fullnameFieldRegistration;
+    public Label checkoutControllerMessage;
+
+    public static String message = "";
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+    }
 
 
     // placeholder for now
     public void signSuccessful(ActionEvent event) throws Exception {
         try {
-            
+            message = emailField.getText();
             Parent mainMenuView = FXMLLoader.load(getClass().getResource(mainMenuFXML));
             Scene mainMenuScene = new Scene(mainMenuView);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -148,5 +143,6 @@ public class logInPageController {
             e.printStackTrace();
         }
     }
+
 
 }
