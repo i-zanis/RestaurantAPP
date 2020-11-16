@@ -3,46 +3,53 @@ package packageFiles;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import javax.swing.*;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import static packageFiles.Main.*;
 
 public class logInPageController {
 
 
-    @FXML
-    private Button signInButton;
-    @FXML
-    private Button registrationButton;
-    @FXML
-    private Button backButton;
-    @FXML
-    private TextField usernameField;
-    @FXML
-    private TextField passwordField;
-    @FXML
-    private Button googleButton;
-    @FXML
-    private Button facebookButton;
+    public BorderPane logInPageController;
+    public Label errorLabelLogIn;
+    public Label errorLabelRegistration;
+    public TextField fullnameFieldRegistration;
+    public TextField emailFieldRegistration;
+    public TextField mobileFieldRegistration;
+    public PasswordField passwordFieldRegistration;
+    public TextField cardFieldRegistration;
+    public TextField cvvFieldRegistration;
+    public CheckBox checkBoxRegistration;
+    public ChoiceBox monthChoiceBox;
+    public ChoiceBox yearChoiceBox;
+    public Button registrationButton;
+    public Label thankingMessage;
+    public Button signInButton;
+    public Button googleButton;
+    public PasswordField passwordField;
+    public TextField emailField;
+    public Button facebookButton;
+    public Button checkoutButton;
 
-// placeholder for now
+
+    // placeholder for now
     public void signSuccessful(ActionEvent event) throws Exception {
         try {
+            
             Parent mainMenuView = FXMLLoader.load(getClass().getResource(mainMenuFXML));
             Scene mainMenuScene = new Scene(mainMenuView);
-            //gets stage information
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
             mainMenuScene.getStylesheets().add(styleCSS);
             window.setScene(mainMenuScene);
@@ -58,7 +65,6 @@ public class logInPageController {
         try {
             Parent mainMenuView = FXMLLoader.load(getClass().getResource(logInPageFXML));
             Scene logInPage = new Scene(mainMenuView);
-            //gets stage information
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
             logInPage.getStylesheets().add(styleCSS);
             window.setScene(logInPage);
@@ -142,4 +148,5 @@ public class logInPageController {
             e.printStackTrace();
         }
     }
+
 }

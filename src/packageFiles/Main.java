@@ -18,6 +18,8 @@ public class Main extends Application {
     public static String styleCSS          = "/packageFiles/CSS/style.css";
     public static String dragonPic         = "/packageFiles/Media/dragonPic.png";
     public static Stage primaryStage;
+    public static Scene mainMenuScene;
+
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -25,6 +27,13 @@ public class Main extends Application {
         Scene logInScene = new Scene(root);
         logInScene.getStylesheets().clear();
         logInScene.getStylesheets().add(styleCSS);
+
+
+        Parent root2 = FXMLLoader.load(getClass().getResource(mainMenuFXML));
+        Scene mainMenuScene = new Scene(root2);
+
+
+
         primaryStage.setTitle("Shenlong");
         primaryStage.getIcons().add(new Image(dragonPic));
         primaryStage.setScene(logInScene);
