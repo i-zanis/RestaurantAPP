@@ -13,14 +13,14 @@
 <?import javafx.scene.shape.SVGPath?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="logInPageController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packageFiles.logInPageController">
+<BorderPane fx:id="mainMenuController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packageFiles.logInPageController">
    <top>
       <TitledPane expanded="false" textFill="WHITE">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: white;">
                <children>
                   <Label layoutX="112.0" layoutY="111.0" text="amount placeholder" />
-                  <Button layoutX="103.0" layoutY="140.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="126.0" styleClass="brown-settings" text="Checkout">
+                  <Button fx:id="checkoutButton" layoutX="103.0" layoutY="140.0" mnemonicParsing="false" onAction="#loadCheckout" prefHeight="26.0" prefWidth="126.0" styleClass="brown-settings" text="Checkout">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>

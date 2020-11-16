@@ -136,6 +136,78 @@ hover and armed effects.
     -fx-stroke-width: 0.3;
     -fx-stroke-dash-array: 1 2 4 2;
     -fx-stroke-dash-offset: 6;
+}
 
+.choice-box-base {
+    -fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-background-radius: 3px, 3px, 2px, 1px;
+    -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
+    -fx-text-fill: -fx-text-base-color;
+    -fx-alignment: CENTER;
+    -fx-content-display: LEFT;
+}
+// Background color of the whole context menu
+.choice-box .context-menu { -fx-background-color: #6F4242; }
+// Focused item background color in the list
+.choice-box .menu-item:focused { -fx-background-color: #6f5542; }
+// Text color of non-focused items in the list
+.choice-box .menu-item > .label { -fx-text-fill: white; }
+// Text color of focused item in the list
+.choice-box .menu-item:focused > .label { -fx-text-fill: #6F4242; }
 
+.choice-box {
+  -fx-background-color: #6F4242;
+  -fx-mark-color: white; // arrow color
+}
+
+// Selected item text color on the control itself
+.choice-box > .label { -fx-text-fill: white; }
+
+.choice-box :hover {
+    -fx-scale-x: 1.2;
+    -fx-scale-y: 1.5;
+    -fx-scale-z: 1.1;
+}
+
+// this to be removed in the future
+// settings for brown
+.brown-settings {
+  -fx-color-one: #6F4242;
+  -fx-background-color:  -fx-color-one;
+  -fx-background-radius: 8, 7, 6;
+  -fx-background-insets: 0, 1, 2;
+  -fx-text-fill: white;
+  -fx-effect: dropshadow( three-pass-box, rgba(0, 0, 0, 0.6), 5, 0.0, 0, 1);
+}
+
+.brown-settings:hover {
+  -fx-color-one: #6f5542;
+  -fx-color-two: #981100;
+  -fx-color-three: #981100;
+}
+
+.brown-settings:armed {
+  -fx-color-one: #6f6242;
+  -fx-color-two: #235891;
+  -fx-color-three: #235891;
+}
+
+.check-box .box {
+
+-fx-background-color: white;
+-fx-border-color:#6F4242;;
+-fx-border-radius:3px;
+
+}
+
+.check-box:selected .mark {
+
+-fx-background-color: white;
+
+}
+
+.check-box:selected .box {
+
+-fx-background-color: #6F4242;
 }
