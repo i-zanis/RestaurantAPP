@@ -33,8 +33,10 @@ public class StoreDBManager {
                     "   first_name     VARCHAR(30)     NOT NULL, " +
                     "   last_name      VARCHAR(30)     NOT NULL, " +
                     "   email          VARCHAR(200)    NOT NULL UNIQUE, " +
-                    "   phone_number   VARCHAR(11)     NOT NULL" +
-                    "   password       TEXT            NOT NULL);" +
+                    "   phone_number   VARCHAR(11)     NOT NULL, " +
+                    "   password       TEXT            NOT NULL, " +
+                    "   session_uuid   TEXT" +
+                    ");" +
                     "CREATE TABLE basket (" +
                     "   id BIGSERIAL PRIMARY KEY NOT NULL, " +
                     "   customer_id BIGINT REFERENCES store_customers (id) ON DELETE CASCADE  NOT NULL, " +
@@ -138,8 +140,8 @@ public class StoreDBManager {
         String pwd = encryptPassword(password);
         ResultSet result = createCustomQuery(
                 "SELECT password FROM customer WHERE email=" + email.strip() + ";");
+        
         return result.first();
-
     }
 
     public static ResultSet all(String tableName) {
@@ -181,6 +183,9 @@ public class StoreDBManager {
         try {
             if (checkPassword(email, password)) {
                 // session here
+                // return type must be UUID.
+                
+                
             }
 
         } catch (SQLException e) {
