@@ -1,44 +1,26 @@
-import java.sql.ResultSet;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
+import java.math.BigInteger;
+import java.security.NoSuchAlgorithmException;
+import java.sql.*;
+import java.security.MessageDigest;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class StoreDBManager {
     private static Connection connect() throws Exception {
+
         String url = "jdbc:postgresql://kandula.db.elephantsql.com:5432/ikzmpslm";
         String user = "ikzmpslm";
         String pwd = "73LI1sNi24J6WulfwD8LtACSgmyHTHOp";
-        Connection con = null;
         Class.forName("org.postgresql.Driver");
+        Connection con = null;
         con = DriverManager.getConnection(url, user, pwd);
         con.setAutoCommit(false);
-        System.out.println("Opened database successfully");
+        System.out.println("Connected to database successfully");
+
         return con;
     }
 
-    public static ResultSet getAllObjects(String tableName) throws Exception {
-        Connection con = connect();
-        ResultSet resultSet = null;
-        Statement statement = con.createStatement();
-        resultSet = statement.executeQuery("SELECT * FROM " + tableName + ";");
-        resultSet.close();
-
-        return resultSet;
-    }
-
-
-    public static ResultSet createCustomQuery(String query) throws Exception {
-
-        Connection con = connect();
-        Statement statement = con.createStatement();
-        ResultSet resultSet = statement.executeQuery(query);
-        statement.close();
-        con.commit();
-        con.close();
-        return resultSet;
-    }
-
-    public void createDatabase() {
+    public static void createDatabase() {
         Statement statement = null;
         String sqlQuery;
 
@@ -51,6 +33,7 @@ public class StoreDBManager {
                     "   first_name     VARCHAR(30)     NOT NULL, " +
                     "   last_name      VARCHAR(30)     NOT NULL, " +
                     "   email          VARCHAR(200)    NOT NULL UNIQUE, " +
+                    "   phone_number   VARCHAR(11)     NOT NULL" +
                     "   password       TEXT            NOT NULL);" +
                     "CREATE TABLE basket (" +
                     "   id BIGSERIAL PRIMARY KEY NOT NULL, " +
@@ -80,5 +63,130 @@ public class StoreDBManager {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
             System.exit(0);
         }
+    }
+
+    public static String createUser(String firstName, String lastName, String email, String phoneNumber, String password) {
+        if (firstName.isEmpty())
+            return "First name is required.";
+        if (lastName.isEmpty())
+            return "Last name is required.";
+        if (email.isEmpty())
+            return "Email is required.";
+        if (phoneNumber.isEmpty())
+            return "Phone number is required.";
+        // double check email and password in the frontend
+        if (password.isEmpty())
+            return "Password is required.";
+        if (password.length() < 8)
+            return "Weak password less than 8 characters.";
+
+        if (!normaliseEmail(email))
+            return "Invalid email address.";
+
+        String rePhonePattern = "^\\d{10,11}$";
+        Pattern pattern = Pattern.compile(rePhonePattern, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(phoneNumber.strip());
+        if (matcher.find())
+            return "Invalid UK phone number, must be 10 or digits.";
+
+        password = encryptPassword(password);
+
+        String sqlQuery;
+        sqlQuery = String.format("INSERT INTO customer " +
+                "(first_name, last_name, email, phone_number, password)" +
+                "VALUES (%s, %s, %s, %s, %s);", firstName, lastName, email, phoneNumber, password);
+
+        try {
+            Connection con = connect();
+            Statement statement = con.createStatement();
+            statement.executeUpdate(sqlQuery);
+            statement.close();
+            con.commit();
+            con.close();
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            System.exit(0);
+        }
+
+        return "User has been successfully created.";
+    }
+
+    public static boolean normaliseEmail(String email) {
+        String rePattern = "^\\w+@(\\w+.[a-zA-Z]+|\\w+.[a-zA-Z]+.[a-zA-Z]+)$";
+        Pattern pattern = Pattern.compile(rePattern, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(email.strip());
+        return matcher.find();
+    }
+
+    public static String encryptPassword(String password) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] messageDigest = md.digest(password.getBytes());
+            BigInteger no = new BigInteger(1, messageDigest);
+            String pwd = no.toString(16);
+            while (pwd.length() < 32) {
+                pwd = "0" + pwd;
+            }
+            return pwd;
+
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static Boolean checkPassword(String email, String password) throws SQLException {
+        String pwd = encryptPassword(password);
+        ResultSet result = createCustomQuery(
+                "SELECT password FROM customer WHERE email=" + email.strip() + ";");
+        return result.first();
+
+    }
+
+    public static ResultSet all(String tableName) {
+        ResultSet resultSet = null;
+
+        try {
+            Connection con = connect();
+            Statement statement = con.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM " + tableName + ";");
+            resultSet.close();
+
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            System.exit(0);
+        }
+        return resultSet;
+    }
+
+
+    public static ResultSet createCustomQuery(String query) {
+        ResultSet resultSet = null;
+
+        try {
+            Connection con = connect();
+            Statement statement = con.createStatement();
+            resultSet = statement.executeQuery(query);
+            statement.close();
+            con.commit();
+            con.close();
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            System.exit(0);
+        }
+        return resultSet;
+
+    }
+
+    public static void login(String email, String password) {
+        try {
+            if (checkPassword(email, password)) {
+                // session here
+            }
+
+        } catch (SQLException e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            System.exit(0);
+        }
+
     }
 }
