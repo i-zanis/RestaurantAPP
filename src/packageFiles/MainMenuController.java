@@ -39,6 +39,9 @@ public class MainMenuController implements Initializable {
     public Label basketItemName1;
     public Label basketItemPrice1;
     public Label totalAmount;
+    public Label basketItemAmount2;
+    public Label basketItemName2;
+    public Label basketItemPrice2;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -67,15 +70,20 @@ public class MainMenuController implements Initializable {
         return (item1Units * price1) + (item2Units * price2) + (item3Units * price3) + (item4Units * price4)
                 + (item5Units * price5);
     }
+
     public void updateBasket() {
             itemList.trimToSize();
-        for (int i = 0; i < itemList.size(); i++) {
-            basketItemName1.setText(itemList.get(i));
-            basketItemAmount1.setText(getAmount(itemList.get(i)) + "");
-            basketItemPrice1.setText(getPrice(itemList.get(i)) + "");
+            basketItemName1.setText(itemList.get(0));
+            basketItemAmount1.setText(getAmount(itemList.get(0)) + "");
+            basketItemPrice1.setText(getPrice(itemList.get(0)) + "");
+            if (itemList.size() > 1) {
+                basketItemName2.setText(itemList.get(1));
+                basketItemAmount2.setText(getAmount(itemList.get(1)) + "");
+                basketItemPrice2.setText(getPrice(itemList.get(1)) + "");
+            }
             totalAmount.setText(pound + calculatePrice() + "");
         }
-    }
+
 
     public void loadCheckout(ActionEvent event) throws Exception {
         try {
@@ -106,7 +114,7 @@ public class MainMenuController implements Initializable {
                 menuItem1amount.setText(item1Units + "");
                 menuItem1amount.setVisible(true);
                 basketNumber.setText(basketTotal + "");
-                itemList.add("Mapo Tofu");
+                if(!itemList.contains(itemName1)) itemList.add(itemName1);
                 updateBasket();
                 break;
             case "menu1reduce" :
@@ -117,7 +125,6 @@ public class MainMenuController implements Initializable {
                 if (item1Units == 0) {
                     menu1reduce.setVisible(false);
                     menuItem1amount.setVisible(false);
-                    itemList.remove("Mapo Tofu");
                 }
                 updateBasket();
                 break;
@@ -126,11 +133,23 @@ public class MainMenuController implements Initializable {
                 item2Units++;
                 basketTotal++;
                 menu2reduce.setVisible(true);
+                menuItem2amount.setText(item2Units + "");
+                menuItem2amount.setVisible(true);
+                basketNumber.setText(basketTotal + "");
+                if(!itemList.contains(itemName2)) itemList.add(itemName2);
+                itemList.add(itemName2);
+                updateBasket();
                 break;
             case "menu2reduce" :
                 item2Units--;
                 basketTotal--;
-                if (item2Units == 0) menu2reduce.setVisible(false);
+                menuItem2amount.setText(item2Units + "");
+                basketNumber.setText(basketTotal + "");
+                if (item2Units == 0) {
+                    menu2reduce.setVisible(false);
+                    menuItem2amount.setVisible(false);
+                }
+                updateBasket();
                 break;
             case "menu3add" :
                 item3Units++;
