@@ -82,7 +82,6 @@ public class MainMenuController implements Initializable {
                     menu1reduce.setVisible(false);
                     menuItem1amount.setVisible(false);
                 }
-
                 break;
                 
             case "menu2add" :
