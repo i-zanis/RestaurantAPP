@@ -9,6 +9,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
+
 public class Main extends Application {
     
     // potentially here i will save the pages as a String
@@ -41,7 +43,11 @@ public class Main extends Application {
     public static int item3 = 0;
     public static int item4 = 0;
     public static int item5 = 0;
+
+    final static int price1 = 18;
     public static int basketTotal = 0;
+    public static ArrayList<String> itemList = new ArrayList<>();
+
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource(logInPage));

@@ -38,11 +38,32 @@ public class MainMenuController implements Initializable {
     public Label menuItem5amount;
     public Label basketNumber;
 
+    public Label basketItemAmount1;
+    public Label basketItemName1;
+    public Label basketItemPrice1;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
 
+    public int getAmount(String itemName) {
+        if (itemName.equals("Mapo Tofu")) return item1;
+        else System.out.println("Error at basketItemAmount");
+        return -1;
+    }
+    public int getPrice(String itemName) {
+        if (itemName.equals("Mapo Tofu")) return price1;
+        else System.out.println("Error retrieving itemName for basketItemPrice.");
+        return -1;
+    }
+
+    public void updateBasket() {
+        itemList.trimToSize();
+        basketItemName1.setText(itemList.get(0));
+        basketItemAmount1.setText(getAmount(itemList.get(0)) + "");
+        basketItemPrice1.setText(getPrice(itemList.get(0))  + "");
+    }
     public void loadCheckout(ActionEvent event) throws Exception {
         try {
             Parent checkoutView = FXMLLoader.load(getClass().getResource(checkout));
@@ -72,6 +93,8 @@ public class MainMenuController implements Initializable {
                 menuItem1amount.setText(item1 + "");
                 menuItem1amount.setVisible(true);
                 basketNumber.setText(basketTotal + "");
+                itemList.add("Mapo Tofu");
+                updateBasket();
                 break;
             case "menu1reduce" :
                 item1--;
@@ -82,6 +105,7 @@ public class MainMenuController implements Initializable {
                     menu1reduce.setVisible(false);
                     menuItem1amount.setVisible(false);
                 }
+                updateBasket();
                 break;
                 
             case "menu2add" :
