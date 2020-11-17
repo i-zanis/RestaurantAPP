@@ -28,9 +28,9 @@ public class LogInPageController implements Initializable {
     public Button googleButton;
     public Button facebookButton;
     public Button registrationButton;
-    public TextField fullnameFieldRegistration;
-    public Label checkoutControllerMessage;
-    
+
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

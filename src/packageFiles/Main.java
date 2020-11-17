@@ -19,7 +19,28 @@ public class Main extends Application {
     public static String styleCSS     = "/packageFiles/CSS/style.css";
     public static String dragonPic    = "/packageFiles/Media/dragonpic.png";
 
-     @Override
+    // logInPage
+    public static String email = "";
+    public static String password = "";
+
+    // registrationPage
+    public static String nameRegistration = "";
+    public static String surnameRegistration = "";
+    public static String emailRegistration = "";
+    public static String passwordRegistration = "";
+    public static String mobileRegistration = "";
+    public static String cardNumberRegistration = "";
+    public static String monthRegistration = "";
+    public static String yearRegistration = "";
+
+    //mainMain
+    public static int item1 = 0;
+    public static int item2 = 0;
+    public static int item3 = 0;
+    public static int item4 = 0;
+    public static int item5 = 0;
+
+    @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource(logInPage));
         Scene logInScene = new Scene(root);

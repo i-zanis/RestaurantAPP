@@ -16,12 +16,10 @@ public class checkoutController implements Initializable{
     public Label checkoutControllerMessage;
     @FXML
     public TextField test;
-    public String yo = " , we thank you for being such a faggot.";
-    Alert alert = new Alert(Alert.AlertType.INFORMATION);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        checkoutControllerMessage.setText(LogInPageController.message + yo);
+        checkoutControllerMessage.setText("");
         /* alert pop up ugly window
         alert.setTitle("Information Dialog");
         alert.setHeaderText("Look, an Information Dialog");
