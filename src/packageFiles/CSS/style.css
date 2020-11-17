@@ -1,7 +1,6 @@
 /*
 CSS document
-JavaFX CSS is a bit different than normal CCS. If a button is colored through the Scene Builder it loses
-hover and armed effects.
+JavaFX CSS has distinct difference with regular CSS. Scene Builder settings take precedence.
 */
 .button:hover {
     -fx-scale-x: 1.1;
@@ -143,14 +142,23 @@ hover and armed effects.
     -fx-alignment: CENTER;
     -fx-content-display: LEFT;
 }
+.choice-box-base > .list-cell {
+    -fx-alignment: center;
+}
 // Background color of the whole context menu
-.choice-box .context-menu { -fx-background-color: #6F4242; }
+.choice-box .context-menu { -fx-background-color: #6F4242;
+}
 // Focused item background color in the list
-.choice-box .menu-item:focused { -fx-background-color: #6f5542; }
+.choice-box .menu-item:focused { -fx-background-color: #6f6242;
+}
+
 // Text color of non-focused items in the list
-.choice-box .menu-item > .label { -fx-text-fill: white; }
+.choice-box .menu-item > .label { -fx-text-fill: white;
+}
+
 // Text color of focused item in the list
-.choice-box .menu-item:focused > .label { -fx-text-fill: #6F4242; }
+.choice-box .menu-item:focused > .label { -fx-text-fill: white;
+}
 
 .choice-box {
   -fx-background-color: #6F4242;
@@ -160,11 +168,6 @@ hover and armed effects.
 // Selected item text color on the control itself
 .choice-box > .label { -fx-text-fill: white; }
 
-.choice-box :hover {
-    -fx-scale-x: 1.2;
-    -fx-scale-y: 1.5;
-    -fx-scale-z: 1.1;
-}
 
 // this to be removed in the future
 // settings for brown
@@ -207,11 +210,3 @@ hover and armed effects.
 
 -fx-background-color: #6F4242;
 }
-
-/* Image hover for later use
-.hoverimage:hover {
-    -fx-scale-x: 1.4;
-    -fx-scale-y: 1.1;
-    -fx-scale-z: 1.2;
-}
-*/

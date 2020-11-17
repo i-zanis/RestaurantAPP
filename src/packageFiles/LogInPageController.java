@@ -88,13 +88,12 @@ public class LogInPageController implements Initializable {
     }
 
 
-    public void loadGoogle(ActionEvent event) throws Exception {
+    public void loadGoogleFacebook(ActionEvent event) throws Exception {
         try {
-            Parent mainMenuView = FXMLLoader.load(getClass().getResource(mainmenu));
-            Scene mainMenuScene = new Scene(mainMenuView);
-            //gets stage information
+            Parent mainMenuView = FXMLLoader.load(getClass().getResource(failed));
+            Scene failedScene = new Scene(mainMenuView);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            window.setScene(mainMenuScene);
+            window.setScene(failedScene);
             window.show();
         }
         catch (Exception e) {
@@ -102,20 +101,4 @@ public class LogInPageController implements Initializable {
             e.printStackTrace();
         }
     }
-
-    public void loadFacebook(ActionEvent event) throws Exception {
-        try {
-            Parent mainMenuView = FXMLLoader.load(getClass().getResource(mainmenu));
-            Scene mainMenuScene = new Scene(mainMenuView);
-            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            window.setScene(mainMenuScene);
-            window.show();
-        }
-        catch (Exception e) {
-            System.out.println("Error occurred while opening the mainMenu.");
-            e.printStackTrace();
-        }
-    }
-
-
 }

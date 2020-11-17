@@ -39,12 +39,12 @@
          </Button>
          <TextField id="transparentTextfield" fx:id="emailField" layoutX="41.0" layoutY="234.0" prefHeight="25.0" prefWidth="253.0" promptText="E-mail address" />
          <PasswordField id="transparentTextfield" fx:id="passwordField" layoutX="41.0" layoutY="268.0" prefHeight="25.0" prefWidth="253.0" promptText="Password" />
-         <Button fx:id="googleButton" layoutX="41.0" layoutY="399.0" mnemonicParsing="false" onAction="#loadGoogle" prefHeight="32.0" prefWidth="253.0" styleClass="google-settings" text="Continue with Google" textFill="WHITE">
+         <Button fx:id="googleButton" layoutX="41.0" layoutY="399.0" mnemonicParsing="false" onAction="#loadGoogleFacebook" prefHeight="32.0" prefWidth="253.0" styleClass="google-settings" text="Continue with Google" textFill="WHITE">
             <font>
                <Font name="System Bold" size="12.0" />
             </font>
          </Button>
-         <Button fx:id="facebookButton" layoutX="41.0" layoutY="439.0" mnemonicParsing="false" onAction="#loadFacebook" prefHeight="32.0" prefWidth="253.0" styleClass="facebook-settings" text="Continue with Facebook" textFill="WHITE">
+         <Button fx:id="facebookButton" layoutX="41.0" layoutY="439.0" mnemonicParsing="false" onAction="#loadGoogleFacebook" prefHeight="32.0" prefWidth="253.0" styleClass="facebook-settings" text="Continue with Facebook" textFill="WHITE">
             <font>
                <Font name="System Bold" size="12.0" />
             </font>

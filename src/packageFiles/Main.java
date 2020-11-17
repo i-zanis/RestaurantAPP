@@ -16,6 +16,7 @@ public class Main extends Application {
     public static String registration = "FXML/registrationpage.fxml";
     public static String mainmenu     = "FXML/mainmenu.fxml";
     public static String checkout     = "FXML/checkout.fxml";
+    public static String failed       = "FXML/authenticationFailedPage.fxml";
     public static String styleCSS     = "/packageFiles/CSS/style.css";
     public static String dragonPic    = "/packageFiles/Media/dragonpic.png";
 
@@ -32,6 +33,7 @@ public class Main extends Application {
     public static String cardNumberRegistration = "";
     public static String monthRegistration = "";
     public static String yearRegistration = "";
+    public static Boolean defaultPayment = false;
 
     //mainMain
     public static int item1 = 0;
