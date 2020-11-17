@@ -11,21 +11,13 @@ import java.util.ResourceBundle;
 
 
 
-public class checkoutController implements Initializable{
-    @FXML
+public class CheckoutController implements Initializable{
     public Label checkoutControllerMessage;
-    @FXML
-    public TextField test;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         checkoutControllerMessage.setText("");
-        /* alert pop up ugly window
-        alert.setTitle("Information Dialog");
-        alert.setHeaderText("Look, an Information Dialog");
-        alert.setContentText("I have a great message for you!");
-        alert.showAndWait();
-        */
     }
 }
 

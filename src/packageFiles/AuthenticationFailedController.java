@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 import static packageFiles.Main.logInPage;
 import static packageFiles.Main.styleCSS;
 
-public class authenticationFailedController {
+public class AuthenticationFailedController {
     public void goBack(ActionEvent event) throws Exception {
         try {
             Parent mainMenuView = FXMLLoader.load(getClass().getResource(logInPage));

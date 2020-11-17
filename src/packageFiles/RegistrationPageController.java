@@ -11,13 +11,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import static packageFiles.Main.logInPage;
-import static packageFiles.Main.styleCSS;
-
+import static packageFiles.Main.*;
 
 
 
@@ -54,6 +50,7 @@ public class RegistrationPageController implements Initializable {
     }
     public void registrationSuccessful(ActionEvent event) throws Exception {
         try {
+            email = emailRegistrationField1.getText();
             Parent mainMenuView = FXMLLoader.load(getClass().getResource(logInPage));
             Scene logInPage = new Scene(mainMenuView);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();

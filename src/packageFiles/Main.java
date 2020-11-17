@@ -41,7 +41,7 @@ public class Main extends Application {
     public static int item3 = 0;
     public static int item4 = 0;
     public static int item5 = 0;
-
+    public static int basketTotal = 0;
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource(logInPage));

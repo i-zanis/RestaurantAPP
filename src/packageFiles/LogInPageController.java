@@ -16,7 +16,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import static packageFiles.Main.*;
-
 public class LogInPageController implements Initializable {
     public BorderPane logInPageController;
     @FXML
@@ -34,10 +33,8 @@ public class LogInPageController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        emailField.setText("dfg");
+        emailField.setText(email);
     }
-
-    // placeholder for now
 
 
     public void signSuccessful(ActionEvent event) throws Exception {
@@ -55,8 +52,6 @@ public class LogInPageController implements Initializable {
         }
     }
 
-
-    
     public void loadMainMenu(ActionEvent event) throws Exception {
         try {
             Parent mainMenuView = FXMLLoader.load(getClass().getResource(mainmenu));
