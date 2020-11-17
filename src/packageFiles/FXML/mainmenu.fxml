@@ -9,22 +9,38 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.shape.SVGPath?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane fx:id="mainMenuController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packageFiles.MainMenuController">
    <top>
-      <TitledPane expanded="false" textFill="WHITE">
+      <TitledPane textFill="WHITE">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: white;">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="212.0" prefWidth="334.0" style="-fx-background-color: white;">
                <children>
-                  <Label layoutX="112.0" layoutY="111.0" text="amount placeholder" />
-                  <Button fx:id="checkoutButton" layoutX="103.0" layoutY="140.0" mnemonicParsing="false" onAction="#loadCheckout" prefHeight="26.0" prefWidth="126.0" styleClass="brown-settings" text="Checkout">
+                  <Label layoutX="112.0" layoutY="143.0" text="amount placeholder" />
+                  <Button fx:id="checkoutButton" layoutX="103.0" layoutY="172.0" mnemonicParsing="false" onAction="#loadCheckout" prefHeight="26.0" prefWidth="126.0" styleClass="brown-settings" text="Checkout">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
+                  <VBox layoutX="14.0" layoutY="14.0" prefHeight="130.0" prefWidth="37.0">
+                     <children>
+                        <Label text="Label" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="91.0" layoutY="14.0" prefHeight="130.0" prefWidth="166.0">
+                     <children>
+                        <Label text="Label" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="284.0" layoutY="14.0" prefHeight="130.0" prefWidth="35.0">
+                     <children>
+                        <Label text="Label" />
+                     </children>
+                  </VBox>
                </children>
             </AnchorPane>
         </content>
