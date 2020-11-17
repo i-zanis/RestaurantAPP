@@ -121,12 +121,8 @@ hover and armed effects.
 {
     visibility: hidden;
 }
-// hover image test
-.hoverimage:hover {
-    -fx-scale-x: 1.4;
-    -fx-scale-y: 1.1;
-    -fx-scale-z: 1.2;
-}
+
+
 
 
 
@@ -211,3 +207,11 @@ hover and armed effects.
 
 -fx-background-color: #6F4242;
 }
+
+/* Image hover for later use
+.hoverimage:hover {
+    -fx-scale-x: 1.4;
+    -fx-scale-y: 1.1;
+    -fx-scale-z: 1.2;
+}
+*/

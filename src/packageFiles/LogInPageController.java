@@ -11,18 +11,16 @@ import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-import javax.swing.*;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import static packageFiles.Main.*;
 
-public class logInPageController implements Initializable {
- public BorderPane logInPageController;
- @FXML
- public Label errorLabelLogIn;
+public class LogInPageController implements Initializable {
+    public BorderPane logInPageController;
+    @FXML
+    public Label errorLabelLogIn;
 
     public Button signInButton;
     public TextField emailField;
@@ -34,16 +32,18 @@ public class logInPageController implements Initializable {
     public Label checkoutControllerMessage;
 
     public static String message = "";
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
     }
 
-
     // placeholder for now
+
+
     public void signSuccessful(ActionEvent event) throws Exception {
         try {
             message = emailField.getText();
-            Parent mainMenuView = FXMLLoader.load(getClass().getResource(mainMenuFXML));
+            Parent mainMenuView = FXMLLoader.load(getClass().getResource(mainmenu));
             Scene mainMenuScene = new Scene(mainMenuView);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
             mainMenuScene.getStylesheets().add(styleCSS);
@@ -58,7 +58,7 @@ public class logInPageController implements Initializable {
 
     public void registrationSuccessful(ActionEvent event) throws Exception {
         try {
-            Parent mainMenuView = FXMLLoader.load(getClass().getResource(logInPageFXML));
+            Parent mainMenuView = FXMLLoader.load(getClass().getResource(logInPage));
             Scene logInPage = new Scene(mainMenuView);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
             logInPage.getStylesheets().add(styleCSS);
@@ -73,7 +73,7 @@ public class logInPageController implements Initializable {
     
     public void loadMainMenu(ActionEvent event) throws Exception {
         try {
-            Parent mainMenuView = FXMLLoader.load(getClass().getResource(mainMenuFXML));
+            Parent mainMenuView = FXMLLoader.load(getClass().getResource(mainmenu));
             Scene mainMenuScene = new Scene(mainMenuView);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
             mainMenuScene.getStylesheets().add(styleCSS);
@@ -88,7 +88,7 @@ public class logInPageController implements Initializable {
 
     public void loadRegistration(ActionEvent event) throws Exception {
         try {
-            Parent registrationView = FXMLLoader.load(getClass().getResource(registrationFXML));
+            Parent registrationView = FXMLLoader.load(getClass().getResource(registration));
             Scene registrationScene = new Scene(registrationView);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
             registrationScene.getStylesheets().add(styleCSS);
@@ -103,7 +103,7 @@ public class logInPageController implements Initializable {
 
     public void loadCheckout(ActionEvent event) throws Exception {
         try {
-            Parent checkoutView = FXMLLoader.load(getClass().getResource(checkoutFXML));
+            Parent checkoutView = FXMLLoader.load(getClass().getResource(checkout));
             Scene checkoutScene = new Scene(checkoutView);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
             checkoutScene.getStylesheets().add(styleCSS);
@@ -117,7 +117,7 @@ public class logInPageController implements Initializable {
     }
     public void loadGoogle(ActionEvent event) throws Exception {
         try {
-            Parent mainMenuView = FXMLLoader.load(getClass().getResource(mainMenuFXML));
+            Parent mainMenuView = FXMLLoader.load(getClass().getResource(mainmenu));
             Scene mainMenuScene = new Scene(mainMenuView);
             //gets stage information
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -132,7 +132,7 @@ public class logInPageController implements Initializable {
 
     public void loadFacebook(ActionEvent event) throws Exception {
         try {
-            Parent mainMenuView = FXMLLoader.load(getClass().getResource(mainMenuFXML));
+            Parent mainMenuView = FXMLLoader.load(getClass().getResource(mainmenu));
             Scene mainMenuScene = new Scene(mainMenuView);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
             window.setScene(mainMenuScene);
