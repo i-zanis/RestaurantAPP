@@ -30,11 +30,11 @@ public class LogInPageController implements Initializable {
     public Button registrationButton;
     public TextField fullnameFieldRegistration;
     public Label checkoutControllerMessage;
-
-    public static String message = "";
+    
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        emailField.setText("dfg");
     }
 
     // placeholder for now
@@ -42,7 +42,6 @@ public class LogInPageController implements Initializable {
 
     public void signSuccessful(ActionEvent event) throws Exception {
         try {
-            message = emailField.getText();
             Parent mainMenuView = FXMLLoader.load(getClass().getResource(mainmenu));
             Scene mainMenuScene = new Scene(mainMenuView);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -56,20 +55,7 @@ public class LogInPageController implements Initializable {
         }
     }
 
-    public void registrationSuccessful(ActionEvent event) throws Exception {
-        try {
-            Parent mainMenuView = FXMLLoader.load(getClass().getResource(logInPage));
-            Scene logInPage = new Scene(mainMenuView);
-            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            logInPage.getStylesheets().add(styleCSS);
-            window.setScene(logInPage);
-            window.show();
-        }
-        catch (Exception e) {
-            System.out.println("Error occurred while opening the registrationView.");
-            e.printStackTrace();
-        }
-    }
+
     
     public void loadMainMenu(ActionEvent event) throws Exception {
         try {
@@ -101,20 +87,7 @@ public class LogInPageController implements Initializable {
         }
     }
 
-    public void loadCheckout(ActionEvent event) throws Exception {
-        try {
-            Parent checkoutView = FXMLLoader.load(getClass().getResource(checkout));
-            Scene checkoutScene = new Scene(checkoutView);
-            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            checkoutScene.getStylesheets().add(styleCSS);
-            window.setScene(checkoutScene);
-            window.show();
-        }
-        catch (Exception e) {
-            System.out.println("Error occurred while opening the checkout.");
-            e.printStackTrace();
-        }
-    }
+
     public void loadGoogle(ActionEvent event) throws Exception {
         try {
             Parent mainMenuView = FXMLLoader.load(getClass().getResource(mainmenu));
