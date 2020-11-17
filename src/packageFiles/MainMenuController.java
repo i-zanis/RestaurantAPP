@@ -2,8 +2,6 @@ package packageFiles;
 
 import javafx.event.ActionEvent;
 import javafx.event.Event;
-import javafx.event.EventHandler;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -12,7 +10,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import org.w3c.dom.ls.LSOutput;
 
 import static packageFiles.Main.*;
 import java.net.URL;
@@ -41,6 +38,7 @@ public class MainMenuController implements Initializable {
     public Label basketItemAmount1;
     public Label basketItemName1;
     public Label basketItemPrice1;
+    public Label totalAmount;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -48,22 +46,37 @@ public class MainMenuController implements Initializable {
     }
 
     public int getAmount(String itemName) {
-        if (itemName.equals("Mapo Tofu")) return item1;
+        if (itemName.equals(itemName1)) return item1Units;
+        else if (itemName.equals(itemName2)) return item2Units;
+        else if (itemName.equals(itemName3)) return item3Units;
+        else if (itemName.equals(itemName4)) return item4Units;
+        else if (itemName.equals(itemName5)) return item5Units;
         else System.out.println("Error at basketItemAmount");
         return -1;
     }
     public int getPrice(String itemName) {
-        if (itemName.equals("Mapo Tofu")) return price1;
+        if (itemName.equals(itemName1)) return price1;
+        else if (itemName.equals(itemName2)) return price2;
+        else if (itemName.equals(itemName3)) return price3;
+        else if (itemName.equals(itemName4)) return price4;
+        else if (itemName.equals(itemName5)) return price5;
         else System.out.println("Error retrieving itemName for basketItemPrice.");
         return -1;
     }
-
-    public void updateBasket() {
-        itemList.trimToSize();
-        basketItemName1.setText(itemList.get(0));
-        basketItemAmount1.setText(getAmount(itemList.get(0)) + "");
-        basketItemPrice1.setText(getPrice(itemList.get(0))  + "");
+    public double calculatePrice() {
+        return (item1Units * price1) + (item2Units * price2) + (item3Units * price3) + (item4Units * price4)
+                + (item5Units * price5);
     }
+    public void updateBasket() {
+            itemList.trimToSize();
+        for (int i = 0; i < itemList.size(); i++) {
+            basketItemName1.setText(itemList.get(i));
+            basketItemAmount1.setText(getAmount(itemList.get(i)) + "");
+            basketItemPrice1.setText(getPrice(itemList.get(i)) + "");
+            totalAmount.setText(pound + calculatePrice() + "");
+        }
+    }
+
     public void loadCheckout(ActionEvent event) throws Exception {
         try {
             Parent checkoutView = FXMLLoader.load(getClass().getResource(checkout));
@@ -83,70 +96,71 @@ public class MainMenuController implements Initializable {
     public void Addremove(Event e) {
         String condition  = ((Button)e.getSource()).getText();
         System.out.println(condition);
-        System.out.println(item1);
+        System.out.println(item1Units);
     
         switch (condition) {
             case "menu1add" :
-                item1++;
+                item1Units++;
                 basketTotal++;
                 menu1reduce.setVisible(true);
-                menuItem1amount.setText(item1 + "");
+                menuItem1amount.setText(item1Units + "");
                 menuItem1amount.setVisible(true);
                 basketNumber.setText(basketTotal + "");
                 itemList.add("Mapo Tofu");
                 updateBasket();
                 break;
             case "menu1reduce" :
-                item1--;
+                item1Units--;
                 basketTotal--;
-                menuItem1amount.setText(item1 + "");
+                menuItem1amount.setText(item1Units + "");
                 basketNumber.setText(basketTotal + "");
-                if (item1 == 0) {
+                if (item1Units == 0) {
                     menu1reduce.setVisible(false);
                     menuItem1amount.setVisible(false);
+                    itemList.remove("Mapo Tofu");
                 }
                 updateBasket();
                 break;
                 
             case "menu2add" :
-                item2++;
+                item2Units++;
                 basketTotal++;
                 menu2reduce.setVisible(true);
                 break;
             case "menu2reduce" :
-                item2--;
+                item2Units--;
                 basketTotal--;
-                if (item2 == 0) menu2reduce.setVisible(false);
+                if (item2Units == 0) menu2reduce.setVisible(false);
                 break;
             case "menu3add" :
-                item3++;
+                item3Units++;
                 menu3reduce.setVisible(true);
                 basketTotal++;
                 break;
             case "menu3reduce" :
-                item3--;
+                item3Units--;
                 basketTotal--;
-                if (item3 == 0) menu1reduce.setVisible(false);
+                if (item3Units == 0) menu1reduce.setVisible(false);
                 break;
             case "menu4add" :
-                item4++;
+                item4Units++;
                 basketTotal++;
                 menu4reduce.setVisible(true);
                 break;
             case "menu4reduce" :
-                item4--;
+                item4Units--;
                 basketTotal--;
-                if (item4 == 0) menu1reduce.setVisible(false);
+                if (item4Units == 0) menu1reduce.setVisible(false);
                 break;
             case "menu5add" :
-                item5++;
+                item5Units++;
                 basketTotal++;
                 menu1reduce.setVisible(true);
                 break;
             case "menu5reduce" :
-                item5--;
+                item5Units--;
                 basketTotal--;
-                if (item5 == 0) menu1reduce.setVisible(false);
+                if (item5Units == 0) menu1reduce.setVisible(false);
                 break;
         }
         }

@@ -20,7 +20,10 @@
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="212.0" prefWidth="334.0" style="-fx-background-color: white;">
                <children>
-                  <Label layoutX="112.0" layoutY="143.0" text="amount placeholder" />
+                  <Label fx:id="totalAmount" layoutX="147.0" layoutY="144.0">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font></Label>
                   <Button fx:id="checkoutButton" layoutX="103.0" layoutY="172.0" mnemonicParsing="false" onAction="#loadCheckout" prefHeight="26.0" prefWidth="126.0" styleClass="brown-settings" text="Checkout">
                      <font>
                         <Font name="System Bold" size="12.0" />
@@ -28,17 +31,26 @@
                   </Button>
                   <VBox layoutX="14.0" layoutY="14.0" prefHeight="130.0" prefWidth="37.0">
                      <children>
-                        <Label fx:id="basketItemAmount1" text="Label" />
+                        <Label fx:id="basketItemAmount1" text="Label">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Label>
                      </children>
                   </VBox>
                   <VBox layoutX="91.0" layoutY="14.0" prefHeight="130.0" prefWidth="166.0">
                      <children>
-                        <Label fx:id="basketItemName1" text="Label" />
+                        <Label fx:id="basketItemName1" text="Label">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Label>
                      </children>
                   </VBox>
                   <VBox layoutX="284.0" layoutY="14.0" prefHeight="130.0" prefWidth="35.0">
                      <children>
-                        <Label fx:id="basketItemPrice1" text="Label" />
+                        <Label fx:id="basketItemPrice1" text="Label">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Label>
                      </children>
                   </VBox>
                </children>

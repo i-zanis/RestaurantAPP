@@ -38,14 +38,26 @@ public class Main extends Application {
     public static Boolean defaultPayment = false;
 
     //mainMain
-    public static int item1 = 0;
-    public static int item2 = 0;
-    public static int item3 = 0;
-    public static int item4 = 0;
-    public static int item5 = 0;
+    final static String pound = "£";
+    public static int item1Units = 0;
+    public static int item2Units = 0;
+    public static int item3Units = 0;
+    public static int item4Units = 0;
+    public static int item5Units = 0;
 
-    final static int price1 = 18;
+    final static String itemName1 = "Mapo Tofu";
+    final static String itemName2 = "Prawn Dumpling";
+    final static String itemName3 = "Wonton Soup";
+    final static String itemName4 = "Spring Rolls";
+    final static String itemName5 = "Egg Fried Rice";
+
+    final static int price1 = 13;
+    final static int price2 = 15;
+    final static int price3 = 18;
+    final static int price4 = 11;
+    final static int price5 = 14;
     public static int basketTotal = 0;
+
     public static ArrayList<String> itemList = new ArrayList<>();
 
     @Override
