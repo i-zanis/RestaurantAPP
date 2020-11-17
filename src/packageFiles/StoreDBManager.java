@@ -208,7 +208,7 @@ public class StoreDBManager {
             /*
              *  Implement this else statement in the gui.
              *
-             * check if session is empty first with login.isEmpty()
+             * check if session is empty first with login.isEmpty().
              *
              *      else {
              *          return "Invalid email and password combination.";
