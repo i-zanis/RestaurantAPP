@@ -140,7 +140,7 @@ public class StoreDBManager {
     public static Boolean checkPassword(String email, String password) throws SQLException {
         String pwd = encryptPassword(password);
         ResultSet result = createCustomQuery(
-                "SELECT password FROM customer WHERE email=" + email.strip() + ";");
+                "SELECT password FROM customer WHERE email=" + "'" +email.strip()+ "'" + ";");
 
         return result.first();
     }
@@ -184,23 +184,63 @@ public class StoreDBManager {
         try {
             if (checkPassword(email, password)) {
                 // session here
-                // return type must be UUID.
-                return Session.getUUID();
+                // return type must be UUID String.
+                String session = Session.getUUID();
+                ResultSet resultSet = null;
+                String query = "UPDATE customer SET session_uuid=" +
+                        "'" + session + "' " +
+                        "WHERE email='" + email + "';";
+
+                try {
+                    Connection con = connect();
+                    Statement statement = con.createStatement();
+                    statement.executeQuery(query);
+                    statement.close();
+                    con.commit();
+                    con.close();
+                } catch (Exception e) {
+                    System.err.println(e.getClass().getName() + ": " + e.getMessage());
+                    System.exit(0);
+                }
+                
+                return session;
             }
             /*
              *  Implement this else statement in the gui.
+             *
+             * check if session is empty first with login.isEmpty()
+             *
              *      else {
              *          return "Invalid email and password combination.";
              *      }
              */
-          
+
 
         } catch (SQLException e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
             System.exit(0);
         }
-
+        return "";
     }
+
+    public static ResultSet getCustomer(String sessionUUID) {
+        ResultSet resultSet = null;
+        String query = "SELECT * FROM customer WHERE" +
+                "session_uuid='" + sessionUUID + "';";
+        try {
+            Connection con = connect();
+            Statement statement = con.createStatement();
+            resultSet = statement.executeQuery(query);
+            statement.close();
+            con.commit();
+            con.close();
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            System.exit(0);
+        }
+        return resultSet;
+    }
+
 
     private static class Session {
         private static String getUUID() {
