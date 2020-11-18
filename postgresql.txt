@@ -1,0 +1,80 @@
+CREATE TABLE store_customers (
+  id BIGSERIAL PRIMARY KEY NOT NULL,
+  first_name VARCHAR(30) NOT NULL,
+  last_name VARCHAR(30) NOT NULL, 
+  email VARCHAR(200) NOT NULL UNIQUE,
+  password TEXT NOT NULL
+);
+
+CREATE TABLE basket (
+    id BIGSERIAL PRIMARY KEY NOT NULL,
+    customer_id BIGINT REFERENCES store_customers (id) ON DELETE CASCADE  NOT NULL,
+    UNIQUE(customer_id)
+);
+
+CREATE TABLE product (
+    id BIGSERIAL PRIMARY KEY NOT NULL,
+    title VARCHAR(150) NOT NULL UNIQUE,
+    description TEXT,
+    price  FLOAT DEFAULT 0.00 NOT NULL
+);
+
+CREATE TABLE basket_product (
+    id BIGSERIAL PRIMARY KEY NOT NULL,
+    quantity int NOT NULL,
+    basket_id BIGINT REFERENCES basket (id) ON DELETE CASCADE NOT NULL,
+    product_id BIGINT REFERENCES product (id) ON DELETE CASCADE NOT NULL
+);
+
+
+INSERT INTO store_customers (first_name, last_name, email, password)
+VALUES ('yassine', 'Bebba', 'test@gmail.com', 'testing123');
+
+INSERT INTO store_customers (first_name, last_name, email, password)
+VALUES ('user', '222', 'test1@gmail.com', 'testing123');
+
+SELECT * FROM store_customers;
+
+INSERT INTO product (title, description, price)
+VALUES ('Pizza', 'good pizza good', 15.99);
+
+INSERT INTO product (title, description, price)
+VALUES ('Burger', 'good burger good', 15.99);
+
+SELECT * FROM product;
+
+INSERT INTO basket (customer_id)
+VALUES (1);
+INSERT INTO basket (customer_id)
+VALUES (2);
+
+SELECT * FROM basket;
+
+INSERT INTO basket_product (quantity, basket_id, product_id)
+VALUES (3, 1, 1);
+INSERT INTO basket_product (quantity, basket_id, product_id)
+VALUES (3, 2, 2);
+
+SELECT * FROM basket_product;
+
+SELECT * FROM store_customers sc
+INNER JOIN basket b on sc.id = b.customer_id
+INNER JOIN basket_product bp on bp.product_id = b.id;
+
+SELECT * FROM basket_product bp
+INNER JOIN product p on bp.product_id = p.id;
+SELECT * FROM basket_product;
+
+DELETE FROM store_customers WHERE id=1;
+SELECT * FROM basket_product;
+
+SELECT * FROM basket_product bp
+INNER JOIN product p on bp.product_id = p.id;
+
+
+SELECT * FROM product;
+DELETE FROM product WHERE id=2;
+SELECT * FROM product;
+
+SELECT * FROM basket_product;
+
