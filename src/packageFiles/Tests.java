@@ -63,6 +63,8 @@ public class Tests {
                 result += "pn = " + pn + '\n';
                 System.out.println("pwd = " + pwd);
                 result += "pwd = " + pwd;
+                System.out.println(session);
+
             }
             data.close();
         } catch (Exception e) {
@@ -145,5 +147,10 @@ public class Tests {
         assertEquals(StoreDBManager.login(email2, pwd2), "");
     }
 
+    @Test
+    public void testLogout() {
+        String session = StoreDBManager.login("test@test.com", "testing123");
+        assertEquals(StoreDBManager.logout(session), "Success");
+    }
 }
 

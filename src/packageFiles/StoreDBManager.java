@@ -1,3 +1,4 @@
+import javax.lang.model.type.NullType;
 import java.math.BigInteger;
 import java.security.NoSuchAlgorithmException;
 import java.sql.*;
@@ -252,7 +253,28 @@ public class StoreDBManager {
         return "";
     }
 
+    public static String logout(String session) {
+        if (session == null)
+            return "Lol are you kidding me!!!";
+        String sqlQuery = "UPDATE customer SET session_uuid = null " +
+                "WHERE session_uuid = '" + session + "';";
+
+        try {
+            Connection con = connect();
+            Statement statement = con.createStatement();
+            statement.executeUpdate(sqlQuery);
+            statement.close();
+            con.commit();
+            con.close();
+            return "Success";
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            return "Something went wrong";
+        }
+    }
+
     public static ResultSet getCustomer(String sessionUUID) {
+        if (sessionUUID == null) throw new NullPointerException("Lol are you kidding me!!!");
         ResultSet resultSet = null;
         String query = "SELECT * FROM customer WHERE" +
                 "session_uuid='" + sessionUUID + "';";
