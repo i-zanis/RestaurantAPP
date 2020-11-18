@@ -16,8 +16,6 @@ public class StoreDBManager {
         Connection con = null;
         con = DriverManager.getConnection(url, user, pwd);
         con.setAutoCommit(false);
-        System.out.println("Connected to database successfully");
-
         return con;
     }
 
@@ -140,18 +138,51 @@ public class StoreDBManager {
     public static Boolean checkPassword(String email, String password) throws SQLException {
         String pwd = encryptPassword(password);
         ResultSet result = createCustomQuery(
-                "SELECT password FROM customer WHERE email=" + "'" +email.strip()+ "'" + ";");
+                "SELECT password FROM customer WHERE email=" + "'" + email.strip() + "' FETCH FIRST ROW ONLY;");
+        try {
+            result.next();
 
-        return result.first();
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            System.exit(0);
+        }
+        String current_pwd = result.getString("password");
+
+        return current_pwd.equals(pwd);
     }
 
     public static ResultSet all(String tableName) {
+        /*
+         * Returns all columns from a selected database table
+         */
+
         ResultSet resultSet = null;
 
         try {
             Connection con = connect();
             Statement statement = con.createStatement();
             resultSet = statement.executeQuery("SELECT * FROM " + tableName + ";");
+
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            System.exit(0);
+        }
+        // Close the ResultSet after you finish resultSet.close()
+        return resultSet;
+    }
+
+    public static ResultSet getSelected(String tableName, String... fields) {
+        /*
+         * Returns selected fields in all columns from a selected database table
+         */
+        String columns = String.join(", ", fields);
+
+        ResultSet resultSet = null;
+
+        try {
+            Connection con = connect();
+            Statement statement = con.createStatement();
+            resultSet = statement.executeQuery("SELECT " + columns + " FROM " + tableName + ";");
 
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
