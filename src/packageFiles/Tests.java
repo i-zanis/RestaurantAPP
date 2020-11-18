@@ -7,6 +7,20 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class Tests {
+    public void createTestUser() {
+        StoreDBManager.createUser(
+                "FTest",
+                "LTest",
+                "test@test.com",
+                "12345678009",
+                "testing123"
+        );
+    }
+
+    public void deleteTestUser() {
+        StoreDBManager.createCustomQuery("DELETE FROM customer WHERE email = 'test@test.com'");
+    }
+
     @Test
     public void testNormaliseEmail() {
         HashMap<String, Boolean> emailCases = new HashMap<>();
@@ -48,10 +62,7 @@ public class Tests {
                 System.out.println("pn = " + pn);
                 result += "pn = " + pn + '\n';
                 System.out.println("pwd = " + pwd);
-                result += "pwd = " + pwd + '\n';
-                System.out.println("session = " + session);
-                result += "session = " + session;
-                System.out.println();
+                result += "pwd = " + pwd;
             }
             data.close();
         } catch (Exception e) {
@@ -63,8 +74,7 @@ public class Tests {
                 "lName = LTest\n" +
                 "email = test@test.com\n" +
                 "pn = 12345678009\n" +
-                "pwd = 7f2ababa423061c509f4923dd04b6cf1\n" +
-                "session = null";
+                "pwd = 7f2ababa423061c509f4923dd04b6cf1";
         assertEquals(result, expected);
     }
 
@@ -96,6 +106,13 @@ public class Tests {
     }
 
     @Test
+    public void testEncryptPassword() {
+        String password = "testing123";
+        String expected = "7f2ababa423061c509f4923dd04b6cf1";
+        assertEquals(StoreDBManager.encryptPassword(password), expected);
+    }
+
+    @Test
     public void testCheckPassword() {
         HashMap<String, Boolean> pwdCases = new HashMap<>();
         pwdCases.put("test@test.com,testing123", true);
@@ -114,6 +131,18 @@ public class Tests {
                 System.exit(0);
             }
         }
+    }
+
+    @Test
+    public void testLogin() {
+        String email1, pwd1, email2, pwd2;
+        email1 = "test@test.com";
+        pwd1 = "testing123";
+        email2 = "userdoesnotexit@test.com";
+        pwd2 = "abcdefgh";
+
+        assertNotEquals(StoreDBManager.login(email1, pwd1), "");
+        assertEquals(StoreDBManager.login(email2, pwd2), "");
     }
 
 }

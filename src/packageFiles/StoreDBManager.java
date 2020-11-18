@@ -147,7 +147,7 @@ public class StoreDBManager {
             System.exit(0);
         }
         String current_pwd = result.getString("password");
-
+        result.close();
         return current_pwd.equals(pwd);
     }
 
@@ -217,15 +217,14 @@ public class StoreDBManager {
                 // session here
                 // return type must be UUID String.
                 String session = Session.getUUID();
-                ResultSet resultSet = null;
-                String query = "UPDATE customer SET session_uuid=" +
+                String sqlQuery = "UPDATE customer SET session_uuid = " +
                         "'" + session + "' " +
-                        "WHERE email='" + email + "';";
+                        "WHERE email = '" + email + "';";
 
                 try {
                     Connection con = connect();
                     Statement statement = con.createStatement();
-                    statement.executeQuery(query);
+                    statement.executeUpdate(sqlQuery);
                     statement.close();
                     con.commit();
                     con.close();
@@ -248,8 +247,7 @@ public class StoreDBManager {
 
 
         } catch (SQLException e) {
-            System.err.println(e.getClass().getName() + ": " + e.getMessage());
-            System.exit(0);
+            return "";
         }
         return "";
     }
