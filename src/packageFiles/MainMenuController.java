@@ -116,6 +116,7 @@ public class MainMenuController implements Initializable {
      public void increaseItemAmountBasket(String itemName) {
         if (itemList.contains(itemName)) {
             int x = Integer.parseInt(itemList.get(itemList.indexOf(itemName) - 1));
+            if (x < 1) return;
             x++;
             itemList.set(itemList.indexOf(itemName) - 1, x + "");
         }
