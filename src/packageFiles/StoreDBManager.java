@@ -276,12 +276,13 @@ public class StoreDBManager {
     public static ResultSet getCustomer(String sessionUUID) {
         if (sessionUUID == null) throw new NullPointerException("Lol are you kidding me!!!");
         ResultSet resultSet = null;
-        String query = "SELECT * FROM customer WHERE" +
+        String query = "SELECT * FROM customer WHERE " +
                 "session_uuid='" + sessionUUID + "';";
         try {
             Connection con = connect();
             Statement statement = con.createStatement();
             resultSet = statement.executeQuery(query);
+            resultSet.next();
             statement.close();
             con.commit();
             con.close();
