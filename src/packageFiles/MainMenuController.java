@@ -76,11 +76,21 @@ public class MainMenuController implements Initializable {
             basketItemName1.setText(itemList.get(0));
             basketItemAmount1.setText(getAmount(itemList.get(0)) + "");
             basketItemPrice1.setText(getPrice(itemList.get(0)) + "");
+
+            if (getAmount(itemList.get(0)) == 0) {
+                itemList.remove(0);
+            }
+
             if (itemList.size() > 1) {
                 basketItemName2.setText(itemList.get(1));
                 basketItemAmount2.setText(getAmount(itemList.get(1)) + "");
                 basketItemPrice2.setText(getPrice(itemList.get(1)) + "");
             }
+            if (itemList.size() > 2) {
+            basketItemName2.setText(itemList.get(2));
+            basketItemAmount2.setText(getAmount(itemList.get(2)) + "");
+            basketItemPrice2.setText(getPrice(itemList.get(2)) + "");
+             }
             totalAmount.setText(pound + calculatePrice() + "");
         }
 
