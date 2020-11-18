@@ -20,7 +20,7 @@ public class Tests {
         emailCases.put("hey123@gmail.co.uk", true);
 
         for (String key : emailCases.keySet()) {
-            assertEquals(emailCases.get(key), StoreDBManager.normaliseEmail(key));
+          assertEquals(emailCases.get(key), StoreDBManager.normaliseEmail(key));
         }
     }
 }

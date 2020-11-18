@@ -9,19 +9,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.SVGPath?>
 
-<<<<<<< HEAD
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packageFiles.AuthenticationFailedController">
    <top>
       <ToolBar accessibleRole="PARENT" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #6F4242;" stylesheets="@../CSS/style.css" BorderPane.alignment="CENTER">
          <items>
             <Button fx:id="backButton" cancelButton="true" mnemonicParsing="false" onAction="#goBack" styleClass="brown-settings">
-=======
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packageFiles.checkoutController">
-   <top>
-      <ToolBar accessibleRole="PARENT" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #6F4242;" stylesheets="@../CSS/style.css" BorderPane.alignment="CENTER">
-         <items>
-            <Button fx:id="backButton" mnemonicParsing="false" styleClass="brown-settings">
->>>>>>> 0d37f1487b43af3ae8fc836f09691dfc1fd3047a
                <graphic>
                   <SVGPath content="M 8.074219 10.003906 L 15.554688 2.523438 C 15.761719 2.316406 15.875 2.042969 15.875 1.75 C 15.875 1.457031 15.761719 1.179688 15.554688 0.976562 L 14.898438 0.320312 C 14.695312 0.113281 14.417969 0 14.125 0 C 13.832031 0 13.558594 0.113281 13.351562 0.320312 L 4.445312 9.226562 C 4.238281 9.433594 4.125 9.710938 4.125 10.003906 C 4.125 10.296875 4.238281 10.574219 4.445312 10.78125 L 13.34375 19.679688 C 13.550781 19.886719 13.824219 20 14.117188 20 C 14.410156 20 14.6875 19.886719 14.890625 19.679688 L 15.546875 19.023438 C 15.972656 18.597656 15.972656 17.902344 15.546875 17.476562 Z M 8.074219 10.003906 M 8.074219 10.003906 L 15.554688 2.523438 C 15.761719 2.316406 15.875 2.042969 15.875 1.75 C 15.875 1.457031 15.761719 1.179688 15.554688 0.976562 L 14.898438 0.320312 C 14.695312 0.113281 14.417969 0 14.125 0 C 13.832031 0 13.558594 0.113281 13.351562 0.320312 L 4.445312 9.226562 C 4.238281 9.433594 4.125 9.710938 4.125 10.003906 C 4.125 10.296875 4.238281 10.574219 4.445312 10.78125 L 13.34375 19.679688 C 13.550781 19.886719 13.824219 20 14.117188 20 C 14.410156 20 14.6875 19.886719 14.890625 19.679688 L 15.546875 19.023438 C 15.972656 18.597656 15.972656 17.902344 15.546875 17.476562 Z M 8.074219 10.003906 " fill="WHITE" />
                </graphic>
@@ -31,15 +23,9 @@
    <center>
       <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #f5f5dc;" BorderPane.alignment="CENTER">
          <Label layoutX="25.0" layoutY="223.0" prefHeight="148.0" prefWidth="296.0" />
-<<<<<<< HEAD
          <ImageView fitHeight="447.0" fitWidth="282.0" layoutX="32.0" layoutY="42.0">
             <image>
                <Image url="@../Media/deaddragon.png" />
-=======
-         <ImageView fitHeight="126.0" fitWidth="200.0" layoutX="73.0" layoutY="160.0">
-            <image>
-               <Image url="@../Media/deadDragon.png" />
->>>>>>> 0d37f1487b43af3ae8fc836f09691dfc1fd3047a
             </image>
          </ImageView>
       </Pane>
