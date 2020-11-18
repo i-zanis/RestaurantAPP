@@ -1,6 +1,8 @@
 package packageFiles;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.ObservableListBase;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
@@ -26,44 +28,73 @@ public class MainMenuController implements Initializable {
     public Button menu3add;
     public Button menu4add;
     public Button menu5add;
+
     public Button menu1reduce;
     public Button menu2reduce;
     public Button menu3reduce;
     public Button menu4reduce;
     public Button menu5reduce;
+
     public Label menuItem1amount;
     public Label menuItem2amount;
     public Label menuItem3amount;
     public Label menuItem4amount;
     public Label menuItem5amount;
+
     public Label basketNumber;
 
     public Label basketItemAmount1;
     public Label basketItemName1;
     public Label basketItemPrice1;
-    public Label totalAmount;
+
     public Label basketItemAmount2;
     public Label basketItemName2;
     public Label basketItemPrice2;
+
+
     public Label basketItemAmount3;
-    public Label basketItemAmount4;
-    public Label basketItemAmount5;
-
     public Label basketItemName3;
-    public Label basketItemName4;
-    public Label basketItemName5;
-
     public Label basketItemPrice3;
+
+    public Label basketItemAmount4;
+    public Label basketItemName4;
     public Label basketItemPrice4;
+
+    public Label basketItemAmount5;
+    public Label basketItemName5;
     public Label basketItemPrice5;
 
-    // public static ArrayList<Label> labelList = new ArrayList<>();
+    public Label totalAmount;
+    //public static ArrayList<Label> labelList = new ArrayList<>();
 
+    public ObservableList<Label> labelList = new ObservableListBase<Label>() {
+        public void clearAll() {
+            for (int i = 0; i < 15; i++) {
+                labelList.get(i).setText("");
+            }
+        }
+        @Override
+        public Label get(int index) {
+            return null;
+        }
 
-    //observable list that will add nodes and take directly from arrayLIst
+        @Override
+        public int size() {
+            return 0;
+        }
+    };
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        labelList.addAll(basketItemAmount1,basketItemAmount1,basketItemAmount1, basketItemAmount2,basketItemName2,
+                basketItemPrice2,basketItemAmount3,basketItemName3,basketItemPrice3,basketItemAmount4, basketItemName4,
+                basketItemPrice4,basketItemAmount5,basketItemName5,basketItemPrice5);
+    }
+
+    public void addToList(String itemName) {
+        itemList.add(itemName);
+        itemList.add(itemList.indexOf(itemName + 1),getAmount(itemName) + ""); // empty string for string conversion
+        itemList.add(itemList.indexOf(itemName + 2), getPrice(itemName) + "");
     }
 
     public int getAmount(String itemName) {
@@ -91,7 +122,9 @@ public class MainMenuController implements Initializable {
                 + (item5Units * price5);
     }
 
+    /*
 public void resetFieldsWithZeroAmount() {
+        itemList.trimToSize();
     if (basketItemAmount1.getText().equals("0") || basketItemAmount1.getText().equals("-1")) {
         basketItemName1.setText("");
         basketItemAmount1.setText("");
@@ -118,21 +151,47 @@ public void resetFieldsWithZeroAmount() {
         basketItemPrice5.setText("");
     }
 }
+public void updateBasket100() {
+    basketItemName1.setText("");
+    basketItemAmount1.setText("");
+    basketItemPrice1.setText("");
+    basketItemName2.setText("");
+    basketItemAmount2.setText("");
+    basketItemPrice2.setText("");
+    basketItemName3.setText("");
+    basketItemAmount3.setText("");
+    basketItemPrice3.setText("");
+    basketItemName4.setText("");
+    basketItemAmount4.setText("");
+    basketItemPrice4.setText("");
+    basketItemName5.setText("");
+    basketItemAmount5.setText("");
+    basketItemPrice5.setText("");
 
+    for (int i = 0; i < itemList.size(); i++) {
+        if (getAmount(itemList.get(0)) == 0) {
+            itemList.remove(0);
+            basketItemName1.setText("");
+            basketItemAmount1.setText("");
+            basketItemPrice1.setText("");
+        }
+    }
+}
     public void updateBasket() {
         resetFieldsWithZeroAmount();
+        for (String s : itemList) {
+            System.out.println(s);
+        }
             basketItemName1.setText(itemList.get(0));
             basketItemAmount1.setText(getAmount(itemList.get(0)) + "");
             basketItemPrice1.setText(getPrice(itemList.get(0)) + "");
-
             if (getAmount(itemList.get(0)) == 0) {
                 itemList.remove(0);
-                basketItemName2.setText("");
-                basketItemAmount2.setText("");
-                basketItemPrice2.setText("");
+                basketItemName1.setText("");
+               basketItemAmount1.setText("");
+               basketItemPrice1.setText("");
             }
 
-            if (itemList.size() > 1) {
                 basketItemName2.setText(itemList.get(1));
                 basketItemAmount2.setText(getAmount(itemList.get(1)) + "");
                 basketItemPrice2.setText(getPrice(itemList.get(1)) + "");
@@ -142,14 +201,37 @@ public void resetFieldsWithZeroAmount() {
                     basketItemAmount2.setText("");
                     basketItemPrice2.setText("");
                 }
+                basketItemName3.setText(itemList.get(2));
+                basketItemAmount3.setText(getAmount(itemList.get(2)) + "");
+                basketItemPrice3.setText(getPrice(itemList.get(2)) + "");
+                if (getAmount(itemList.get(2)) == 0) {
+                    itemList.remove(2);
+                    basketItemName3.setText("");
+                    basketItemAmount3.setText("");
+                    basketItemPrice3.setText("");
+                }
+            basketItemName4.setText(itemList.get(3));
+            basketItemAmount4.setText(getAmount(itemList.get(3)) + "");
+            basketItemPrice4.setText(getPrice(itemList.get(3)) + "");
+            if (getAmount(itemList.get(3)) == 0) {
+                itemList.remove(3);
+                basketItemName4.setText("");
+                basketItemAmount4.setText("");
+                basketItemPrice4.setText("");
             }
-            if (itemList.size() > 2) {
-                basketItemName2.setText(itemList.get(2));
-                basketItemAmount2.setText(getAmount(itemList.get(2)) + "");
-                basketItemPrice2.setText(getPrice(itemList.get(2)) + "");
+
+                basketItemName5.setText(itemList.get(4));
+                basketItemAmount5.setText(getAmount(itemList.get(4)) + "");
+                basketItemPrice5.setText(getPrice(itemList.get(4)) + "");
+                if (getAmount(itemList.get(4)) == 0) {
+                    itemList.remove(4);
+                    basketItemName5.setText("");
+                    basketItemAmount5.setText("");
+                    basketItemPrice5.setText("");
+                }
+                resetFieldsWithZeroAmount();
+                totalAmount.setText(pound + calculatePrice() + "");
             }
-            totalAmount.setText(pound + calculatePrice() + "");
-        }
 
     public void loadCheckout(ActionEvent event) throws Exception {
         try {
@@ -165,7 +247,7 @@ public void resetFieldsWithZeroAmount() {
             e.printStackTrace();
         }
     }
-
+*/
     // the buttons have been named and set to show only graphic for this to work.
     public void Addremove(Event e) {
         String condition  = ((Button)e.getSource()).getText();
@@ -191,6 +273,7 @@ public void resetFieldsWithZeroAmount() {
                 if (item1Units == 0) {
                     menu1reduce.setVisible(false);
                     menuItem1amount.setVisible(false);
+                    itemList.remove(itemName1);
                 }
                 updateBasket();
                 break;
@@ -214,6 +297,7 @@ public void resetFieldsWithZeroAmount() {
                 if (item2Units == 0) {
                     menu2reduce.setVisible(false);
                     menuItem2amount.setVisible(false);
+                    itemList.remove(itemName2);
                 }
                 updateBasket();
                 break;
@@ -235,6 +319,7 @@ public void resetFieldsWithZeroAmount() {
                 if (item3Units == 0) {
                     menu3reduce.setVisible(false);
                     menuItem3amount.setVisible(false);
+                    itemList.remove(itemName3);
                 }
                 updateBasket();
                 break;
@@ -257,6 +342,7 @@ public void resetFieldsWithZeroAmount() {
                 if (item4Units == 0) {
                     menu4reduce.setVisible(false);
                     menuItem4amount.setVisible(false);
+                    itemList.remove(itemName4);
                 }
                 updateBasket();
                 break;
@@ -279,6 +365,7 @@ public void resetFieldsWithZeroAmount() {
                 if (item5Units == 0) {
                     menu5reduce.setVisible(false);
                     menuItem5amount.setVisible(false);
+                    if (itemList.contains(itemName5)) itemList.remove(itemName5);
                 }
                 updateBasket();
                 break;
