@@ -6,10 +6,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 public class Main extends Application {
     
@@ -57,7 +61,6 @@ public class Main extends Application {
     final static int price4 = 11;
     final static int price5 = 14;
     public static int basketTotal = 0;
-
     public static ArrayList<String> itemList = new ArrayList<>();
 
     @Override
