@@ -45,6 +45,8 @@ public class Main extends Application {
 
     //mainMain
     final static String pound = "£";
+    final static String multi = "x";
+
     public static int item1Units = 0;
     public static int item2Units = 0;
     public static int item3Units = 0;

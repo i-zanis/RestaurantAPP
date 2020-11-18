@@ -24,12 +24,12 @@
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font></Label>
-                  <Button fx:id="checkoutButton" layoutX="67.0" layoutY="165.0" mnemonicParsing="false" onAction="#loadCheckout" prefHeight="32.0" prefWidth="213.0" styleClass="brown-settings" text="Checkout">
+                  <Button fx:id="checkoutButton" layoutX="87.0" layoutY="157.0" mnemonicParsing="false" onAction="#loadCheckout" prefHeight="38.0" prefWidth="173.0" styleClass="brown-settings" text="Checkout">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <VBox layoutX="14.0" layoutY="14.0" prefHeight="130.0" prefWidth="37.0" spacing="12.0">
+                  <VBox layoutX="14.0" layoutY="14.0" prefHeight="130.0" prefWidth="37.0">
                      <children>
                         <Label fx:id="basketItemAmount1">
                            <font>
@@ -40,24 +40,9 @@
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Label>
-                        <Label fx:id="basketItemAmount3">
-                           <font>
-                              <Font name="System Bold" size="12.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="basketItemAmount4">
-                           <font>
-                              <Font name="System Bold" size="12.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="basketItemAmount5">
-                           <font>
-                              <Font name="System Bold" size="12.0" />
-                           </font>
-                        </Label>
                      </children>
                   </VBox>
-                  <VBox layoutX="91.0" layoutY="14.0" prefHeight="130.0" prefWidth="166.0" spacing="12.0">
+                  <VBox layoutX="91.0" layoutY="14.0" prefHeight="130.0" prefWidth="166.0">
                      <children>
                         <Label fx:id="basketItemName1">
                            <font>
@@ -68,45 +53,15 @@
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Label>
-                        <Label fx:id="basketItemName3">
-                           <font>
-                              <Font name="System Bold" size="12.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="basketItemName4">
-                           <font>
-                              <Font name="System Bold" size="12.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="basketItemName5">
-                           <font>
-                              <Font name="System Bold" size="12.0" />
-                           </font>
-                        </Label>
                      </children>
                   </VBox>
-                  <VBox layoutX="284.0" layoutY="14.0" prefHeight="130.0" prefWidth="35.0" spacing="12.0">
+                  <VBox layoutX="284.0" layoutY="14.0" prefHeight="130.0" prefWidth="35.0">
                      <children>
                         <Label fx:id="basketItemPrice1">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font></Label>
                         <Label fx:id="basketItemPrice2">
-                           <font>
-                              <Font name="System Bold" size="12.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="basketItemPrice3">
-                           <font>
-                              <Font name="System Bold" size="12.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="basketItemPrice4">
-                           <font>
-                              <Font name="System Bold" size="12.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="basketItemPrice5">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>

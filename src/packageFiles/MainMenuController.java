@@ -113,20 +113,22 @@ public class MainMenuController implements Initializable {
          labelList.get(i).setText("");
        }
      }
-     public void increaseItemAmountBasket(String itemName) {
+    public void increaseItemAmountBasket(String itemName, int itemUnits) {
         if (itemList.contains(itemName)) {
-            int x = Integer.parseInt(itemList.get(itemList.indexOf(itemName) - 1));
-            if (x < 1) return;
-            x++;
-            itemList.set(itemList.indexOf(itemName) - 1, x + "");
+            if (itemUnits != 0) {
+                itemList.set(itemList.indexOf(itemName) - 1, itemUnits + multi);
+            }
+           // else itemList.set(itemList.indexOf(itemName) - 1, "");
+         //   int x = Integer.parseInt(itemList.get(itemList.indexOf(itemName) - 1));
+         //       itemList.set(itemList.indexOf(itemName) - 1, x + "");
+            }
         }
-     }
 
-    public void decreaseItemAmountBasket(String itemName) {
+    public void decreaseItemAmountBasket(String itemName, int itemUnits) {
         if (itemList.contains(itemName)) {
-            int x = Integer.parseInt(itemList.get(itemList.indexOf(itemName) - 1));
-            x--;
-            itemList.set(itemList.indexOf(itemName) - 1, x + "");
+            if (itemUnits != 0) {
+                itemList.set(itemList.indexOf(itemName) - 1, itemUnits + multi);
+            }
         }
     }
 
@@ -144,7 +146,7 @@ public class MainMenuController implements Initializable {
                 menuItem1amount.setVisible(true);
                 basketNumber.setText(basketTotal + "");
                 if (!itemList.contains(itemName1)) addToList(itemName1);
-                increaseItemAmountBasket(itemName1);
+                increaseItemAmountBasket(itemName1,item1Units);
                 clearAll();
                 displayAll();
                 break;
@@ -153,7 +155,7 @@ public class MainMenuController implements Initializable {
                 basketTotal--;
                 menuItem1amount.setText(item1Units + "");
                 basketNumber.setText(basketTotal + "");
-                decreaseItemAmountBasket(itemName1);
+                decreaseItemAmountBasket(itemName1,item1Units);
                 if (item1Units == 0) {
                     menu1reduce.setVisible(false);
                     menuItem1amount.setVisible(false);
@@ -171,7 +173,7 @@ public class MainMenuController implements Initializable {
                 menuItem2amount.setVisible(true);
                 basketNumber.setText(basketTotal + "");
                 if (!itemList.contains(itemName2)) addToList(itemName2);
-                increaseItemAmountBasket(itemName2);
+                increaseItemAmountBasket(itemName2,item2Units);
                 clearAll();
                 displayAll();
 
@@ -181,7 +183,7 @@ public class MainMenuController implements Initializable {
                 basketTotal--;
                 menuItem2amount.setText(item2Units + "");
                 basketNumber.setText(basketTotal + "");
-                decreaseItemAmountBasket(itemName2);
+                decreaseItemAmountBasket(itemName2,item2Units);
                 if (item2Units == 0) {
                     menu2reduce.setVisible(false);
                     menuItem2amount.setVisible(false);
@@ -198,7 +200,7 @@ public class MainMenuController implements Initializable {
                 menuItem3amount.setVisible(true);
                 basketNumber.setText(basketTotal + "");
                 if (!itemList.contains(itemName3)) addToList(itemName3);
-                increaseItemAmountBasket(itemName3);
+                increaseItemAmountBasket(itemName3,item3Units);
                 clearAll();
                 displayAll();
                 break;
@@ -207,7 +209,7 @@ public class MainMenuController implements Initializable {
                 basketTotal--;
                 menuItem3amount.setText(item3Units + "");
                 basketNumber.setText(basketTotal + "");
-                decreaseItemAmountBasket(itemName3);
+                decreaseItemAmountBasket(itemName3,item3Units);
                 if (item3Units == 0) {
                     menu3reduce.setVisible(false);
                     menuItem3amount.setVisible(false);
@@ -225,7 +227,7 @@ public class MainMenuController implements Initializable {
                 menuItem4amount.setVisible(true);
                 basketNumber.setText(basketTotal + "");
                 if (!itemList.contains(itemName4)) addToList(itemName4);
-                increaseItemAmountBasket(itemName4);
+                increaseItemAmountBasket(itemName4,item4Units);
                 clearAll();
                 displayAll();
                 break;
@@ -234,7 +236,7 @@ public class MainMenuController implements Initializable {
                 basketTotal--;
                 menuItem4amount.setText(item4Units + "");
                 basketNumber.setText(basketTotal + "");
-                decreaseItemAmountBasket(itemName4);
+                decreaseItemAmountBasket(itemName4,item4Units);
                 if (item4Units == 0) {
                     menu4reduce.setVisible(false);
                     menuItem4amount.setVisible(false);
@@ -252,7 +254,7 @@ public class MainMenuController implements Initializable {
                 menuItem5amount.setVisible(true);
                 basketNumber.setText(basketTotal + "");
                 if (!itemList.contains(itemName5)) addToList(itemName5);
-                increaseItemAmountBasket(itemName5);
+                increaseItemAmountBasket(itemName5,item5Units);
                 clearAll();
                 displayAll();
                 break;
@@ -261,7 +263,7 @@ public class MainMenuController implements Initializable {
                 basketTotal--;
                 menuItem5amount.setText(item5Units + "");
                 basketNumber.setText(basketTotal + "");
-                decreaseItemAmountBasket(itemName5);
+                decreaseItemAmountBasket(itemName5,item5Units);
                 if (item5Units == 0) {
                     menu5reduce.setVisible(false);
                     menuItem5amount.setVisible(false);
