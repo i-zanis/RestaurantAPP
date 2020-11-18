@@ -1,5 +1,3 @@
-package packageFiles;
-
 import java.math.BigInteger;
 import java.security.NoSuchAlgorithmException;
 import java.sql.*;
@@ -9,7 +7,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class StoreDBManager {
-    private static Connection connect() throws Exception {
+    public static Connection connect() throws Exception {
 
         String url = "jdbc:postgresql://kandula.db.elephantsql.com:5432/ikzmpslm";
         String user = "ikzmpslm";
@@ -42,7 +40,7 @@ public class StoreDBManager {
                     ");" +
                     "CREATE TABLE basket (" +
                     "   id BIGSERIAL PRIMARY KEY NOT NULL, " +
-                    "   customer_id BIGINT REFERENCES store_customers (id) ON DELETE CASCADE  NOT NULL, " +
+                    "   customer_id BIGINT REFERENCES customer (id) ON DELETE CASCADE  NOT NULL, " +
                     "   UNIQUE(customer_id)" +
                     ");" +
                     "CREATE TABLE product (" +
@@ -91,15 +89,15 @@ public class StoreDBManager {
         String rePhonePattern = "^\\d{10,11}$";
         Pattern pattern = Pattern.compile(rePhonePattern, Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(phoneNumber.strip());
-        if (matcher.find())
-            return "Invalid UK phone number, must be 10 or digits.";
+        if (!matcher.find())
+            return "Invalid UK phone number, must be 10 or 11 digits.";
 
         password = encryptPassword(password);
 
         String sqlQuery;
         sqlQuery = String.format("INSERT INTO customer " +
                 "(first_name, last_name, email, phone_number, password)" +
-                "VALUES (%s, %s, %s, %s, %s);", firstName, lastName, email, phoneNumber, password);
+                "VALUES ('%s', '%s', '%s', '%s', '%s');", firstName, lastName, email, phoneNumber, password);
 
         try {
             Connection con = connect();
@@ -154,12 +152,12 @@ public class StoreDBManager {
             Connection con = connect();
             Statement statement = con.createStatement();
             resultSet = statement.executeQuery("SELECT * FROM " + tableName + ";");
-            resultSet.close();
 
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
             System.exit(0);
         }
+        // Close the ResultSet after you finish resultSet.close()
         return resultSet;
     }
 
@@ -204,13 +202,13 @@ public class StoreDBManager {
                     System.err.println(e.getClass().getName() + ": " + e.getMessage());
                     System.exit(0);
                 }
-                
+
                 return session;
             }
             /*
              *  Implement this else statement in the gui.
              *
-             * check if session is empty first with login.isEmpty().
+             * check if session is empty first with login.isEmpty()
              *
              *      else {
              *          return "Invalid email and password combination.";
