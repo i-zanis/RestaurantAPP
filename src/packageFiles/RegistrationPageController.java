@@ -14,27 +14,29 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 import static packageFiles.Main.*;
+import static packageFiles.StoreDBManager.*;
 
 
 
 public class RegistrationPageController implements Initializable {
 
     public Label errorLabelRegistration;
-    public TextField emailRegistrationField2;
-    public TextField surnameRegistrationField;
     public TextField nameRegistrationField;
+    public TextField surnameRegistrationField;
     public TextField emailRegistrationField1;
+    public TextField emailRegistrationField2;
     public TextField mobileRegistrationField;
+    public TextField postCodeRegistrationField;
+    public TextField addressRegistrationField;
     public PasswordField passwordFieldRegistration1;
+    public PasswordField passwordFieldRegistration2;
+    public ChoiceBox<String> yearChoiceBox;
+    public ChoiceBox<String>  monthChoiceBox;
     public TextField cardRegistrationField;
     public TextField cvvRegistrationField;
     public CheckBox checkBoxRegistration;
-    public ChoiceBox<String> yearChoiceBox;
-    public ChoiceBox<String>  monthChoiceBox;
     public Button registrationButton;
-    public TextField postCodeRegistrationField;
-    public TextField addressRegistrationField;
-    public PasswordField passwordFieldRegistration2;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -49,14 +51,22 @@ public class RegistrationPageController implements Initializable {
 
     }
     public void registrationSuccessful(ActionEvent event) throws Exception {
+        boolean proceed = false;
         try {
+            errorLabelRegistration.setText(createUser(nameRegistrationField.getText(), surnameRegistrationField.getText(),
+                    emailRegistrationField1.getText(), mobileRegistrationField.getText(),
+                    passwordFieldRegistration1.getText()));
             email = emailRegistrationField1.getText();
-            Parent mainMenuView = FXMLLoader.load(getClass().getResource(logInPage));
-            Scene logInPage = new Scene(mainMenuView);
-            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            logInPage.getStylesheets().add(styleCSS);
-            window.setScene(logInPage);
-            window.show();
+            if (errorLabelRegistration.getText().equals("User has been successfully created.")) proceed = true;
+            if (proceed) {
+                email = emailRegistrationField1.getText();
+                Parent mainMenuView = FXMLLoader.load(getClass().getResource(logInPage));
+                Scene logInPage = new Scene(mainMenuView);
+                Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                logInPage.getStylesheets().add(styleCSS);
+                window.setScene(logInPage);
+                window.show();
+            }
         }
         catch (Exception e) {
             System.out.println("Error occurred while opening the registrationView.");
