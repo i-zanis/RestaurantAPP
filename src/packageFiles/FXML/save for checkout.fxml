@@ -25,7 +25,7 @@
    </top>
    <center>
       <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #f5f5dc;" BorderPane.alignment="CENTER">
-         <Label fx:id="errorLabelRegistration" layoutX="125.0" layoutY="14.0" text="Invalid Password" textFill="RED" />
+         <Label fx:id="errorLabelRegistration" layoutX="125.0" layoutY="14.0" textFill="RED" />
          <TextField fx:id="nameRegistrationField" layoutX="40.0" layoutY="40.0" prefHeight="25.0" prefWidth="253.0" promptText="Name" />
          <TextField fx:id="surnameRegistrationField" layoutX="40.0" layoutY="75.0" prefHeight="25.0" prefWidth="253.0" promptText="Surname" />
          <TextField fx:id="emailRegistrationField1" layoutX="40.0" layoutY="110.0" prefHeight="25.0" prefWidth="253.0" promptText="E-mail Address" />

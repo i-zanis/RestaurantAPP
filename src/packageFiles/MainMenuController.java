@@ -93,6 +93,7 @@ public class MainMenuController implements Initializable {
         //basketItemAmount1, basketItemAmount1, basketItemAmount2, basketItemName2,
          //       basketItemPrice2, basketItemAmount3, basketItemName3, basketItemPrice3, basketItemAmount4, basketItemName4,basketItemPrice4, basketItemAmount5, basketItemName5, basketItemPrice5);
         public void displayAll() {
+            totalAmount.setText(pound + calculatePrice() + "");
             for (int i = 0; i < itemList.size(); i++) {
                 labelList.get(i).setText(itemList.get(i));
             }

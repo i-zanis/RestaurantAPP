@@ -65,17 +65,20 @@ public class StoreDBManager {
 
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
-            System.exit(0);
+            //System.exit(0);
         }
     }
 
-    public static String createUser(String firstName, String lastName, String email, String phoneNumber, String password) {
+    public static String createUser(String firstName, String lastName, String email, String phoneNumber, String password, String address, String postCode) {
         if (firstName.isEmpty())
             return "First name is required.";
         if (lastName.isEmpty())
             return "Last name is required.";
         if (email.isEmpty())
             return "Email is required.";
+        // switched because of priority in the input
+        if (!normaliseEmail(email))
+            return "Invalid email address.";
         if (phoneNumber.isEmpty())
             return "Phone number is required.";
         // double check email and password in the frontend
@@ -83,9 +86,15 @@ public class StoreDBManager {
             return "Password is required.";
         if (password.length() < 8)
             return "Weak password less than 8 characters.";
+        if (address.isEmpty())
+            return "Address is required.";
+        if (postCode.isEmpty())
+            return "Post code is required.";
+
 
         if (!normaliseEmail(email))
             return "Invalid email address.";
+
 
         String rePhonePattern = "^\\d{10,11}$";
         Pattern pattern = Pattern.compile(rePhonePattern, Pattern.CASE_INSENSITIVE);
