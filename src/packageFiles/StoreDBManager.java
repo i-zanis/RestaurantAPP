@@ -76,27 +76,22 @@ public class StoreDBManager {
             return "Last name is required.";
         if (email.isEmpty())
             return "Email is required.";
-        // switched because of priority in the input fields
-        if (!normaliseEmail(email))
-            return "Invalid email address.";
         if (phoneNumber.isEmpty())
             return "Phone number is required.";
-
-        // switched because of priority in the input fields
-        String rePhonePattern = "^\\d{10,11}$";
-        Pattern pattern = Pattern.compile(rePhonePattern, Pattern.CASE_INSENSITIVE);
-        Matcher matcher = pattern.matcher(phoneNumber.strip());
-        if (!matcher.find())
-            return "Invalid UK phone number, must be 10 or 11 digits.";
-
         // double check email and password in the frontend
         if (password.isEmpty())
             return "Password is required.";
         if (password.length() < 8)
             return "Weak password less than 8 characters.";
 
+        if (!normaliseEmail(email))
+            return "Invalid email address.";
 
-
+        String rePhonePattern = "^\\d{10,11}$";
+        Pattern pattern = Pattern.compile(rePhonePattern, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(phoneNumber.strip());
+        if (!matcher.find())
+            return "Invalid UK phone number, must be 10 or 11 digits.";
 
         password = encryptPassword(password);
 
@@ -104,7 +99,6 @@ public class StoreDBManager {
         sqlQuery = String.format("INSERT INTO customer " +
                 "(first_name, last_name, email, phone_number, password)" +
                 "VALUES ('%s', '%s', '%s', '%s', '%s');", firstName, lastName, email, phoneNumber, password);
-
         try {
             Connection con = connect();
             Statement statement = con.createStatement();

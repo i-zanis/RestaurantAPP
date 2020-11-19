@@ -36,18 +36,29 @@ public class LogInPageController implements Initializable {
     // this is the main method that needs work. It needs to be connected to the database.
     //
     public void signSuccessful(ActionEvent event) throws Exception {
-        try {
-            Parent mainMenuView = FXMLLoader.load(getClass().getResource(mainmenu));
-            Scene mainMenuScene = new Scene(mainMenuView);
-            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            mainMenuScene.getStylesheets().add(styleCSS);
-            window.setScene(mainMenuScene);
-            window.show();
+        String email = emailField.getText();
+        String pwd = passwordField.getText();
+
+        String session = StoreDBManager.login(email, pwd);
+        System.out.println(session);
+        if (!session.isEmpty()) {
+            try {
+                Parent mainMenuView = FXMLLoader.load(getClass().getResource(mainmenu));
+                Scene mainMenuScene = new Scene(mainMenuView);
+                Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                mainMenuScene.getStylesheets().add(styleCSS);
+                window.setScene(mainMenuScene);
+                window.show();
+            }
+            catch (Exception e) {
+                System.out.println("Error occurred while opening the mainMenuView.");
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("get out");
+
         }
-        catch (Exception e) {
-            System.out.println("Error occurred while opening the mainMenuView.");
-            e.printStackTrace();
-        }
+
     }
 
     public void loadMainMenu(ActionEvent event) throws Exception {
