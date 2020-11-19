@@ -33,8 +33,8 @@ public class CheckoutPageController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        monthChoiceBox.getItems().addAll("Select month", "Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct",
-                "Nov", "Dec");
+        monthChoiceBox.getItems().addAll("Select month", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10",
+                "11", "12");
         monthChoiceBox.setValue("Select month");
         yearChoiceBox.getItems().addAll("Select year", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029",
                 "2030", "2031");
