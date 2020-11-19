@@ -18,7 +18,8 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class Main extends Application {
-    
+    public static String session = "";
+    public static String name = "";
     // potentially here i will save the pages as a String
     public static String logInPage    = "FXML/loginpage.fxml";
     public static String registration = "FXML/registrationpage.fxml";

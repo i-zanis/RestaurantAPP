@@ -11,7 +11,6 @@ import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -38,8 +37,7 @@ public class LogInPageController implements Initializable {
     public void signSuccessful(ActionEvent event) throws Exception {
         String email = emailField.getText();
         String pwd = passwordField.getText();
-
-        String session = StoreDBManager.login(email, pwd);
+        session = StoreDBManager.login(email, pwd);
         System.out.println(session);
         if (!session.isEmpty()) {
             try {
@@ -55,7 +53,7 @@ public class LogInPageController implements Initializable {
                 e.printStackTrace();
             }
         } else {
-            System.out.println("get out");
+            System.out.println(session);
 
         }
 
