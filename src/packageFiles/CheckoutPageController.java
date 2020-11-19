@@ -3,7 +3,6 @@ package packageFiles;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -41,13 +40,13 @@ public class CheckoutPageController implements Initializable {
         yearChoiceBox.setValue("Select year");
         cardCheckoutField.setTooltip(new Tooltip("Please enter 16 digits."));
         cvvCheckoutField.setTooltip(new Tooltip("The 3 digit code at the back of your card."));
-            try {
-                nameCheckoutField.setText(StoreDBManager.getCustomer(session).getString("first_name"));
-                surnameCheckoutField.setText(StoreDBManager.getCustomer(session).getString("last_name"));
-            } catch (SQLException e) {
-                System.out.println("Error retrieving name or surname in CheckoutPageController.");
-                e.printStackTrace();
-            }
+        try {
+            nameCheckoutField.setText(StoreDBManager.getCustomer(session).getString("first_name"));
+            surnameCheckoutField.setText(StoreDBManager.getCustomer(session).getString("last_name"));
+        } catch (SQLException e) {
+            System.out.println("Error retrieving name or surname in CheckoutPageController.");
+            e.printStackTrace();
+        }
     }
 
     public void loadThankYou(ActionEvent event) throws Exception {
@@ -57,18 +56,15 @@ public class CheckoutPageController implements Initializable {
                 errorLabelCheckout.setText("Street address is required.");
                 addressCheckoutField.requestFocus();
                 proceed = false;
-            }
-            else if(postCodeCheckoutField.getText().equals("")) {
+            } else if (postCodeCheckoutField.getText().equals("")) {
                 errorLabelCheckout.setText("Post code is required.");
                 postCodeCheckoutField.requestFocus();
                 proceed = false;
-            }
-            else if(cardCheckoutField.getText().equals("")) {
+            } else if (cardCheckoutField.getText().equals("")) {
                 errorLabelCheckout.setText("Card Number is required.");
                 cardCheckoutField.requestFocus();
                 proceed = false;
-            }
-            else if(cvvCheckoutField.getText().equals("")) {
+            } else if (cvvCheckoutField.getText().equals("")) {
                 errorLabelCheckout.setText("CVV Number is required.");
                 cvvCheckoutField.requestFocus();
                 proceed = false;
@@ -95,8 +91,7 @@ public class CheckoutPageController implements Initializable {
             logInPage.getStylesheets().add(styleCSS);
             window.setScene(logInPage);
             window.show();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             System.out.println("Error occurred while opening the registrationView.");
             e.printStackTrace();
         }
