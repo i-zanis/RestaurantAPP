@@ -69,38 +69,34 @@ public class StoreDBManager {
         }
     }
 
-    public static String createUser(String firstName, String lastName, String email, String phoneNumber, String password, String address, String postCode) {
+    public static String createUser(String firstName, String lastName, String email, String phoneNumber, String password) {
         if (firstName.isEmpty())
             return "First name is required.";
         if (lastName.isEmpty())
             return "Last name is required.";
         if (email.isEmpty())
             return "Email is required.";
-        // switched because of priority in the input
+        // switched because of priority in the input fields
         if (!normaliseEmail(email))
             return "Invalid email address.";
         if (phoneNumber.isEmpty())
             return "Phone number is required.";
-        // double check email and password in the frontend
-        if (password.isEmpty())
-            return "Password is required.";
-        if (password.length() < 8)
-            return "Weak password less than 8 characters.";
-        if (address.isEmpty())
-            return "Address is required.";
-        if (postCode.isEmpty())
-            return "Post code is required.";
 
-
-        if (!normaliseEmail(email))
-            return "Invalid email address.";
-
-
+        // switched because of priority in the input fields
         String rePhonePattern = "^\\d{10,11}$";
         Pattern pattern = Pattern.compile(rePhonePattern, Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(phoneNumber.strip());
         if (!matcher.find())
             return "Invalid UK phone number, must be 10 or 11 digits.";
+
+        // double check email and password in the frontend
+        if (password.isEmpty())
+            return "Password is required.";
+        if (password.length() < 8)
+            return "Weak password less than 8 characters.";
+
+
+
 
         password = encryptPassword(password);
 
