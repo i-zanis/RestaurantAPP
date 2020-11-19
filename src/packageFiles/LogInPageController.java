@@ -16,19 +16,16 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import static packageFiles.Main.*;
-public class LogInPageController implements Initializable {
-    public BorderPane logInPageController;
-    @FXML
-    public Label errorLabelLogIn;
 
+public class LogInPageController implements Initializable {
+
+    public Label errorLabelLogIn;
     public Button signInButton;
     public TextField emailField;
     public PasswordField passwordField;
     public Button googleButton;
     public Button facebookButton;
     public Button registrationButton;
-
-
 
 
     @Override

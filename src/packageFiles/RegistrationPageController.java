@@ -29,8 +29,6 @@ public class RegistrationPageController implements Initializable {
     public TextField emailRegistrationField1;
     public TextField emailRegistrationField2;
     public TextField mobileRegistrationField;
-    public TextField addressRegistrationField;
-    public TextField postCodeRegistrationField;
     public PasswordField passwordFieldRegistration1;
     public PasswordField passwordFieldRegistration2;
     public Button registrationButton;
@@ -46,7 +44,7 @@ public class RegistrationPageController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
     }
 
-    protected void registrationSuccessful(ActionEvent event) throws Exception {
+    public void registrationSuccessful(ActionEvent event) throws Exception {
         boolean proceed = false;
         try {
             errorLabelRegistration.setText(createUser(nameRegistrationField.getText(), surnameRegistrationField.getText(),
@@ -105,8 +103,12 @@ public class RegistrationPageController implements Initializable {
                 passwordFieldRegistration1.requestFocus();
             }
 
-            email = emailRegistrationField1.getText();
             // this temporary solution till addition in the database.
+            // sends the email back to Log in Page
+            email = emailRegistrationField1.getText();
+            // saves the name for the thanking message
+            nameRegistration = nameRegistrationField.getText();
+
 
            if (proceed) {
                 email = emailRegistrationField1.getText();

@@ -24,6 +24,7 @@ public class Main extends Application {
     public static String registration = "FXML/registrationpage.fxml";
     public static String mainmenu     = "FXML/mainmenu.fxml";
     public static String checkout     = "FXML/checkout.fxml";
+    public static String thankyou     = "FXML/thankyou.fxml";
     public static String failed       = "FXML/authenticationFailedPage.fxml";
     public static String styleCSS     = "/packageFiles/CSS/style.css";
     public static String dragonPic    = "/packageFiles/Media/dragonpic.png";
@@ -38,12 +39,9 @@ public class Main extends Application {
     public static String emailRegistration = "";
     public static String passwordRegistration = "";
     public static String mobileRegistration = "";
-    public static String cardNumberRegistration = "";
-    public static String monthRegistration = "";
-    public static String yearRegistration = "";
-    public static Boolean defaultPayment = false;
 
-    //mainMain
+
+    //MainMenu
     final static String pound = "£";
     final static String multi = "x";
 
@@ -67,7 +65,19 @@ public class Main extends Application {
     public static int basketTotal = 0;
     public static ArrayList<String> itemList = new ArrayList<>();
 
+    // checkout
+    public static String cardNumberRegistration = "";
+    public static String monthRegistration = "";
+    public static String yearRegistration = "";
+    public static Boolean defaultPayment = false;
 
+    // thankyou
+    final static String thankYouMessagePeriod = "Our Chefs are currently sharpening their knives and collecting the " +
+            "freshest ingredients. " +
+            "We aim for delivery in less than 45 minutes. For one more time thank you for choosing Shenlong.";
+    final static String thankYouMessageWithoutPeriod = "Our Chefs are currently sharpening their knives and " +
+            "collecting the freshest ingredients. " +
+            "We aim for delivery in less than 45 minutes. For one more time thank you for choosing Shenlong ";
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource(logInPage));

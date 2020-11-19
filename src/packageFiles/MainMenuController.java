@@ -90,8 +90,6 @@ public class MainMenuController implements Initializable {
         labelList.add(basketItemName5);
         labelList.add(basketItemPrice5);
     }
-        //basketItemAmount1, basketItemAmount1, basketItemAmount2, basketItemName2,
-         //       basketItemPrice2, basketItemAmount3, basketItemName3, basketItemPrice3, basketItemAmount4, basketItemName4,basketItemPrice4, basketItemAmount5, basketItemName5, basketItemPrice5);
         public void displayAll() {
             totalAmount.setText(pound + calculatePrice() + "");
             for (int i = 0; i < itemList.size(); i++) {
@@ -119,11 +117,8 @@ public class MainMenuController implements Initializable {
             if (itemUnits != 0) {
                 itemList.set(itemList.indexOf(itemName) - 1, itemUnits + multi);
             }
-           // else itemList.set(itemList.indexOf(itemName) - 1, "");
-         //   int x = Integer.parseInt(itemList.get(itemList.indexOf(itemName) - 1));
-         //       itemList.set(itemList.indexOf(itemName) - 1, x + "");
-            }
         }
+    }
 
     public void decreaseItemAmountBasket(String itemName, int itemUnits) {
         if (itemList.contains(itemName)) {
@@ -132,7 +127,7 @@ public class MainMenuController implements Initializable {
             }
         }
     }
-
+    // the buttons have been named and set to show only graphic for this to work.
     public void Addremove(Event e) {
         String condition = ((Button) e.getSource()).getText();
         System.out.println(condition);
@@ -301,117 +296,6 @@ public class MainMenuController implements Initializable {
                 + (item5Units * price5);
     }
 
-    /*
-public void resetFieldsWithZeroAmount() {
-        itemList.trimToSize();
-    if (basketItemAmount1.getText().equals("0") || basketItemAmount1.getText().equals("-1")) {
-        basketItemName1.setText("");
-        basketItemAmount1.setText("");
-        basketItemPrice1.setText("");
-    }
-    if (basketItemAmount2.getText().equals("0") || basketItemAmount2.getText().equals("-1")) {
-        basketItemName2.setText("");
-        basketItemAmount2.setText("");
-        basketItemPrice2.setText("");
-    }
-    if (basketItemAmount3.getText().equals("0") || basketItemAmount3.getText().equals("-1")) {
-        basketItemName3.setText("");
-        basketItemAmount3.setText("");
-        basketItemPrice3.setText("");
-    }
-    if (basketItemAmount4.getText().equals("0") || basketItemAmount4.getText().equals("-1")) {
-        basketItemName4.setText("");
-        basketItemAmount4.setText("");
-        basketItemPrice4.setText("");
-    }
-    if (basketItemAmount5.getText().equals("0") || basketItemAmount5.getText().equals("-1")) {
-        basketItemName5.setText("");
-        basketItemAmount5.setText("");
-        basketItemPrice5.setText("");
-    }
-}
-public void updateBasket100() {
-    basketItemName1.setText("");
-    basketItemAmount1.setText("");
-    basketItemPrice1.setText("");
-    basketItemName2.setText("");
-    basketItemAmount2.setText("");
-    basketItemPrice2.setText("");
-    basketItemName3.setText("");
-    basketItemAmount3.setText("");
-    basketItemPrice3.setText("");
-    basketItemName4.setText("");
-    basketItemAmount4.setText("");
-    basketItemPrice4.setText("");
-    basketItemName5.setText("");
-    basketItemAmount5.setText("");
-    basketItemPrice5.setText("");
-
-    for (int i = 0; i < itemList.size(); i++) {
-        if (getAmount(itemList.get(0)) == 0) {
-            itemList.remove(0);
-            basketItemName1.setText("");
-            basketItemAmount1.setText("");
-            basketItemPrice1.setText("");
-        }
-    }
-}
-    public void updateBasket() {
-        resetFieldsWithZeroAmount();
-        for (String s : itemList) {
-            System.out.println(s);
-        }
-            basketItemName1.setText(itemList.get(0));
-            basketItemAmount1.setText(getAmount(itemList.get(0)) + "");
-            basketItemPrice1.setText(getPrice(itemList.get(0)) + "");
-            if (getAmount(itemList.get(0)) == 0) {
-                itemList.remove(0);
-                basketItemName1.setText("");
-               basketItemAmount1.setText("");
-               basketItemPrice1.setText("");
-            }
-
-                basketItemName2.setText(itemList.get(1));
-                basketItemAmount2.setText(getAmount(itemList.get(1)) + "");
-                basketItemPrice2.setText(getPrice(itemList.get(1)) + "");
-                if (getAmount(itemList.get(1)) == 0) {
-                    itemList.remove(1);
-                    basketItemName2.setText("");
-                    basketItemAmount2.setText("");
-                    basketItemPrice2.setText("");
-                }
-                basketItemName3.setText(itemList.get(2));
-                basketItemAmount3.setText(getAmount(itemList.get(2)) + "");
-                basketItemPrice3.setText(getPrice(itemList.get(2)) + "");
-                if (getAmount(itemList.get(2)) == 0) {
-                    itemList.remove(2);
-                    basketItemName3.setText("");
-                    basketItemAmount3.setText("");
-                    basketItemPrice3.setText("");
-                }
-            basketItemName4.setText(itemList.get(3));
-            basketItemAmount4.setText(getAmount(itemList.get(3)) + "");
-            basketItemPrice4.setText(getPrice(itemList.get(3)) + "");
-            if (getAmount(itemList.get(3)) == 0) {
-                itemList.remove(3);
-                basketItemName4.setText("");
-                basketItemAmount4.setText("");
-                basketItemPrice4.setText("");
-            }
-
-                basketItemName5.setText(itemList.get(4));
-                basketItemAmount5.setText(getAmount(itemList.get(4)) + "");
-                basketItemPrice5.setText(getPrice(itemList.get(4)) + "");
-                if (getAmount(itemList.get(4)) == 0) {
-                    itemList.remove(4);
-                    basketItemName5.setText("");
-                    basketItemAmount5.setText("");
-                    basketItemPrice5.setText("");
-                }
-                resetFieldsWithZeroAmount();
-                totalAmount.setText(pound + calculatePrice() + "");
-            }
-*/
  public void loadCheckout(ActionEvent event) throws Exception {
         try {
             Parent checkoutView = FXMLLoader.load(getClass().getResource(checkout));
@@ -427,120 +311,6 @@ public void updateBasket100() {
         }
     }
 
-    // the buttons have been named and set to show only graphic for this to work.
-
-    public void Addremove22(Event e) {
-        String condition  = ((Button)e.getSource()).getText();
-        System.out.println(condition);
-        System.out.println(item1Units);
-    
-        switch (condition) {
-            case "menu1add" :
-                item1Units++;
-                basketTotal++;
-                menu1reduce.setVisible(true);
-                menuItem1amount.setText(item1Units + "");
-                menuItem1amount.setVisible(true);
-                basketNumber.setText(basketTotal + "");
-                if (!itemList.contains(itemName1)) addToList(itemName1);
-                break;
-            case "menu1reduce" :
-                item1Units--;
-                basketTotal--;
-                menuItem1amount.setText(item1Units + "");
-                basketNumber.setText(basketTotal + "");
-                if (item1Units == 0) {
-                    menu1reduce.setVisible(false);
-                    menuItem1amount.setVisible(false);
-                    itemList.remove(itemName1);
-                }
-                break;
-                
-            case "menu2add" :
-                item2Units++;
-                basketTotal++;
-                menu2reduce.setVisible(true);
-                menuItem2amount.setText(item2Units + "");
-                menuItem2amount.setVisible(true);
-                basketNumber.setText(basketTotal + "");
-                if (!itemList.contains(itemName2)) addToList(itemName2);
 
 
-                break;
-            case "menu2reduce" :
-                item2Units--;
-                basketTotal--;
-                menuItem2amount.setText(item2Units + "");
-                basketNumber.setText(basketTotal + "");
-                if (item2Units == 0) {
-                    menu2reduce.setVisible(false);
-                    menuItem2amount.setVisible(false);
-                    itemList.remove(itemName2);
-                }
-
-                break;
-            case "menu3add" :
-                item3Units++;
-                basketTotal++;
-                menu3reduce.setVisible(true);
-                menuItem3amount.setText(item3Units + "");
-                menuItem3amount.setVisible(true);
-                basketNumber.setText(basketTotal + "");
-                if (!itemList.contains(itemName3)) itemList.add(itemName3);
-                break;
-            case "menu3reduce" :
-                item3Units--;
-                basketTotal--;
-                menuItem3amount.setText(item3Units + "");
-                basketNumber.setText(basketTotal + "");
-                if (item3Units == 0) {
-                    menu3reduce.setVisible(false);
-                    menuItem3amount.setVisible(false);
-                    itemList.remove(itemName3);
-                }
-                break;
-
-            case "menu4add" :
-                item4Units++;
-                basketTotal++;
-                menu4reduce.setVisible(true);
-                menuItem4amount.setText(item4Units + "");
-                menuItem4amount.setVisible(true);
-                basketNumber.setText(basketTotal + "");
-                if (!itemList.contains(itemName4)) itemList.add(itemName4);
-                break;
-            case "menu4reduce" :
-                item4Units--;
-                basketTotal--;
-                menuItem4amount.setText(item4Units + "");
-                basketNumber.setText(basketTotal + "");
-                if (item4Units == 0) {
-                    menu4reduce.setVisible(false);
-                    menuItem4amount.setVisible(false);
-                    itemList.remove(itemName4);
-                }
-                break;
-
-            case "menu5add" :
-                item5Units++;
-                basketTotal++;
-                menu5reduce.setVisible(true);
-                menuItem5amount.setText(item5Units + "");
-                menuItem5amount.setVisible(true);
-                basketNumber.setText(basketTotal + "");
-                if (!itemList.contains(itemName5)) itemList.add(itemName5);
-                break;
-            case "menu5reduce" :
-                item5Units--;
-                basketTotal--;
-                menuItem5amount.setText(item5Units + "");
-                basketNumber.setText(basketTotal + "");
-                if (item5Units == 0) {
-                    menu5reduce.setVisible(false);
-                    menuItem5amount.setVisible(false);
-                    if (itemList.contains(itemName5)) itemList.remove(itemName5);
-                }
-                break;
-        }
-        }
     }
