@@ -32,13 +32,6 @@ public class RegistrationPageController implements Initializable {
     public PasswordField passwordFieldRegistration1;
     public PasswordField passwordFieldRegistration2;
     public Button registrationButton;
-    /*public TextField cardRegistrationField;
-    public ChoiceBox<String> yearChoiceBox;
-    public ChoiceBox<String> monthChoiceBox;
-    public TextField cvvRegistrationField;
-    public CheckBox checkBoxRegistration;
-
-*/
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -108,7 +101,6 @@ public class RegistrationPageController implements Initializable {
             email = emailRegistrationField1.getText();
             // saves the name for the thanking message
             nameRegistration = nameRegistrationField.getText();
-
 
            if (proceed) {
                 email = emailRegistrationField1.getText();

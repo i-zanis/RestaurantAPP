@@ -18,7 +18,6 @@ import static packageFiles.Main.*;
 
 public class CheckoutPageController implements Initializable {
 
-
     public Label errorLabelCheckout;
     public TextField nameCheckoutField;
     public TextField surnameCheckoutField;

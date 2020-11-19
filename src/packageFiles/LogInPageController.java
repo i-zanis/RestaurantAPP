@@ -33,7 +33,8 @@ public class LogInPageController implements Initializable {
         emailField.setText(email);
     }
 
-
+    // this is the main method that needs work. It needs to be connected to the database.
+    //
     public void signSuccessful(ActionEvent event) throws Exception {
         try {
             Parent mainMenuView = FXMLLoader.load(getClass().getResource(mainmenu));
@@ -79,7 +80,7 @@ public class LogInPageController implements Initializable {
         }
     }
 
-
+    // method for Google/Facebook method that has not been implemented yet due to licensing
     public void loadGoogleFacebook(ActionEvent event) throws Exception {
         try {
             Parent mainMenuView = FXMLLoader.load(getClass().getResource(failed));

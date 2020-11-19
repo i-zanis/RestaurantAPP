@@ -104,8 +104,8 @@ public class MainMenuController implements Initializable {
 
     public void removeFromList(String itemName) {
         itemList.remove(itemList.indexOf(itemName) - 1);
+        itemList.remove(itemList.indexOf(itemName) + 1);
         itemList.remove(itemName);
-        itemList.remove(pound + getPrice(itemName));
     }
     public void clearAll() {
      for (int i = 0; i < 15; i++) { //change to 155
@@ -116,6 +116,7 @@ public class MainMenuController implements Initializable {
         if (itemList.contains(itemName)) {
             if (itemUnits != 0) {
                 itemList.set(itemList.indexOf(itemName) - 1, itemUnits + multi);
+                itemList.set(itemList.indexOf(itemName) + 1, pound + (itemUnits * getPrice(itemName)));
             }
         }
     }
@@ -124,6 +125,7 @@ public class MainMenuController implements Initializable {
         if (itemList.contains(itemName)) {
             if (itemUnits != 0) {
                 itemList.set(itemList.indexOf(itemName) - 1, itemUnits + multi);
+                itemList.set(itemList.indexOf(itemName) + 1, pound + (itemUnits * getPrice(itemName)));
             }
         }
     }
