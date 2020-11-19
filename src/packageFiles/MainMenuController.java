@@ -70,6 +70,7 @@ public class MainMenuController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        // Grouping all 15 Labels for iterations
         labelList.add(basketItemAmount1);
         labelList.add(basketItemName1);
         labelList.add(basketItemPrice1);
@@ -90,12 +91,14 @@ public class MainMenuController implements Initializable {
         labelList.add(basketItemName5);
         labelList.add(basketItemPrice5);
     }
-        public void displayAll() {
-            totalAmount.setText(pound + calculatePrice() + "");
-            for (int i = 0; i < itemList.size(); i++) {
-                labelList.get(i).setText(itemList.get(i));
-            }
+
+    public void displayAll() {
+        totalAmount.setText(pound + calculatePrice() + "");
+        for (int i = 0; i < itemList.size(); i++) {
+            labelList.get(i).setText(itemList.get(i));
         }
+    }
+
     public void addToList(String itemName) {
         itemList.add(getAmount(itemName) + "");// empty string for string conversion
         itemList.add(itemName);
