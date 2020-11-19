@@ -110,7 +110,7 @@ public class StoreDBManager {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
            // System.exit(0);
         }
-
+        System.out.println("User has been successfully created.");
         return "User has been successfully created.";
     }
 

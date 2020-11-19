@@ -13,7 +13,6 @@ import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import static packageFiles.Main.*;
 
 public class LogInPageController implements Initializable {
@@ -32,13 +31,29 @@ public class LogInPageController implements Initializable {
         emailField.setText(email);
     }
 
-    // this is the main method that needs work. It needs to be connected to the database.
-    //
     public void signSuccessful(ActionEvent event) throws Exception {
         String email = emailField.getText();
         String pwd = passwordField.getText();
         session = StoreDBManager.login(email, pwd);
-        System.out.println(session);
+
+        if (emailField.getText().equals("")) {
+            errorLabelLogIn.setText("Email is required.");
+            emailField.requestFocus();
+        }
+        else if (passwordField.getText().equals("")) {
+            errorLabelLogIn.setText("Password is required.");
+            passwordField.requestFocus();
+        }
+        else if (session.isEmpty()) {
+            errorLabelLogIn.setText("Invalid Username or Password.");
+            emailField.setText("");
+            passwordField.setText("");
+            emailField.requestFocus();
+        }
+        if (session.isEmpty()) System.out.println("Invalid Session.");
+            else System.out.println("Session code " + session); // for educational purposes it is displayed
+
+
         if (!session.isEmpty()) {
             try {
                 Parent mainMenuView = FXMLLoader.load(getClass().getResource(mainmenu));

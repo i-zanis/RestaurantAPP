@@ -11,6 +11,7 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import static packageFiles.Main.*;
@@ -40,6 +41,13 @@ public class CheckoutPageController implements Initializable {
         yearChoiceBox.setValue("Select year");
         cardCheckoutField.setTooltip(new Tooltip("Please enter 16 digits."));
         cvvCheckoutField.setTooltip(new Tooltip("The 3 digit code at the back of your card."));
+            try {
+                nameCheckoutField.setText(StoreDBManager.getCustomer(session).getString("first_name"));
+                surnameCheckoutField.setText(StoreDBManager.getCustomer(session).getString("last_name"));
+            } catch (SQLException e) {
+                System.out.println("Error retrieving name or surname in CheckoutPageController.");
+                e.printStackTrace();
+            }
     }
 
     public void loadThankYou(ActionEvent event) throws Exception {

@@ -14,7 +14,6 @@ import static packageFiles.Main.*;
 public class ThankYouPageController implements Initializable {
     public Label checkoutControllerMessage1;
     public Label checkoutControllerMessage2;
-    ResultSet data = StoreDBManager.getCustomer(session);
 
 
     @Override
@@ -25,14 +24,14 @@ public class ThankYouPageController implements Initializable {
             name = "Unknown";
         System.out.println(session);
         try {
-            name = data.getString("first_name");
+            // getString needs try/catch for error
+            name = StoreDBManager.getCustomer(session).getString("first_name");
         } catch (Exception e) {
             System.out.println("Something went wrong");
         }
         checkoutControllerMessage2.setText(
                 String.format(
-                        "%s %s.", thankYouMessageWithoutPeriod, name
-                ));
+                        "%s %s.", thankYouMessageWithoutPeriod, name));
         System.out.println(StoreDBManager.logout(session));
     }
 }

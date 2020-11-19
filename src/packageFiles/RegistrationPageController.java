@@ -82,10 +82,6 @@ public class RegistrationPageController implements Initializable {
             }
             else if (errorLabelRegistration.getText().equals("Password is required.")) {
                 passwordFieldRegistration1.setText("");
-                passwordFieldRegistration1.requestFocus();
-            }
-            else if (errorLabelRegistration.getText().equals("Weak password less than 8 characters.")) {
-                passwordFieldRegistration1.setText("");
                 passwordFieldRegistration2.setText("");
                 passwordFieldRegistration1.requestFocus();
             }
@@ -95,6 +91,13 @@ public class RegistrationPageController implements Initializable {
                 passwordFieldRegistration2.setText("");
                 passwordFieldRegistration1.requestFocus();
             }
+            else if (errorLabelRegistration.getText().equals("Weak password less than 8 characters.")) {
+                passwordFieldRegistration1.setText("");
+                passwordFieldRegistration2.setText("");
+                passwordFieldRegistration1.requestFocus();
+            }
+
+
 
             // this temporary solution till addition in the database.
             // sends the email back to Log in Page

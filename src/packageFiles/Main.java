@@ -12,6 +12,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import javax.xml.transform.Result;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
@@ -20,6 +22,7 @@ import java.util.Set;
 public class Main extends Application {
     public static String session = "";
     public static String name = "";
+
     // potentially here i will save the pages as a String
     public static String logInPage    = "FXML/loginpage.fxml";
     public static String registration = "FXML/registrationpage.fxml";
@@ -79,6 +82,7 @@ public class Main extends Application {
     final static String thankYouMessageWithoutPeriod = "Our Chefs are currently sharpening their knives and " +
             "collecting the freshest ingredients. " +
             "We aim for delivery in less than 45 minutes. For one more time thank you for choosing Shenlong ";
+
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource(logInPage));
