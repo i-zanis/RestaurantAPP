@@ -16,11 +16,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import static packageFiles.Main.*;
-public class LogInPageController implements Initializable {
-    public BorderPane logInPageController;
-    @FXML
-    public Label errorLabelLogIn;
 
+public class LogInPageController implements Initializable {
+
+    public Label errorLabelLogIn;
     public Button signInButton;
     public TextField emailField;
     public PasswordField passwordField;
@@ -29,14 +28,13 @@ public class LogInPageController implements Initializable {
     public Button registrationButton;
 
 
-
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         emailField.setText(email);
     }
 
-
+    // this is the main method that needs work. It needs to be connected to the database.
+    //
     public void signSuccessful(ActionEvent event) throws Exception {
         try {
             Parent mainMenuView = FXMLLoader.load(getClass().getResource(mainmenu));
@@ -82,7 +80,7 @@ public class LogInPageController implements Initializable {
         }
     }
 
-
+    // method for Google/Facebook method that has not been implemented yet due to licensing
     public void loadGoogleFacebook(ActionEvent event) throws Exception {
         try {
             Parent mainMenuView = FXMLLoader.load(getClass().getResource(failed));
