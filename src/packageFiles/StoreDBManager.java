@@ -114,7 +114,7 @@ public class StoreDBManager {
             con.close();
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
-            System.exit(0);
+           // System.exit(0);
         }
 
         return "User has been successfully created.";
@@ -152,7 +152,7 @@ public class StoreDBManager {
 
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
-            System.exit(0);
+           // System.exit(0);
         }
         String current_pwd = result.getString("password");
         result.close();
@@ -173,7 +173,7 @@ public class StoreDBManager {
 
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
-            System.exit(0);
+           // System.exit(0);
         }
         // Close the ResultSet after you finish resultSet.close()
         return resultSet;
@@ -194,7 +194,7 @@ public class StoreDBManager {
 
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
-            System.exit(0);
+          //  System.exit(0);
         }
         // Close the ResultSet after you finish resultSet.close()
         return resultSet;
@@ -213,7 +213,7 @@ public class StoreDBManager {
             con.close();
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
-            System.exit(0);
+         //   System.exit(0);
         }
         return resultSet;
 
@@ -238,7 +238,7 @@ public class StoreDBManager {
                     con.close();
                 } catch (Exception e) {
                     System.err.println(e.getClass().getName() + ": " + e.getMessage());
-                    System.exit(0);
+                 // System.exit(0);
                 }
 
                 return session;
@@ -295,7 +295,7 @@ public class StoreDBManager {
             con.close();
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
-            System.exit(0);
+         // System.exit(0);
         }
         return resultSet;
     }

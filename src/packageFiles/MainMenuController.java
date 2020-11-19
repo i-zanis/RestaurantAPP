@@ -101,13 +101,13 @@ public class MainMenuController implements Initializable {
     public void addToList(String itemName) {
         itemList.add(getAmount(itemName) + "");// empty string for string conversion
         itemList.add(itemName);
-        itemList.add(getPrice(itemName) + "");
+        itemList.add(pound + getPrice(itemName));
     }
 
     public void removeFromList(String itemName) {
         itemList.remove(itemList.indexOf(itemName) - 1);
         itemList.remove(itemName);
-        itemList.remove(getPrice(itemName) + "");
+        itemList.remove(pound + getPrice(itemName));
     }
     public void clearAll() {
      for (int i = 0; i < 15; i++) { //change to 155

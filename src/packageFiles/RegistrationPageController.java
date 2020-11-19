@@ -33,35 +33,31 @@ public class RegistrationPageController implements Initializable {
     public TextField postCodeRegistrationField;
     public PasswordField passwordFieldRegistration1;
     public PasswordField passwordFieldRegistration2;
+    public Button registrationButton;
     /*public TextField cardRegistrationField;
     public ChoiceBox<String> yearChoiceBox;
     public ChoiceBox<String> monthChoiceBox;
     public TextField cvvRegistrationField;
     public CheckBox checkBoxRegistration;
-    public Button registrationButton;
+
 */
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        /*monthChoiceBox.getItems().addAll("Select month", "Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct",
-                "Nov", "Dec");
-        monthChoiceBox.setValue("Select month");
-        yearChoiceBox.getItems().addAll("Select year", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029",
-                "2030", "2031");
-        yearChoiceBox.setValue("Select year");
-        cardRegistrationField.setTooltip(new Tooltip("Please enter 16 digits."));
-        cvvRegistrationField.setTooltip(new Tooltip("The 3 digit code at the back of your card."));
-        */
     }
 
-    public void registrationSuccessful(ActionEvent event) throws Exception {
+    protected void registrationSuccessful(ActionEvent event) throws Exception {
         boolean proceed = false;
         try {
             errorLabelRegistration.setText(createUser(nameRegistrationField.getText(), surnameRegistrationField.getText(),
                     emailRegistrationField1.getText(), mobileRegistrationField.getText(),
                     passwordFieldRegistration1.getText()));
 
-            if (errorLabelRegistration.getText().equals("User has been successfully created.")) proceed = true;
+            // checks if both password fields are identical and the confirmation from the database that fields are valid
+            if (errorLabelRegistration.getText().equals("User has been successfully created.")
+                    && (passwordFieldRegistration1.getText().equals(passwordFieldRegistration2.getText()))){
+                proceed = true;
+            }
             else if (errorLabelRegistration.getText().equals("First name is required.")) {
                 nameRegistrationField.setText("");
                 nameRegistrationField.requestFocus();
@@ -110,8 +106,9 @@ public class RegistrationPageController implements Initializable {
             }
 
             email = emailRegistrationField1.getText();
-            if (errorLabelRegistration.getText().equals("User has been successfully created.")) proceed = true;
-            if (proceed) {
+            // this temporary solution till addition in the database.
+
+           if (proceed) {
                 email = emailRegistrationField1.getText();
                 Parent mainMenuView = FXMLLoader.load(getClass().getResource(logInPage));
                 Scene logInPage = new Scene(mainMenuView);
