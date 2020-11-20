@@ -1,3 +1,3 @@
 # RestaurantAPP
-A very Restaurant APP demo with account registration, account log in and ordering functionalities.
+A simple Restaurant APP demo with account registration, account log in and ordering functionalities.
 ![Screenshot](RestaurantScreenshot.PNG)
