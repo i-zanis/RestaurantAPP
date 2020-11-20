@@ -73,7 +73,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource(logInPage));
         Scene logInScene = new Scene(root);
         logInScene.getStylesheets().clear();
-        logInScene.getStylesheets().add(styleCSS);.
+        logInScene.getStylesheets().add(styleCSS);
         primaryStage.setTitle("Shenlong");
         primaryStage.getIcons().add(new Image(dragonPic));
         primaryStage.setScene(logInScene);
