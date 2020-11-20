@@ -25,7 +25,7 @@
          <Label layoutX="25.0" layoutY="223.0" prefHeight="148.0" prefWidth="296.0" />
          <ImageView fitHeight="447.0" fitWidth="282.0" layoutX="32.0" layoutY="42.0">
             <image>
-               <Image url="@../Media/deaddragon.png" />
+               <Image url="@../Media/dead-dragon.png" />
             </image>
          </ImageView>
       </Pane>
