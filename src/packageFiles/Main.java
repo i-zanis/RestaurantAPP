@@ -9,6 +9,8 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Main extends Application {
     //MainMenu
@@ -24,6 +26,29 @@ public class Main extends Application {
     final static int price3 = 18;
     final static int price4 = 11;
     final static int price5 = 14;
+/*
+    Map<String, Integer> priceMap = new HashMap<String, Integer>() {
+        {
+            put("Mapo Tofu", 13);
+            put("Prawn Dumpling", 15);
+            put("Wonton Soup",18);
+            put("Spring Rolls",11);
+            put("Egg Fried Rice",14);
+        }
+    };
+
+    Map<String, Integer> itemUnitsMap = new HashMap<String, Integer>() {
+        {
+            put("Mapo Tofu", 0);
+            put("Prawn Dumpling", 0);
+            put("Wonton Soup",0);
+            put("Spring Rolls",0);
+            put("Egg Fried Rice",0);
+            put("BasketTotal",0);
+        }
+    };
+*/
+
     // thankyou
     final static String thankYouMessagePeriod = "Our Chefs are currently sharpening their knives and collecting the " +
             "freshest ingredients. " +
