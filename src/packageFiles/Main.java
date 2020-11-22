@@ -26,7 +26,8 @@ public class Main extends Application {
     final static int price3 = 18;
     final static int price4 = 11;
     final static int price5 = 14;
-/*
+
+    /*
     Map<String, Integer> priceMap = new HashMap<String, Integer>() {
         {
             put("Mapo Tofu", 13);
@@ -47,7 +48,21 @@ public class Main extends Application {
             put("BasketTotal",0);
         }
     };
-*/
+
+public void increaseValue(HashMap<String, Integer> itemUnitsMap, String key) {
+    int itemUnits = priceMap.get(key);
+    priceMap.put(key, ++itemUnits);
+    int basketValue = priceMap.get("BasketTotal");
+    priceMap.put("BasketTotal",++basketValue);
+    menu1reduce.setVisible(true);
+    menuItem1amount.setText(itemUnits + "");
+    basketNumber.setText(basketValue + "");
+    if (!itemList.contains(priceMap.get(key))) addToList(priceMap.get(key));
+    increaseItemAmountBasket(key, itemUnits);
+    clearAll();
+    displayAll();
+}
+ */
 
     // thankyou
     final static String thankYouMessagePeriod = "Our Chefs are currently sharpening their knives and collecting the " +
@@ -104,7 +119,6 @@ public class Main extends Application {
         primaryStage.setScene(logInScene);
         primaryStage.show();
         //primaryStage.setResizable(false);
-
     }
 }
 
