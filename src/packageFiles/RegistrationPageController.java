@@ -86,7 +86,7 @@ public class RegistrationPageController implements Initializable {
             }
 
 
-            // this temporary solution till addition in the database.
+            // this temporary solution util addition in the database.
             // sends the email back to Log in Page
             email = emailRegistrationField1.getText();
             // saves the name for the thanking message

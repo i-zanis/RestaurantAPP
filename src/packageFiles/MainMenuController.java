@@ -59,49 +59,47 @@ public class MainMenuController implements Initializable {
         labelList.add(basketItemAmount1);
         labelList.add(basketItemName1);
         labelList.add(basketItemPrice1);
-
         labelList.add(basketItemAmount2);
         labelList.add(basketItemName2);
         labelList.add(basketItemPrice2);
-
         labelList.add(basketItemAmount3);
         labelList.add(basketItemName3);
         labelList.add(basketItemPrice3);
-
         labelList.add(basketItemAmount4);
         labelList.add(basketItemName4);
         labelList.add(basketItemPrice4);
-
         labelList.add(basketItemAmount5);
         labelList.add(basketItemName5);
         labelList.add(basketItemPrice5);
     }
 
+    // displays the all the items in the basket window
     public void displayAll() {
-        totalAmount.setText(pound + calculatePrice() + "");
+        totalAmount.setText(pound + calculateTotal() + "");
         for (int i = 0; i < itemList.size(); i++) {
             labelList.get(i).setText(itemList.get(i));
         }
     }
-
+    // clear all 15 labels before update
+    public void clearAll() {
+        for (int i = 0; i < 15; i++) {
+            labelList.get(i).setText("");
+        }
+    }
+    // adds items to be displayed in the basket window
     public void addToList(String itemName) {
         itemList.add(getAmount(itemName) + "");// empty string for string conversion
         itemList.add(itemName);
         itemList.add(pound + getPrice(itemName));
     }
-
+    // removes items to be displayed in the basket window
     public void removeFromList(String itemName) {
         itemList.remove(itemList.indexOf(itemName) - 1);
         itemList.remove(itemList.indexOf(itemName) + 1);
         itemList.remove(itemName);
     }
-
-    public void clearAll() {
-        for (int i = 0; i < 15; i++) { //change to 155
-            labelList.get(i).setText("");
-        }
-    }
-
+    
+    // Increases the amount of item EXISTING in the list
     public void increaseItemAmountBasket(String itemName, int itemUnits) {
         if (itemList.contains(itemName)) {
             if (itemUnits != 0) {
@@ -110,7 +108,7 @@ public class MainMenuController implements Initializable {
             }
         }
     }
-
+    // Decreases the amount of item EXISTING in the list
     public void decreaseItemAmountBasket(String itemName, int itemUnits) {
         if (itemList.contains(itemName)) {
             if (itemUnits != 0) {
@@ -121,7 +119,9 @@ public class MainMenuController implements Initializable {
     }
 
     // the buttons have been named and set to show only graphic for this to work.
+    // Adds/removes items based on (+)/(-) buttons, updates values, hides/unhides (-) button, quantity label
     public void Addremove(Event e) {
+        // gets the name of the button as a string
         String condition = ((Button) e.getSource()).getText();
         System.out.println(condition);
         System.out.println(item1Units);
@@ -263,7 +263,7 @@ public class MainMenuController implements Initializable {
                 break;
         }
     }
-
+    // returns the amount of item based on itemName parameter
     public int getAmount(String itemName) {
         if (itemName.equals(itemName1)) return item1Units;
         else if (itemName.equals(itemName2)) return item2Units;
@@ -273,7 +273,7 @@ public class MainMenuController implements Initializable {
         else System.out.println("Error at basketItemAmount");
         return -1;
     }
-
+    // returns the price of item based on itemName parameter
     public int getPrice(String itemName) {
         if (itemName.equals(itemName1)) return price1;
         else if (itemName.equals(itemName2)) return price2;
@@ -283,8 +283,8 @@ public class MainMenuController implements Initializable {
         else System.out.println("Error retrieving itemName for basketItemPrice.");
         return -1;
     }
-
-    public double calculatePrice() {
+    // calculates total amount to pay of all items in basket
+    public double calculateTotal() {
         return (item1Units * price1) + (item2Units * price2) + (item3Units * price3) + (item4Units * price4)
                 + (item5Units * price5);
     }
