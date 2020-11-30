@@ -50,7 +50,7 @@
                <Font name="System Bold" size="12.0" />
             </font>
          </Button>
-         <Label layoutX="52.0" layoutY="472.0" prefHeight="78.0" prefWidth="231.0" text="By continuing you agree to our Terms of Service. Shenlong Ltd. does not use your data to for marketing or experiencing enhancing purposes. For more info see our website." textAlignment="CENTER" wrapText="true">
+         <Label layoutX="52.0" layoutY="472.0" prefHeight="78.0" prefWidth="231.0" text="By continuing you agree to our Terms of Service. Shenlong Ltd. does not use your data to for marketing or experience enhancing purposes. For more info visit our website." textAlignment="CENTER" wrapText="true">
             <font>
                <Font size="10.0" />
             </font>
