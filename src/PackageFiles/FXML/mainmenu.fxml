@@ -17,7 +17,7 @@
 
 <BorderPane fx:id="mainMenuController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PackageFiles.MainMenuController">
    <top>
-      <TitledPane textFill="WHITE">
+      <TitledPane expanded="false" textFill="WHITE">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="212.0" prefWidth="334.0" style="-fx-background-color: white;">
                <children>

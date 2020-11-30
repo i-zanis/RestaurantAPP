@@ -10,6 +10,13 @@ import javafx.stage.Stage;
 
 import java.util.ArrayList;
 
+/**
+ * Made in Java 14.0.2.
+ * If the Program does not work please download "javafx-sdk-11.0" and add all the jar-files in
+ * Javafx-sdk-11.0.2\lib\ to the global library.
+ *
+ * VM options --module-path %java path% --add-modules javafx.controls,javafx.fxml
+ */
 public class Main extends Application {
 
     // To be placed in a separate Enum file in the future
@@ -34,10 +41,6 @@ public class Main extends Application {
 
     // Static variables of RegistrationPage
     public static String nameRegistration = "";
-    public static String surnameRegistration = "";
-    public static String emailRegistration = "";
-    public static String passwordRegistration = "";
-    public static String mobileRegistration = "";
 
     // Static variables for MainMenu
     public static int item1Units = 0;
@@ -60,7 +63,7 @@ public class Main extends Application {
             "We aim for delivery in less than 45 minutes. For one more time thank you for choosing Shenlong.";
     final static String thankYouMessageWithoutPeriod = "Our Chefs are currently sharpening their knives and " +
             "collecting the freshest ingredients " +
-            "We aim for delivery in less than 45 minutes. For one more time thank you for choosing Shenlong ";
+            "We aim for delivery in less than 45 minutes. For one more time thank you for choosing Shenlong";
     public static String session = "";
     public static String name = "";
 

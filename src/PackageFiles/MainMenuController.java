@@ -127,8 +127,6 @@ public class MainMenuController implements Initializable {
     public void Addremove(Event e) {
         // gets the name of the button as a string
         String condition = ((Button) e.getSource()).getText();
-        System.out.println(condition);
-        System.out.println(item1Units);
 
         // checks if itemList contains item to add for displaying in the basket window
         // if zero item units it hides (-) button and current units number

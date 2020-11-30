@@ -29,7 +29,7 @@ public class ThankYouPageController implements Initializable {
             // getString() needs try/catch for error
             name = StoreDBManager.getCustomer(session).getString("first_name");
         } catch (Exception e) {
-            System.out.println("Something went wrong");
+            System.out.println("Something went wrong.");
         }
         checkoutControllerMessage2.setText(
                 String.format(
