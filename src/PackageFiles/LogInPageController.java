@@ -1,22 +1,21 @@
-package packageFiles;
+package PackageFiles;
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import static packageFiles.Main.*;
+import static PackageFiles.Main.*;
 
 public class LogInPageController implements Initializable {
 
+    // variable names in the FXML file
     public Label errorLabelLogIn;
     public Button signInButton;
     public TextField emailField;
@@ -31,6 +30,7 @@ public class LogInPageController implements Initializable {
         emailField.setText(email);
     }
 
+    // Validation Form for LogInPage, successful input leads to MainMenu
     public void signSuccessful(ActionEvent event) throws Exception {
         String email = emailField.getText();
         String pwd = passwordField.getText();
@@ -53,7 +53,7 @@ public class LogInPageController implements Initializable {
         if (session.isEmpty()) System.out.println("Invalid Session.");
             else System.out.println("Session code " + session); // for educational purposes it is displayed
 
-
+        // Changes the View to MainMenu
         if (!session.isEmpty()) {
             try {
                 Parent mainMenuView = FXMLLoader.load(getClass().getResource(mainmenu));

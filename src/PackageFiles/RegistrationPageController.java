@@ -1,4 +1,4 @@
-package packageFiles;
+package PackageFiles;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -15,12 +15,13 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static packageFiles.Main.*;
-import static packageFiles.StoreDBManager.createUser;
+import static PackageFiles.Main.*;
+import static PackageFiles.StoreDBManager.createUser;
 
 
 public class RegistrationPageController implements Initializable {
 
+    // variable names in the FXML file
     public Label errorLabelRegistration;
     public TextField nameRegistrationField;
     public TextField surnameRegistrationField;
@@ -35,6 +36,7 @@ public class RegistrationPageController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
     }
 
+    // Validation Form for Registrationpage, successful input leads to LogInPage
     public void registrationSuccessful(ActionEvent event) throws Exception {
         boolean proceed = false;
         try {
@@ -86,7 +88,7 @@ public class RegistrationPageController implements Initializable {
             }
 
 
-            // this temporary solution util addition in the database.
+            // this temporary solution until the addition in the database.
             // sends the email back to Log in Page
             email = emailRegistrationField1.getText();
             // saves the name for the thanking message
@@ -106,7 +108,7 @@ public class RegistrationPageController implements Initializable {
             e.printStackTrace();
         }
     }
-
+    // takes User back from the RegistrationPage to LogInPage
     public void goBack(ActionEvent event) throws Exception {
         try {
             Parent mainMenuView = FXMLLoader.load(getClass().getResource(logInPage));

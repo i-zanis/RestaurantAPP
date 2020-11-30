@@ -1,6 +1,5 @@
-package packageFiles;
+package PackageFiles;
 
-import javax.lang.model.type.NullType;
 import java.math.BigInteger;
 import java.security.NoSuchAlgorithmException;
 import java.sql.*;

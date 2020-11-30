@@ -1,4 +1,4 @@
-package packageFiles;
+package PackageFiles;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -7,10 +7,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import static packageFiles.Main.logInPage;
-import static packageFiles.Main.styleCSS;
+import static PackageFiles.Main.logInPage;
+import static PackageFiles.Main.styleCSS;
+
 
 public class AuthenticationFailedController {
+    // takes User back from the failed Authentication page to LogInPage
     public void goBack(ActionEvent event) throws Exception {
         try {
             Parent mainMenuView = FXMLLoader.load(getClass().getResource(logInPage));

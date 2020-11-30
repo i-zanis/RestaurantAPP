@@ -1,4 +1,5 @@
-package packageFiles;
+package PackageFiles;
+
 
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -15,11 +16,14 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import static packageFiles.Main.*;
+import static PackageFiles.Main.*;
+
 
 public class MainMenuController implements Initializable {
 
+    // ArrayList to collect the Labels
     public static ArrayList<Label> labelList = new ArrayList<>();
+    // variable names in the FXML file
     public Button menu1add;
     public Button menu2add;
     public Button menu3add;
@@ -126,24 +130,26 @@ public class MainMenuController implements Initializable {
         System.out.println(condition);
         System.out.println(item1Units);
 
+        // checks if itemList contains item to add for displaying in the basket window
+        // if zero item units it hides (-) button and current units number
         switch (condition) {
-            case "menu1add":
-                item1Units++;
-                basketTotal++;
-                menu1reduce.setVisible(true);
-                menuItem1amount.setText(item1Units + "");
-                menuItem1amount.setVisible(true);
-                basketNumber.setText(basketTotal + "");
+            case "menu1add" -> {
+                item1Units++; // item units to be purchased
+                basketTotal++; // total of all types of units in the basket
+                menu1reduce.setVisible(true); // makes the (-) button visible
+                menuItem1amount.setText(item1Units + ""); // updates Label new units - empty space "" int to String
+                menuItem1amount.setVisible(true); // makes units Label between (-) 1 (+) visible
+                basketNumber.setText(basketTotal + ""); // updates total of all units in the basket
                 if (!itemList.contains(itemName1)) addToList(itemName1);
                 increaseItemAmountBasket(itemName1, item1Units);
                 clearAll();
                 displayAll();
-                break;
-            case "menu1reduce":
-                item1Units--;
-                basketTotal--;
-                menuItem1amount.setText(item1Units + "");
-                basketNumber.setText(basketTotal + "");
+            }
+            case "menu1reduce" -> {
+                item1Units--; // item units to be purchased
+                basketTotal--; // total of all types of units in the basket
+                menuItem1amount.setText(item1Units + ""); // updates Label new units - empty space "" int to String
+                basketNumber.setText(basketTotal + ""); // updates total of all units in the basket
                 decreaseItemAmountBasket(itemName1, item1Units);
                 if (item1Units == 0) {
                     menu1reduce.setVisible(false);
@@ -152,9 +158,8 @@ public class MainMenuController implements Initializable {
                 }
                 clearAll();
                 displayAll();
-                break;
-
-            case "menu2add":
+            }
+            case "menu2add" -> {
                 item2Units++;
                 basketTotal++;
                 menu2reduce.setVisible(true);
@@ -165,9 +170,8 @@ public class MainMenuController implements Initializable {
                 increaseItemAmountBasket(itemName2, item2Units);
                 clearAll();
                 displayAll();
-
-                break;
-            case "menu2reduce":
+            }
+            case "menu2reduce" -> {
                 item2Units--;
                 basketTotal--;
                 menuItem2amount.setText(item2Units + "");
@@ -180,8 +184,8 @@ public class MainMenuController implements Initializable {
                 }
                 clearAll();
                 displayAll();
-                break;
-            case "menu3add":
+            }
+            case "menu3add" -> {
                 item3Units++;
                 basketTotal++;
                 menu3reduce.setVisible(true);
@@ -192,8 +196,8 @@ public class MainMenuController implements Initializable {
                 increaseItemAmountBasket(itemName3, item3Units);
                 clearAll();
                 displayAll();
-                break;
-            case "menu3reduce":
+            }
+            case "menu3reduce" -> {
                 item3Units--;
                 basketTotal--;
                 menuItem3amount.setText(item3Units + "");
@@ -206,9 +210,8 @@ public class MainMenuController implements Initializable {
                 }
                 clearAll();
                 displayAll();
-                break;
-
-            case "menu4add":
+            }
+            case "menu4add" -> {
                 item4Units++;
                 basketTotal++;
                 menu4reduce.setVisible(true);
@@ -219,8 +222,8 @@ public class MainMenuController implements Initializable {
                 increaseItemAmountBasket(itemName4, item4Units);
                 clearAll();
                 displayAll();
-                break;
-            case "menu4reduce":
+            }
+            case "menu4reduce" -> {
                 item4Units--;
                 basketTotal--;
                 menuItem4amount.setText(item4Units + "");
@@ -233,9 +236,8 @@ public class MainMenuController implements Initializable {
                 }
                 clearAll();
                 displayAll();
-                break;
-
-            case "menu5add":
+            }
+            case "menu5add" -> {
                 item5Units++;
                 basketTotal++;
                 menu5reduce.setVisible(true);
@@ -246,8 +248,8 @@ public class MainMenuController implements Initializable {
                 increaseItemAmountBasket(itemName5, item5Units);
                 clearAll();
                 displayAll();
-                break;
-            case "menu5reduce":
+            }
+            case "menu5reduce" -> {
                 item5Units--;
                 basketTotal--;
                 menuItem5amount.setText(item5Units + "");
@@ -260,27 +262,45 @@ public class MainMenuController implements Initializable {
                 }
                 clearAll();
                 displayAll();
-                break;
+            }
         }
     }
     // returns the amount of item based on itemName parameter
     public int getAmount(String itemName) {
-        if (itemName.equals(itemName1)) return item1Units;
-        else if (itemName.equals(itemName2)) return item2Units;
-        else if (itemName.equals(itemName3)) return item3Units;
-        else if (itemName.equals(itemName4)) return item4Units;
-        else if (itemName.equals(itemName5)) return item5Units;
-        else System.out.println("Error at basketItemAmount");
+        switch (itemName) {
+            case itemName1:
+                return item1Units;
+            case itemName2:
+                return item2Units;
+            case itemName3:
+                return item3Units;
+            case itemName4:
+                return item4Units;
+            case itemName5:
+                return item5Units;
+            default:
+                System.out.println("Error at basketItemAmount");
+                break;
+        }
         return -1;
     }
     // returns the price of item based on itemName parameter
     public int getPrice(String itemName) {
-        if (itemName.equals(itemName1)) return price1;
-        else if (itemName.equals(itemName2)) return price2;
-        else if (itemName.equals(itemName3)) return price3;
-        else if (itemName.equals(itemName4)) return price4;
-        else if (itemName.equals(itemName5)) return price5;
-        else System.out.println("Error retrieving itemName for basketItemPrice.");
+        switch (itemName) {
+            case itemName1:
+                return price1;
+            case itemName2:
+                return price2;
+            case itemName3:
+                return price3;
+            case itemName4:
+                return price4;
+            case itemName5:
+                return price5;
+            default:
+                System.out.println("Error retrieving itemName for basketItemPrice.");
+                break;
+        }
         return -1;
     }
     // calculates total amount to pay of all items in basket
@@ -288,7 +308,7 @@ public class MainMenuController implements Initializable {
         return (item1Units * price1) + (item2Units * price2) + (item3Units * price3) + (item4Units * price4)
                 + (item5Units * price5);
     }
-
+    // Loads the Checkout View
     public void loadCheckout(ActionEvent event) throws Exception {
         try {
             Parent checkoutView = FXMLLoader.load(getClass().getResource(checkout));

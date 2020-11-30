@@ -1,4 +1,4 @@
-package packageFiles;
+package PackageFiles;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -13,11 +13,12 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-import static packageFiles.Main.*;
+import static PackageFiles.Main.*;
 
 
 public class CheckoutPageController implements Initializable {
 
+    // variable names in the FXML file
     public Label errorLabelCheckout;
     public TextField nameCheckoutField;
     public TextField surnameCheckoutField;
@@ -30,8 +31,10 @@ public class CheckoutPageController implements Initializable {
     public CheckBox checkBoxCheckout;
     public Button completePaymentButton;
 
+    // initialize values for the drop down list(ChoiceBox)
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         monthChoiceBox.getItems().addAll("Select month", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10",
                 "11", "12");
         monthChoiceBox.setValue("Select month");
@@ -40,6 +43,8 @@ public class CheckoutPageController implements Initializable {
         yearChoiceBox.setValue("Select year");
         cardCheckoutField.setTooltip(new Tooltip("Please enter 16 digits."));
         cvvCheckoutField.setTooltip(new Tooltip("The 3 digit code at the back of your card."));
+
+        // Attempts to get the First Name/Surname of the account from the database to display in the label
         try {
             nameCheckoutField.setText(StoreDBManager.getCustomer(session).getString("first_name"));
             surnameCheckoutField.setText(StoreDBManager.getCustomer(session).getString("last_name"));
@@ -49,6 +54,7 @@ public class CheckoutPageController implements Initializable {
         }
     }
 
+    // Validation Form for CheckoutPage, successful input leads to ThankYouPage
     public void loadThankYou(ActionEvent event) throws Exception {
         try {
             boolean proceed = true;
@@ -69,6 +75,7 @@ public class CheckoutPageController implements Initializable {
                 cvvCheckoutField.requestFocus();
                 proceed = false;
             }
+            // Changes the View to ThankYouPage
             if (proceed) {
                 Parent checkoutView = FXMLLoader.load(getClass().getResource(thankyou));
                 Scene checkoutScene = new Scene(checkoutView);
@@ -83,6 +90,7 @@ public class CheckoutPageController implements Initializable {
         }
     }
 
+    // Takes you back to MainMenu (button not activated, it has to be connected to database to retrieve the data)
     public void goBack(ActionEvent event) throws Exception {
         try {
             Parent mainMenuView = FXMLLoader.load(getClass().getResource(mainmenu));

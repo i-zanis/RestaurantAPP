@@ -1,4 +1,4 @@
-package packageFiles;
+package PackageFiles;
 
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -6,16 +6,19 @@ import javafx.scene.control.Label;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static packageFiles.Main.*;
+import static PackageFiles.Main.*;
 
 
 public class ThankYouPageController implements Initializable {
+
+    // variable names in the FXML file
     public Label checkoutControllerMessage1;
     public Label checkoutControllerMessage2;
 
-
+    // initializes values for ThankYouPage
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        // display a message without the User's name if name not found, to be better implemented
         if (nameRegistration.equals("")) {
             checkoutControllerMessage2.setText(thankYouMessagePeriod);
         } else
