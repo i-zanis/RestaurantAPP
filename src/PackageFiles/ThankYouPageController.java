@@ -22,10 +22,11 @@ public class ThankYouPageController implements Initializable {
         if (nameRegistration.equals("")) {
             checkoutControllerMessage2.setText(thankYouMessagePeriod);
         } else
+            // for educational purposes it is displayed
             name = "Unknown";
         System.out.println(session);
         try {
-            // getString needs try/catch for error
+            // getString() needs try/catch for error
             name = StoreDBManager.getCustomer(session).getString("first_name");
         } catch (Exception e) {
             System.out.println("Something went wrong");
