@@ -169,23 +169,3 @@ JavaFX CSS has distinct difference with regular CSS. Scene Builder styles take p
 .titled-pane > .title:hover {
     -fx-body-color: #DDDDDD;
 }
-
-.brown-settings {
-	-fx-color-one: #6F4242;
-	-fx-background-color: -fx-color-one;
-	-fx-background-radius: 8, 7, 6;
-	-fx-background-insets: 0, 1, 2;
-	-fx-text-fill: white;
-	-fx-effect: dropshadow( three-pass-box, rgba(0, 0, 0, 0.6), 5, 0.0, 0, 1);
-}
-.brown-settings:hover {
-	-fx-color-one: #6f5542;
-	-fx-color-two: #981100;
-	-fx-color-three: #981100;
-}
-.brown-settings:armed {
-	-fx-color-one: #6f6242;
-	-fx-color-two: #235891;
-	-fx-color-three: #235891;
-}
-*/

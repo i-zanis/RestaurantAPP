@@ -105,41 +105,5 @@ public class Main extends Application {
 }
 
 
-    /*
-    // To be added in the future for cleaner code
-    Map<String, Integer> priceMap = new HashMap<String, Integer>() {
-        {
-            put("Mapo Tofu", 13);
-            put("Prawn Dumpling", 15);
-            put("Wonton Soup",18);
-            put("Spring Rolls",11);
-            put("Egg Fried Rice",14);
-        }
-    };
 
-    Map<String, Integer> itemUnitsMap = new HashMap<String, Integer>() {
-        {
-            put("Mapo Tofu", 0);
-            put("Prawn Dumpling", 0);
-            put("Wonton Soup",0);
-            put("Spring Rolls",0);
-            put("Egg Fried Rice",0);
-            put("BasketTotal",0);
-        }
-    };
-
-public void increaseValue(HashMap<String, Integer> itemUnitsMap, String key) {
-    int itemUnits = priceMap.get(key);
-    priceMap.put(key, ++itemUnits);
-    int basketValue = priceMap.get("BasketTotal");
-    priceMap.put("BasketTotal",++basketValue);
-    menu1reduce.setVisible(true);
-    menuItem1amount.setText(itemUnits + "");
-    basketNumber.setText(basketValue + "");
-    if (!itemList.contains(priceMap.get(key))) addToList(priceMap.get(key));
-    increaseItemAmountBasket(key, itemUnits);
-    clearAll();
-    displayAll();
-}
- */
 

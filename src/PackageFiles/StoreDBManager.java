@@ -255,7 +255,7 @@ public class StoreDBManager {
 
     public static String logout(String session) {
         if (session == null)
-            return "Lol are you kidding me!!!";
+            return "Not this time..";
         String sqlQuery = "UPDATE customer SET session_uuid = null " +
                 "WHERE session_uuid = '" + session + "';";
 
