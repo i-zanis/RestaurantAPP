@@ -10,4 +10,4 @@ Javafx-sdk-11.0.2\lib\ to the global library.
 
 VM options:
 --module-path %java path% --add-modules javafx.controls,javafx.fxml
-![Screenshot](src/PackageFiles/media/fix_vm_options.png)
+![Screenshot](src/org/uwl/cs/resources/media/fix_vm_options.png)
