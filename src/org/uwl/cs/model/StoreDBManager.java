@@ -367,19 +367,4 @@ public class StoreDBManager {
             return UUID.randomUUID().toString().replace("-", "");
         }
     }
-
-    public static void main(String[] args) {
-        ResultSet a  = all("customer");
-        try {
-            while (a.next()){
-                System.out.println(a.getString("first_name"));
-                System.out.println(a.getString("email"));
-                System.out.println(encryptPassword("testing123").equals(a.getString("password")));
-            }
-        } catch (Exception ignored){
-
-        }
-
-
-    }
 }
