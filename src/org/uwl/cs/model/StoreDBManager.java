@@ -1,6 +1,5 @@
 package org.uwl.cs.model;
 
-import javax.swing.*;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -248,7 +247,6 @@ public class StoreDBManager {
              *      }
              */
 
-
         } catch (SQLException e) {
             return "";
         }
@@ -365,6 +363,90 @@ public class StoreDBManager {
     private static class Session {
         private static String getUUID() {
             return UUID.randomUUID().toString().replace("-", "");
+        }
+    }
+
+    public static void main(String[] args) {
+        System.out.println("##### customer #####");
+        ResultSet resultSet = all("customer");
+        try {
+            while (resultSet.next()) {
+                System.out.print(resultSet.getInt("id"));
+                System.out.print(" | ");
+                System.out.print(resultSet.getString("first_name"));
+                System.out.print(" | ");
+                System.out.print(resultSet.getString("last_name"));
+                System.out.print(" | ");
+                System.out.print(resultSet.getString("email"));
+                System.out.println();
+            }
+        } catch (SQLException ignored) {
+        }
+        System.out.println("##### basket #####");
+        resultSet = all("basket");
+        try {
+            while (resultSet.next()) {
+                System.out.print(resultSet.getString("id"));
+                System.out.print(" | ");
+                System.out.print(resultSet.getInt("customer_id"));
+                System.out.println();
+            }
+        } catch (SQLException ignored) {
+        }
+        System.out.println("##### products #####");
+        resultSet = all("product");
+        try {
+            while (resultSet.next()) {
+                System.out.print(resultSet.getInt("id"));
+                System.out.print(" | ");
+                System.out.print(resultSet.getString("title"));
+                System.out.print(" | ");
+                System.out.print(resultSet.getString("description"));
+                System.out.print(" | ");
+                System.out.print(resultSet.getFloat("price"));
+                System.out.println();
+            }
+        } catch (SQLException ignored) {
+        }
+
+        //String session = login("t@t.com", "testing123");
+
+
+
+        System.out.println("##### basket products #####");
+        resultSet = all("basket_product");
+        try {
+            while (resultSet.next()) {
+                System.out.print(resultSet.getInt("id"));
+                System.out.print(" | ");
+                System.out.print(resultSet.getString("basket_id"));
+                System.out.print(" | ");
+                System.out.print(resultSet.getString("product_id"));
+                System.out.println();
+            }
+            resultSet.close();
+
+        } catch (SQLException ignored) {
+        }
+        System.out.println("##### join #####");
+        ResultSet tableJoin = createCustomQuery("SELECT * FROM basket_product bp INNER JOIN product p on p.id = bp.product_id WHERE bp.basket_id = 2;");
+        try {
+            while (tableJoin.next()) {
+                System.out.print(tableJoin.getInt("id"));
+                System.out.print(" | ");
+                System.out.print(tableJoin.getString("basket_id"));
+                System.out.print(" | ");
+                System.out.print(tableJoin.getString("product_id"));
+                System.out.print(" | ");
+                System.out.print(tableJoin.getString("title"));
+                System.out.print(" | ");
+                System.out.print(tableJoin.getString("description"));
+                System.out.print(" | ");
+                System.out.print(tableJoin.getFloat("price"));
+                System.out.println();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 }
