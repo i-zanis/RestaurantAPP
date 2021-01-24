@@ -13,7 +13,7 @@
             fx:controller="org.uwl.cs.controller.AuthenticationFailed">
     <top>
         <ToolBar accessibleRole="PARENT" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #6F4242;"
-                 stylesheets="@../css/style.css" BorderPane.alignment="CENTER">
+                 stylesheets="/org/uwl/cs/resources/css/style.css" BorderPane.alignment="CENTER">
             <items>
                 <Button fx:id="backButton" cancelButton="true" mnemonicParsing="false" onAction="#goBack"
                         styleClass="brown-settings">
