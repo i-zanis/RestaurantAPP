@@ -1,4 +1,4 @@
-package org.uwl.cs;
+package org.uwl.cs.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -16,12 +16,12 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import static org.uwl.cs.Main.*;
-import static org.uwl.cs.StoreDBManager.createUser;
+import static org.uwl.cs.model.StoreDBManager.createUser;
 import static org.uwl.cs.model.Constant.CSS;
 import static org.uwl.cs.model.Constant.LOGINPAGE;
 
 
-public class RegistrationPageController implements Initializable {
+public class Registration implements Initializable {
 
     // variable names in the FXML file
     public Label errorLabelRegistration;

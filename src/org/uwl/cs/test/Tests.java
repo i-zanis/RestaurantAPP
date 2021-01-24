@@ -1,10 +1,11 @@
-package org.uwl.cs;
+package org.uwl.cs.test;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 
 import org.junit.Test;
+import org.uwl.cs.model.StoreDBManager;
 
 import static org.junit.Assert.*;
 

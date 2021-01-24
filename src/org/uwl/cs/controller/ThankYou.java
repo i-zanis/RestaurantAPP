@@ -1,15 +1,18 @@
-package org.uwl.cs;
+package org.uwl.cs.controller;
 
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import org.uwl.cs.model.StoreDBManager;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import static org.uwl.cs.Main.*;
+import static org.uwl.cs.model.Constant.thankYouMessagePeriod;
+import static org.uwl.cs.model.Constant.thankYouMessageWithoutPeriod;
 
 
-public class ThankYouPageController implements Initializable {
+public class ThankYou implements Initializable {
 
     // variable names in the FXML file
     public Label checkoutControllerMessage1;

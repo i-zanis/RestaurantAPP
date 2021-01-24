@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.uwl.cs.ThankYouPageController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.uwl.cs.controller.ThankYou">
    <top>
       <ToolBar accessibleRole="PARENT" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #6F4242;" stylesheets="@../css/style.css" BorderPane.alignment="CENTER" />
    </top>
@@ -26,12 +26,12 @@
          </Label>
          <ImageView fitHeight="119.0" fitWidth="335.0">
             <image>
-               <Image url="@../resources/media/farewellpic.jpg" />
+               <Image url="/org/uwl/cs/resources/media/farewellpic.jpg" />
             </image>
          </ImageView>
          <ImageView fitHeight="130.0" fitWidth="139.0" layoutX="104.0" layoutY="381.0">
             <image>
-               <Image url="@../resources/media/farewelldragon.png" />
+               <Image url="/org/uwl/cs/resources/media/farewelldragon.png" />
             </image>
          </ImageView>
          <Label fx:id="checkoutControllerMessage1" layoutX="59.0" layoutY="231.0" prefHeight="36.0" prefWidth="229.0" text="Your order has been made!" wrapText="true">

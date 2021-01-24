@@ -1,4 +1,4 @@
-package org.uwl.cs;
+package org.uwl.cs.controller;
 
 
 import javafx.event.ActionEvent;
@@ -17,11 +17,10 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import static org.uwl.cs.Main.*;
-import static org.uwl.cs.model.Constant.CHECKOUT;
-import static org.uwl.cs.model.Constant.CSS;
+import static org.uwl.cs.model.Constant.*;
 
 
-public class MainMenuController implements Initializable {
+public class MainMenu implements Initializable {
 
     // ArrayList to collect the Labels
     public static ArrayList<Label> labelList = new ArrayList<>();

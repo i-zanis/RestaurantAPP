@@ -1,4 +1,4 @@
-package org.uwl.cs;
+package org.uwl.cs.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -6,15 +6,21 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.uwl.cs.model.StoreDBManager;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import static org.uwl.cs.Main.*;
+
+import static org.uwl.cs.Main.email;
+import static org.uwl.cs.Main.session;
 import static org.uwl.cs.model.Constant.*;
 
-public class LogInPageController implements Initializable {
+public class Login implements Initializable {
 
     // variable names in the FXML file
     public Label errorLabelLogIn;
@@ -40,19 +46,17 @@ public class LogInPageController implements Initializable {
         if (emailField.getText().equals("")) {
             errorLabelLogIn.setText("Email is required.");
             emailField.requestFocus();
-        }
-        else if (passwordField.getText().equals("")) {
+        } else if (passwordField.getText().equals("")) {
             errorLabelLogIn.setText("Password is required.");
             passwordField.requestFocus();
-        }
-        else if (session.isEmpty()) {
+        } else if (session.isEmpty()) {
             errorLabelLogIn.setText("Invalid Username or Password.");
             emailField.setText("");
             passwordField.setText("");
             emailField.requestFocus();
         }
         if (session.isEmpty()) System.out.println("Invalid Session.");
-            else System.out.println("Session code " + session); // for educational purposes it is displayed
+        else System.out.println("Session: " + session); // for educational purposes it is displayed
 
         // Changes the View to MainMenu
         if (!session.isEmpty()) {
@@ -63,8 +67,7 @@ public class LogInPageController implements Initializable {
                 mainMenuScene.getStylesheets().add(CSS);
                 window.setScene(mainMenuScene);
                 window.show();
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 System.out.println("Error occurred while opening the mainMenuView.");
                 e.printStackTrace();
             }
@@ -83,8 +86,7 @@ public class LogInPageController implements Initializable {
             mainMenuScene.getStylesheets().add(CSS);
             window.setScene(mainMenuScene);
             window.show();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             System.out.println("Error occurred while opening the mainMenuView.");
             e.printStackTrace();
         }
@@ -98,8 +100,7 @@ public class LogInPageController implements Initializable {
             registrationScene.getStylesheets().add(CSS);
             window.setScene(registrationScene);
             window.show();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             System.out.println("Error occurred while opening the registrationView.");
             e.printStackTrace();
         }
@@ -113,8 +114,7 @@ public class LogInPageController implements Initializable {
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
             window.setScene(failedScene);
             window.show();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             System.out.println("Error occurred while opening the mainMenu.");
             e.printStackTrace();
         }

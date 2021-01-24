@@ -1,5 +1,6 @@
-package org.uwl.cs;
+package org.uwl.cs.model;
 
+import javax.swing.*;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -275,7 +276,7 @@ public class StoreDBManager {
     }
 
     public static ResultSet getCustomer(String sessionUUID) {
-        if (sessionUUID == null) throw new NullPointerException("Lol are you kidding me!!!");
+        if (sessionUUID == null) throw new NullPointerException("Stop hacking the app.");
         ResultSet resultSet = null;
         String query = "SELECT * FROM customer WHERE " +
                 "session_uuid='" + sessionUUID + "';";
@@ -357,7 +358,7 @@ public class StoreDBManager {
         } else if ((int) obj.get(0) == 404) {
             return "Product does not exist";
         }
-        return "Something went wrong, please contact Jei sama";
+        return "Error found.";
     }
 
 
@@ -365,5 +366,20 @@ public class StoreDBManager {
         private static String getUUID() {
             return UUID.randomUUID().toString().replace("-", "");
         }
+    }
+
+    public static void main(String[] args) {
+        ResultSet a  = all("customer");
+        try {
+            while (a.next()){
+                System.out.println(a.getString("first_name"));
+                System.out.println(a.getString("email"));
+                System.out.println(encryptPassword("testing123").equals(a.getString("password")));
+            }
+        } catch (Exception ignored){
+
+        }
+
+
     }
 }

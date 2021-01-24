@@ -1,4 +1,4 @@
-package org.uwl.cs;
+package org.uwl.cs.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -12,7 +12,7 @@ import static org.uwl.cs.model.Constant.CSS;
 import static org.uwl.cs.model.Constant.LOGINPAGE;
 
 
-public class AuthenticationFailedController {
+public class AuthenticationFailed {
     // takes User back from the failed Authentication page to LogInPage
     public void goBack(ActionEvent event) throws Exception {
         try {

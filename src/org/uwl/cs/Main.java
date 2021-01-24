@@ -13,6 +13,9 @@ import java.util.ArrayList;
 import static org.uwl.cs.model.Constant.*;
 
 /**
+ * A simple Restaurant APP demo with account registration, account log in and ordering functionalities.
+ * You can register a new account to navigate through the application.
+ *
  * Made in Java 14.0.2.
  * If the Program does not work please download "javafx-sdk-11.0" and add all the jar-files in
  * Javafx-sdk-11.0.2\lib\ to the global library.
@@ -24,18 +27,16 @@ public class Main extends Application {
     // To be placed in a separate Enum file in the future
 
     // Static variables of MainMenu
-    final static String pound = "£";
-    final static String multi = "x";
-    final static String itemName1 = "Mapo Tofu";
-    final static String itemName2 = "Prawn Dumpling";
-    final static String itemName3 = "Wonton Soup";
-    final static String itemName4 = "Spring Rolls";
-    final static String itemName5 = "Egg Fried Rice";
-    final static int price1 = 13;
-    final static int price2 = 15;
-    final static int price3 = 18;
-    final static int price4 = 11;
-    final static int price5 = 14;
+    public final static String itemName1 = "Mapo Tofu";
+    public final static String itemName2 = "Prawn Dumpling";
+    public final static String itemName3 = "Wonton Soup";
+    public final static String itemName4 = "Spring Rolls";
+    public final static String itemName5 = "Egg Fried Rice";
+    public final static int price1 = 13;
+    public final static int price2 = 15;
+    public final static int price3 = 18;
+    public final static int price4 = 11;
+    public final static int price5 = 14;
 
     // Static variables of LogInPage
     public static String email = "";    // to save the email in Registration Page and display it back at LogInPage
@@ -59,13 +60,6 @@ public class Main extends Application {
     public static String yearRegistration = "";
     public static Boolean defaultPayment = false;
 
-    // Static variables for ThankYouPage
-    final static String thankYouMessagePeriod = "Our Chefs are currently sharpening their knives and collecting the " +
-            "freshest ingredients." +
-            "We aim for delivery in less than 45 minutes. For one more time thank you for choosing Shenlong.";
-    final static String thankYouMessageWithoutPeriod = "Our Chefs are currently sharpening their knives and " +
-            "collecting the freshest ingredients " +
-            "We aim for delivery in less than 45 minutes. For one more time thank you for choosing Shenlong";
     public static String session = "";
     public static String name = "";
 

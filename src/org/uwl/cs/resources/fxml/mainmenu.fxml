@@ -15,7 +15,7 @@
 <?import javafx.scene.shape.SVGPath?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="mainMenuController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.uwl.cs.MainMenuController">
+<BorderPane fx:id="mainMenuController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.uwl.cs.controller.MainMenu">
    <top>
       <TitledPane expanded="false" textFill="WHITE">
         <content>
@@ -282,27 +282,27 @@
             </Button>
             <ImageView fitHeight="105.0" fitWidth="153.0" layoutX="14.0" layoutY="5.0" styleClass="hoverimage">
                <image>
-                  <Image url="@../resources/media/mapotofu.jpg" />
+                  <Image url="/org/uwl/cs/resources/media/mapotofu.jpg" />
                </image>
             </ImageView>
             <ImageView fitHeight="105.0" fitWidth="153.0" layoutX="14.0" layoutY="115.0" styleClass="hoverimage">
                <image>
-                  <Image url="@../resources/media/prawndumpling.jpg" />
+                  <Image url="/org/uwl/cs/resources/media/prawndumpling.jpg" />
                </image>
             </ImageView>
             <ImageView fitHeight="105.0" fitWidth="153.0" layoutX="14.0" layoutY="225.0" styleClass="hoverimage">
                <image>
-                  <Image url="@../resources/media/wontonsoup.jpg" />
+                  <Image url="/org/uwl/cs/resources/media/wontonsoup.jpg" />
                </image>
             </ImageView>
             <ImageView fitHeight="105.0" fitWidth="153.0" layoutX="14.0" layoutY="335.0" styleClass="hoverimage">
                <image>
-                  <Image url="@../resources/media/springrolls.jpg" />
+                  <Image url="/org/uwl/cs/resources/media/springrolls.jpg" />
                </image>
             </ImageView>
             <ImageView fitHeight="105.0" fitWidth="153.0" layoutX="14.0" layoutY="445.0" styleClass="hoverimage">
                <image>
-                  <Image url="@../resources/media/eggfriedrice.jpg" />
+                  <Image url="/org/uwl/cs/resources/media/eggfriedrice.jpg" />
                </image>
             </ImageView>
             <Label fx:id="menuItem1amount" layoutX="259.0" layoutY="86.0" visible="false">

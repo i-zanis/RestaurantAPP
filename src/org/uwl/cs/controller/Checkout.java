@@ -1,4 +1,4 @@
-package org.uwl.cs;
+package org.uwl.cs.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import org.uwl.cs.model.StoreDBManager;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -17,7 +18,7 @@ import static org.uwl.cs.Main.*;
 import static org.uwl.cs.model.Constant.*;
 
 
-public class CheckoutPageController implements Initializable {
+public class Checkout implements Initializable {
 
     // variable names in the FXML file
     public Label errorLabelCheckout;
