@@ -54,12 +54,6 @@ public class Main extends Application {
     public static int basketTotal = 0;
     public static ArrayList<String> itemList = new ArrayList<>();
 
-    // Static variables for checkout
-    public static String cardNumberRegistration = "";
-    public static String monthRegistration = "";
-    public static String yearRegistration = "";
-    public static Boolean defaultPayment = false;
-
     public static String session = "";
     public static String name = "";
 
