@@ -5,6 +5,8 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -103,6 +105,14 @@ public class StoreDBManager {
             Connection con = connect();
             Statement statement = con.createStatement();
             statement.executeUpdate(sqlQuery);
+            con.commit();
+            sqlQuery = String.format("SELECT id FROM customer WHERE email='%s';", email);
+            ResultSet userIDResult = statement.executeQuery(sqlQuery);
+            userIDResult.next();
+            int userID = userIDResult.getInt("id");
+
+            sqlQuery = String.format("INSERT INTO basket (customer_id) VALUES (%d);", userID);
+            statement.executeUpdate(sqlQuery);
             statement.close();
             con.commit();
             con.close();
@@ -110,7 +120,6 @@ public class StoreDBManager {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
             // System.exit(0);
         }
-        System.out.println("User has been successfully created.");
         return "User has been successfully created.";
     }
 
@@ -202,8 +211,8 @@ public class StoreDBManager {
             Connection con = connect();
             Statement statement = con.createStatement();
             resultSet = statement.executeQuery(query);
-            statement.close();
             con.commit();
+            statement.close();
             con.close();
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
@@ -211,6 +220,21 @@ public class StoreDBManager {
         }
         return resultSet;
 
+    }
+
+    public static boolean createCustomCommand(String command) {
+        try {
+            Connection con = connect();
+            Statement statement = con.createStatement();
+            statement.executeUpdate(command);
+            con.commit();
+            statement.close();
+            con.close();
+            return true;
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            return false;
+        }
     }
 
     public static String login(String email, String password) {
@@ -339,9 +363,18 @@ public class StoreDBManager {
                 System.out.println("curr basket id = " + currBasketID);
                 currUserBasketID.close();
 
-                query = String.format("INSERT INTO basket_product (basket_id, product_id, quantity) " +
-                        "VALUES (%d, %d, %d);", currBasketID, pk, quantity);
-                statement.executeUpdate(query);
+                ResultSet exists = createCustomQuery(String.format("SELECT * FROM basket_product " +
+                        "WHERE basket_id=%d AND product_id=%d", currBasketID, pk));
+                if (exists.next()) {
+                    int newQuantity = exists.getInt("quantity") + quantity;
+                    String updateQuery = String.format("UPDATE basket_product SET quantity=%d " +
+                            "WHERE basket_id=%d AND product_id=%d", newQuantity, currBasketID, pk);
+                    statement.executeUpdate(updateQuery);
+                } else {
+                    query = String.format("INSERT INTO basket_product (basket_id, product_id, quantity) " +
+                            "VALUES (%d, %d, %d);", currBasketID, pk, quantity);
+                    statement.executeUpdate(query);
+                }
                 statement.close();
                 con.commit();
                 con.close();
@@ -359,6 +392,43 @@ public class StoreDBManager {
         return "Error found.";
     }
 
+    public static LinkedList<Object[]> getBasketContent(String session) {
+        LinkedList<Object[]> resultList = new LinkedList<>();
+        try {
+            Connection con = connect();
+            Statement statement = con.createStatement();
+            String query;
+            query = String.format("SELECT id FROM customer WHERE session_uuid='%s';", session);
+            ResultSet userIDResult = statement.executeQuery(query);
+            userIDResult.next();
+            int currUserID = userIDResult.getInt("id");
+            userIDResult.close();
+
+            query = String.format("SELECT id FROM basket WHERE customer_id=%d;", currUserID);
+            ResultSet basketID = statement.executeQuery(query);
+            basketID.next();
+            int basketUserID = basketID.getInt("id");
+            basketID.close();
+            query = String.format("SELECT * FROM basket_product bp INNER JOIN product " +
+                    "p on p.id = bp.product_id WHERE bp.basket_id=%s;", basketUserID);
+            ResultSet tableJoin = statement.executeQuery(query);
+            while (tableJoin.next()) {
+                resultList.add(new Object[]{
+                        tableJoin.getInt("id"),
+                        tableJoin.getInt("basket_id"),
+                        tableJoin.getInt("product_id"),
+                        tableJoin.getString("title"),
+                        tableJoin.getString("description"),
+                        tableJoin.getFloat("price"),
+                        tableJoin.getInt("quantity"),
+                });
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return resultList;
+    }
+
 
     private static class Session {
         private static String getUUID() {
@@ -367,86 +437,20 @@ public class StoreDBManager {
     }
 
     public static void main(String[] args) {
-        System.out.println("##### customer #####");
-        ResultSet resultSet = all("customer");
-        try {
-            while (resultSet.next()) {
-                System.out.print(resultSet.getInt("id"));
-                System.out.print(" | ");
-                System.out.print(resultSet.getString("first_name"));
-                System.out.print(" | ");
-                System.out.print(resultSet.getString("last_name"));
-                System.out.print(" | ");
-                System.out.print(resultSet.getString("email"));
-                System.out.println();
-            }
-        } catch (SQLException ignored) {
-        }
-        System.out.println("##### basket #####");
-        resultSet = all("basket");
-        try {
-            while (resultSet.next()) {
-                System.out.print(resultSet.getString("id"));
-                System.out.print(" | ");
-                System.out.print(resultSet.getInt("customer_id"));
-                System.out.println();
-            }
-        } catch (SQLException ignored) {
-        }
-        System.out.println("##### products #####");
-        resultSet = all("product");
-        try {
-            while (resultSet.next()) {
-                System.out.print(resultSet.getInt("id"));
-                System.out.print(" | ");
-                System.out.print(resultSet.getString("title"));
-                System.out.print(" | ");
-                System.out.print(resultSet.getString("description"));
-                System.out.print(" | ");
-                System.out.print(resultSet.getFloat("price"));
-                System.out.println();
-            }
-        } catch (SQLException ignored) {
-        }
+        //System.out.println(createUser("Jei", "Sama", "jei@gmail.com", "1234567899",
+        //      "testing123"));
+        String session = login("jei@gmail.com", "testing123");
+        addProductToBasket(session, 1, 5);
+        addProductToBasket(session, 3, 5);
+        //createCustomCommand("DELETE FROM basket_product;");
+        LinkedList<Object[]> map = getBasketContent(session);
+        for (Object[] obj : map) {
+            System.out.println("###################");
 
-        //String session = login("t@t.com", "testing123");
-
-
-
-        System.out.println("##### basket products #####");
-        resultSet = all("basket_product");
-        try {
-            while (resultSet.next()) {
-                System.out.print(resultSet.getInt("id"));
-                System.out.print(" | ");
-                System.out.print(resultSet.getString("basket_id"));
-                System.out.print(" | ");
-                System.out.print(resultSet.getString("product_id"));
-                System.out.println();
+            for (Object o : obj) {
+                System.out.println(o);
             }
-            resultSet.close();
-
-        } catch (SQLException ignored) {
         }
-        System.out.println("##### join #####");
-        ResultSet tableJoin = createCustomQuery("SELECT * FROM basket_product bp INNER JOIN product p on p.id = bp.product_id WHERE bp.basket_id = 2;");
-        try {
-            while (tableJoin.next()) {
-                System.out.print(tableJoin.getInt("id"));
-                System.out.print(" | ");
-                System.out.print(tableJoin.getString("basket_id"));
-                System.out.print(" | ");
-                System.out.print(tableJoin.getString("product_id"));
-                System.out.print(" | ");
-                System.out.print(tableJoin.getString("title"));
-                System.out.print(" | ");
-                System.out.print(tableJoin.getString("description"));
-                System.out.print(" | ");
-                System.out.print(tableJoin.getFloat("price"));
-                System.out.println();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        logout(session);
     }
 }
